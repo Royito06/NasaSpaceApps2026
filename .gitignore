@@ -2,5 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 *.log
-data/raw/mexico/ensanut/
+*.pdf
+data/raw/mexico/**/txt/
 data/raw/youth_health/

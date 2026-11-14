@@ -60,6 +60,20 @@ Pedidas en `eda/riesgos_a_mecanicas.md`. Se revisó la página de cada riesgo en
 
 Direcciones: alimentación `https://humanresearchroadmap.nasa.gov/Risks/?i=176`, cálculos renales `?i=81`, descompresión `?i=168`.
 
+## Dos referencias de diseño verificadas
+
+No son parámetros físicos; respaldan las reglas de cooperación y de calma de `eda/riesgos_a_mecanicas.md`. Se abrieron el 14-nov-2026.
+
+**Habilidades expedicionarias de la NASA.** La lámina "Expeditionary Skills Training" dice, textual: "Non-technical skills for long-duration spaceflight: Self-Care, Team Care, Teamwork and Group Living, Communication, and Leadership/Followership". Agrega que se entrenan en aula y en operación junto con un "debrief method", y con observación directa y retroalimentación en ejercicios de equipo. La misma presentación define Liderazgo/Seguimiento como "Moves flexibly between leader and follower roles to accomplish mission goals".
+
+- Fuente: Rachel Passmore, *Operational Psychology in Practice: NASA's Behavioral Health and Performance Operations Overview*, presentación, NTRS 20250011491 (publicada en NTRS el 13-ene-2026). https://ntrs.nasa.gov/api/citations/20250011491/downloads/BHP%20Operations%20Overview_Navy_Revised.pdf
+- Cuidado: es una presentación para internos de psicología de la Marina de EE.UU., no una norma de la NASA. Son cinco áreas; "Teamwork and Group Living" es una sola.
+
+**Estudio del cronómetro y la ansiedad.** Maki, Zaslofsky, Codding y Woods (2024), "Math anxiety in elementary students: Examining the role of timing and task complexity", *Journal of School Psychology*, vol. 106. Con 113 estudiantes de 4.º y 5.º grado, no hubo diferencia significativa en la ansiedad reportada entre tareas con cronómetro a la vista y con tiempo oculto; la ansiedad subió con los problemas más difíciles.
+
+- Fuente abierta: Education Week, 7-ago-2024, que entrevista a la autora y da la muestra y los resultados. https://www.edweek.org/teaching-learning/do-timed-tasks-really-worsen-math-anxiety/2024/08
+- Cuidado: el título y el volumen salen de catálogos; no se abrió el artículo. La muestra es chica y la ansiedad es autorreportada. El estudio es de matemáticas en el aula, no de videojuegos.
+
 ## Lo que falta
 
 - **Energía solar que queda durante una tormenta de polvo.** Hay opacidad (tau 10.8 en 2018) pero no los watts-hora de los paneles de Opportunity antes y durante la tormenta. La prensa cita 645 y 22 Wh; no se encontró en una página de NASA o JPL. Buscar en los reportes de estado de Opportunity.
@@ -73,7 +87,7 @@ Direcciones: alimentación `https://humanresearchroadmap.nasa.gov/Risks/?i=176`,
 |---|---|
 | NASA, *Life Support Baseline Values and Assumptions Document*, NASA/TP-2015-218570 Rev 2 (feb 2022). https://ntrs.nasa.gov/api/citations/20210024855/downloads/BVAD_2.15.22-final.pdf | Oxígeno, CO₂, agua, comida, tripulación, cultivos, caminatas espaciales |
 | NASA NSSDCA, hojas de datos de Marte, la Luna y la Tierra. https://nssdc.gsfc.nasa.gov/planetary/factsheet/ | Distancias, sol, gravedad, luz solar |
-| Zhang et al. 2020, *Science Advances* 6:eaaz1334. https://pmc.ncbi.nlm.nih.gov/articles/PMC7518862/ | Dosis en la Luna y en la Estación |
+| Zhang et al. 2020, *Science Advances* 6:eaaz1334. https://pmc.ncbi.nlm.nih.gov/articles/PMC7518862/ | Dosis en la Luna; la de la Estación es un valor de los instrumentos DOSIS 3D que este artículo cita como comparación |
 | NASA/JPL, comunicados del 30-may-2013 y 9-dic-2013 (instrumento RAD de Curiosity) | Dosis en tránsito y en la superficie de Marte |
 | NASA OCHMO, Technical Brief OCHMO-TB-020 Rev E | Límites de dosis y efecto del blindaje |
 | NASA Human Research Program, "Hazard: Distance from Earth" y Human Research Roadmap | Retraso citado, duración de la misión a Marte, las tres reglas |

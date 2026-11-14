@@ -4,9 +4,9 @@ Generado el 14-nov-2026 para el pitch de NASA Space Apps Hermosillo. Reordenado 
 
 > **Aviso sobre el reto.** El texto oficial del reto no se pudo leer desde estas máquinas (spaceappschallenge.org no carga); lo resumido arriba viene de repositorios públicos de otros equipos. Alguien del equipo debe leer la redacción exacta en el sitio de Space Apps.
 
-Todo número de este documento sale de un script de `eda/` y de una tabla en `eda/tables/`, salvo PISA 2025, cuya fuente se indica en su sección. Nada está citado de memoria. Lo que no pudimos calcular aparece como `[DATO PENDIENTE]`.
+Todo número de este documento sale de un script de `eda/` y de una tabla en `eda/tables/`. Nada está citado de memoria. Lo que no pudimos calcular aparece como `[DATO PENDIENTE]`.
 
-**Aviso sobre el origen de los datos.** Los datos de México vienen de la OMS y de PISA (OCDE); el dato nacional de ENSANUT lo está preparando otra sesión (ver secciones pendientes). Los datos de jóvenes de EE.UU. (CDC YRBSS, NAEP) pasaron al apéndice: sirven como referencia, no como diagnóstico de México.
+**Aviso sobre el origen de los datos.** Los datos de México vienen de ENSANUT (INSP), de la OMS y de PISA (OCDE); los de ENSANUT y los parámetros físicos del juego los prepararon otras sesiones (ver "Trabajo de otras sesiones"). Los datos de jóvenes de EE.UU. (CDC YRBSS, NAEP) pasaron al apéndice: sirven como referencia, no como diagnóstico de México.
 
 ## Resumen en una pantalla
 
@@ -16,10 +16,10 @@ Ordenado por cuánto justifica o alimenta al entrenador.
 |---|---|---|---|---|
 | 1 | Los riesgos humanos más altos para ir a Marte son de equipo, autonomía y alimentación | 3 de 3 riesgos con calificación máxima 5×5 | Recursos de tripulación del juego y su peso relativo | `fig_08_riesgos_hrp.png` |
 | 2 | Las misiones son cada vez más largas | Mediana de 7 días (años 80) a 163 días (2010s) | Duración de una partida y desgaste acumulado | `fig_03_misiones_mas_largas.png` |
-| 3 | Lejos de la Tierra, la tripulación resuelve sola | Riesgo de operación autónoma: 5×2 en órbita baja a 5×5 en Marte; retraso de comunicación `[DATO PENDIENTE]` | Mecánica de retraso: la ayuda de "Control de Misión" llega tarde o no llega | `fig_08_riesgos_hrp.png` |
-| 4 | En México los hábitos base de niñas y niños están en mal estado | Obesidad 5-19 años de 4% a 18%; 83% de adolescentes sin actividad física suficiente | Por qué el juego conecta la salud de la tripulación con la del jugador | `fig_13_mexico_contexto.png` |
+| 3 | Lejos de la Tierra, la tripulación resuelve sola | Riesgo de operación autónoma: 5×2 en órbita baja a 5×5 en Marte; retraso "de hasta 20 minutos en un sentido" (NASA) | Mecánica de retraso: la ayuda de "Control de Misión" llega tarde o no llega | `fig_08_riesgos_hrp.png` |
+| 4 | En México los hábitos base de niñas y niños están en mal estado | Sólo 34.6% de 10 a 14 años es físicamente activo (ENSANUT 2022-2024); sobrepeso + obesidad 36.6% (5-11) y 40.1% (12-19) | Por qué el juego conecta la salud de la tripulación con la del jugador | `fig_13_mexico_contexto.png` |
 | 5 | La NASA estudia lo que el cuerpo resiente en el espacio | 577 estudios: defensas 213, hueso 115, músculo 105; sueño 3 | Eventos del juego con respaldo en datos abiertos | `fig_09_osdr_temas.png` |
-| 6 | México está lejos del promedio OCDE en matemáticas y ciencias | PISA 2025: matemáticas 388 contra 463; 30% alcanza el nivel básico contra 65% | Mecánicas que piden calcular y decidir con números | `fig_13_mexico_contexto.png` (aún con PISA 2022) |
+| 6 | México está lejos del promedio OCDE en matemáticas y ciencias | PISA 2025: matemáticas 388 contra 463; 30% alcanza el nivel básico contra 65% | Mecánicas que piden calcular y decidir con números | `fig_13_mexico_contexto.png` |
 | 7 | El espacio sigue siendo poco diverso | 11% mujeres; México 1 de 565 personas | Tripulación diversa y personajes mexicanos | `fig_05_mujeres.png`, `fig_06_nacionalidades.png` |
 | 8 | Hay una pista de ~20 a 25 años entre el jugador y la edad de selección | Edad mediana de selección: 34 años | Mensaje final: "lo que practicas hoy cuenta" | `fig_02_edad_seleccion.png` |
 
@@ -33,7 +33,7 @@ Las figuras están en `eda/figures/` (PNG de 1920 px de ancho, textos en españo
 
 - **Número.** El Human Research Program (HRP) de la NASA lista 22 riesgos, 21 activos. Para la misión planetaria a Marte (730 a 1,224 días), sólo 3 tienen la calificación máxima de probabilidad × consecuencia (5×5) en operaciones: **Equipo** (cooperación, coordinación y comunicación), **Operación autónoma sin apoyo de la Tierra** (EIHSO) y **Alimentación y nutrición**. En una misión larga en órbita baja esos mismos riesgos valen 4×2, 5×2 y 5×2.
 - **Más números.** 18 de los 20 riesgos con calificación en ambas misiones suben de órbita baja a Marte. 17 de 21 quedan como "requiere mitigación" para Marte. 5 de los 21 pertenecen al elemento de la NASA "Factores Humanos y Desempeño Conductual". De los 7 riesgos con producto ≥ 20, 4 son de conducta o hábitos según nuestra clasificación.
-- **Uso en el juego.** Es la base del diseño: los tres riesgos 5×5 son los recursos de tripulación que más pesan, y el salto de órbita baja a Marte justifica que el juego sea más difícil en Marte que en la Luna. El paso de cada riesgo a una mecánica concreta lo prepara otra sesión (ver "Pendiente: tabla riesgo → mecánica").
+- **Uso en el juego.** Es la base del diseño: los tres riesgos 5×5 son los recursos de tripulación que más pesan, y el salto de órbita baja a Marte justifica que el juego sea más difícil en Marte que en la Luna. El paso de cada riesgo a una mecánica concreta está en "De los riesgos a las mecánicas (nasa-c1)".
 - **Cómo se calculó.** `eda/02_hrp_osdr.py` lee la tabla de calificaciones por misión de referencia de cada página de riesgo. Tablas: `hrp_riesgos_clasificados.csv`, `hrp_riesgos_por_mision_largo.csv`, `hrp_resumen.csv`.
 - **Figura.** `fig_08_riesgos_hrp.png`. Título corregido el 14-nov-2026: "...son de equipo, autonomía y alimentación, y son habilidades que se pueden empezar a formar desde la infancia" (antes decía "se forman desde la infancia", que se leía como afirmación de la NASA).
 - **Criterio.** Relevancia (fuente oficial de la NASA) y Validez (el juego practica lo que la NASA califica más alto).
@@ -56,23 +56,25 @@ Las figuras están en `eda/figures/` (PNG de 1920 px de ancho, textos en españo
 ### 3. Lejos de la Tierra, la tripulación resuelve sola
 
 - **Número.** El riesgo de operación autónoma (EIHSO) pasa de **5×2** en una misión larga en órbita baja a **5×5** en la misión planetaria a Marte (hallazgo 1). El enunciado oficial del riesgo dice: *"Given decreasing real-time ground support for execution of Earth independent critical, complex operations during future exploration missions, there is a possibility of adverse performance outcomes, most consequentially that crew are unable to adequately respond to unanticipated critical malfunctions or execute safety-critical procedures."*
-- **Retraso de comunicación Tierra-Marte.** `[DATO PENDIENTE]`. Ningún archivo del EDA trae el retraso de la señal en minutos; no lo calculamos ni lo citamos de memoria. Hay que tomarlo de una página de la NASA y anotar la URL.
+- **Retraso de comunicación Tierra-Marte.** La NASA habla de un retraso "de hasta 20 minutos en un sentido" (HRP, "Hazard: Distance from Earth"). Con las distancias de la NASA, el retraso calculado va de unos 3 a 22 minutos por sentido con Marte y de poco más de 1 segundo con la Luna. Los valores exactos, la fuente y el cálculo están en `eda/tables/parametros_juego.csv` (filas `retraso_*`, de la sesión nasa-2f); no se repiten aquí para que haya un solo lugar donde corregirlos.
 - **Uso en el juego.** Mecánica de retraso: en la Luna "Control de Misión" responde casi al instante; en Marte la ayuda llega tarde y la tripulación debe decidir sola. Es el riesgo que más cambia entre destinos y el más fácil de convertir en juego.
 - **Cómo se calculó.** Mismo script y tablas que el hallazgo 1 (`hrp_riesgos_clasificados.csv`, columna `enunciado_riesgo`).
 - **Criterio.** Relevancia y Creatividad.
-- **Cuidado.** El enunciado habla de menos apoyo en tiempo real, no da una cifra de retraso.
+- **Cuidado.** El enunciado del riesgo habla de menos apoyo en tiempo real y no da una cifra de retraso: el número viene de otra página de la NASA. El mínimo y el máximo son cálculos (distancia entre velocidad de la luz), no cifras publicadas.
 
-### 4. México: obesidad infantil de 4% a 18% y 83% de adolescentes sin actividad física suficiente
+### 4. México: sólo 1 de cada 3 niñas y niños de 10 a 14 años es físicamente activo
 
-- **Número.** Según la OMS, la obesidad en personas de 5 a 19 años en México pasó de **4.4% (1990)** a **18.3% (2024)**; sumando sobrepeso llega a **39.5%**. En 2022 México ocupó el lugar 29 de 199 países (17.7%; EE.UU. 21.6%; mundo 7.7%). En actividad física, **83.2%** de los adolescentes mexicanos de 11 a 17 años no alcanza 60 minutos diarios (mujeres 87.6%, hombres 78.8%; EE.UU. 72.1%; mundo 81.0%; dato de 2016).
+- **Número (ENSANUT, cifra para la lámina).** Con el criterio actual del INSP (60 minutos de actividad en 4 o más de los últimos 7 días), **34.6%** de las niñas y niños de 10 a 14 años es físicamente activo (Ensanut Continua 2022-2024). **En Sonora la estimación es 25.5%.** Sobrepeso más obesidad: **36.6%** de 5 a 11 años y **40.1%** de 12 a 19 (Ensanut Continua 2020-2024). Detalle, otros indicadores y fuentes en "ENSANUT: datos oficiales de México" (abajo).
+- **Cuidado con Sonora.** Los intervalos de confianza de Sonora se traslapan con los nacionales en todos los indicadores. Se dice "en Sonora la estimación es 25.5%", nunca "Sonora está peor".
+- **Número (OMS, se conserva como comparación).** Según la OMS, la obesidad en personas de 5 a 19 años en México pasó de **4.4% (1990)** a **18.3% (2024)**; sumando sobrepeso llega a **39.5%**. En 2022 México ocupó el lugar 29 de 199 países (17.7%; EE.UU. 21.6%; mundo 7.7%). En actividad física, **83.2%** de los adolescentes mexicanos de 11 a 17 años no alcanza 60 minutos diarios (mujeres 87.6%, hombres 78.8%; EE.UU. 72.1%; mundo 81.0%; dato de 2016). Ese 83% ya **no** es el titular: parece usar un criterio más estricto (60 minutos todos los días) que el que publica hoy el INSP; el criterio de la OMS está sin confirmar (`[DATO PENDIENTE]` en `mexico_ensanut.md`). ENSANUT con el criterio estricto da una cifra parecida (84.5% de 10 a 14 años no hace 60 minutos los 7 días, 2022), así que las dos fuentes no se contradicen.
 - **Uso en el juego.** Es la línea base que justifica conectar la salud de la tripulación con la del jugador: las mismas palancas (comer bien, moverse, dormir) que mantienen viva la base son las que faltan en casa.
 - **Cómo se calculó.** `eda/00_fetch_mexico.py` baja los datos y `eda/04_mexico.py` los resume. Tablas: `mexico_numeros_clave.csv`, `mexico_oms_series.csv`, `mexico_oms_ranking_paises.csv`. Crudos en `data/raw/mexico/`.
 - **Figura.** `fig_13_mexico_contexto.png`.
 - **Criterio.** Impacto: es el dato local que los jueces van a pedir.
 - **Cuidado.**
-  - Son **estimaciones modeladas** de la OMS (intervalo de la obesidad 2024: 15.9% a 20.8%), no la encuesta nacional. Para el pitch conviene citar ENSANUT (ver "Pendiente: ENSANUT").
-  - El dato de actividad física es de 2016.
-  - No hay ningún dato de Sonora ni de Hermosillo.
+  - Las cifras de la OMS son **estimaciones modeladas** (intervalo de la obesidad 2024: 15.9% a 20.8%), no la encuesta nacional; ENSANUT las confirma en peso. El dato de actividad física de la OMS es de 2016.
+  - Hay estimaciones de Sonora en ENSANUT, pero ninguna de Hermosillo.
+  - `fig_13_mexico_contexto.png` ya usa ENSANUT (nacional contra Sonora, con intervalos de confianza de 95%); las cifras de la OMS ya no salen en la figura.
 
 ### 5. Los datos abiertos de biología espacial se concentran en defensas, hueso y músculo
 
@@ -85,13 +87,13 @@ Las figuras están en `eda/figures/` (PNG de 1920 px de ancho, textos en españo
 
 ### 6. PISA 2025: México con 388 en matemáticas contra 463 del promedio OCDE
 
-- **Número (PISA 2025, publicado el 8-sep-2026).** México obtuvo **388** en matemáticas, **408** en lectura y **414** en ciencias; el promedio OCDE fue 463, 461 y 482. **30%** de los estudiantes mexicanos alcanza al menos el nivel 2 (básico) en matemáticas, contra **65%** en la OCDE.
-- **Fuente.** OCDE, *PISA 2025 Results (Volume I): Mexico*, nota de país: https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/mexico_85702d30-en.html. **La página no se pudo abrir desde esta máquina**: las cifras se tomaron del resumen de un buscador que cita esa nota, y coinciden con las que otra sesión encontró en Expansión. Hay que abrir la nota y confirmarlas antes de ponerlas en una lámina. El resumen del buscador también mostraba un 387 en ciencias en un pasaje de la misma página; lo tratamos como error y usamos 414, que es la cifra que se repite.
+- **Número (PISA 2025, publicado el 8-sep-2026).** México obtuvo **388** en matemáticas, **408** en lectura y **414** en ciencias; el promedio OCDE fue 463, 461 y 482. Alcanza al menos el nivel 2 (básico): **30%** en matemáticas (OCDE **65%**), 50% en ciencias (OCDE 74%) y 50% en lectura (OCDE 69%). En matemáticas México quedó 7 puntos abajo de su resultado de 2022.
+- **Fuente.** OCDE, *PISA 2025 Results (Volume I)*: puntajes de la Tabla I.1 (pp. 28-29) y porcentajes en nivel 2 de la nota de país de México (pp. 5-6). Las cifras se tomaron de los PDF de la OCDE. Tabla: `mexico_pisa_2025_ocde.csv` (generada por `eda/04_mexico.py`, con fuente y URL en cada renglón).
 - **Serie anterior (se conserva).** En PISA 2022 México obtuvo **395** en matemáticas contra 472 del promedio OCDE (77 puntos menos) y había bajado desde 409 en 2018. En PISA 2018 las mujeres mexicanas obtuvieron 403 y los hombres 415. Las tablas traen las medias de matemáticas y lectura de 2003 a 2022: `mexico_pisa_owid_ocde.csv`, `mexico_pisa_banco_mundial.csv`.
 - **Uso en el juego.** Las decisiones de la base (repartir energía, calcular raciones) son práctica de matemáticas con un propósito. No conviene presentar el juego como remedio para PISA: no tenemos evidencia de eso.
 - **Criterio.** Impacto.
 - **Cuidado.**
-  - `fig_13_mexico_contexto.png` todavía muestra PISA 2022; no se regeneró porque las cifras de 2025 no están en ninguna tabla del EDA. `[DATO PENDIENTE]`: agregar PISA 2025 a `eda/04_mexico.py` cuando se confirme la nota de país.
+  - `fig_13_mexico_contexto.png` muestra la serie de matemáticas de 2003 a 2025. Hasta 2022 viene de Our World in Data; 2025, de la OCDE.
   - PISA 2022 se tomó de Our World in Data, que cita a la OCDE (2023); es fuente secundaria. El promedio OCDE de 2018 difiere entre fuentes (487.0 en Our World in Data, 489.3 en el Banco Mundial).
   - Las fuentes no coinciden en si lectura y ciencias cambiaron frente a 2022: no afirmamos ningún cambio en esas dos áreas.
   - No usar "a los niños no les interesa la ciencia": en PISA 2015, 45% de los hombres y 36% de las mujeres de México esperaban una carrera científica, arriba del promedio OCDE (dato reportado por otra sesión; no verificado aquí). Encuadre sugerido: el interés existe, el camino no.
@@ -117,21 +119,36 @@ Las figuras están en `eda/figures/` (PNG de 1920 px de ancho, textos en españo
 
 ---
 
-## Secciones pendientes de otras sesiones
+## Trabajo de otras sesiones
 
-Estas secciones las llenan otras sesiones que trabajan en paralelo. No editar su contenido desde aquí.
+Resúmenes con enlace. Los números y las fuentes viven en los archivos de cada sesión; si hay que corregir algo, se corrige allá.
 
-### Pendiente: parámetros del juego (BVAD)
+### Parámetros reales del juego (nasa-2f)
 
-A cargo de la sesión **nasa-2f**, que escribe `eda/tables/parametros_juego.csv` con números del documento de valores de referencia para soporte vital de la NASA (BVAD). `[DATO PENDIENTE]`
+Archivos: [`tables/parametros_juego.md`](tables/parametros_juego.md) y `tables/parametros_juego.csv` (93 filas, 91 con valor, cada una con fuente, URL y nota; ningún valor de memoria). Fuente principal: el documento de valores de referencia para soporte vital de la NASA (BVAD, NASA/TP-2015-218570 Rev 2), más hojas de datos de la NASA, JPL y dos artículos.
 
-### Pendiente: tabla riesgo → mecánica
+- **Lo que le dice al diseño.** El retraso con Marte se mide en minutos y con la Luna en segundos, así que la Luna sirve como nivel de práctica. El blindaje protege mucho de una tormenta solar y poco de los rayos cósmicos. La dosis diaria mueve la barra muy despacio: en una demo corta lo que la mueve es la tormenta. Los astronautas duermen menos de lo programado. Un cultivo rápido tarda semanas, así que el invernadero hay que sembrarlo al principio.
+- **Cuidado.** Oxígeno, agua, comida y ejercicio son valores de astronautas adultos: sirven para la tripulación del juego, nunca como meta para un niño, y el juego no muestra calorías. Faltan 2 parámetros (energía solar durante una tormenta de polvo y días de adaptación a otra gravedad); ninguna mecánica de la demo depende de ellos.
+- El mismo archivo revisó en la NASA tres reglas del juego: hidratación contra cálculos renales (confirmada), preparación antes de una caminata espacial (confirmada) y fatiga de menú (a medias: la NASA la liga con comer menos, **no** con el ánimo).
 
-A cargo de la sesión **nasa-c1**: cómo se convierte cada riesgo del HRP (hallazgo 1) en una mecánica del juego. `[DATO PENDIENTE]`
+### De los riesgos a las mecánicas (nasa-c1)
 
-### Pendiente: ENSANUT
+Archivos: [`riesgos_a_mecanicas.md`](riesgos_a_mecanicas.md), `tables/riesgos_a_mecanicas.csv`, generados con `05_riesgos_a_mecanicas.py`. Las calificaciones son de la NASA, copiadas de las tablas del hallazgo 1; la jugabilidad y las mecánicas son nuestras.
 
-A cargo de la sesión **nasa-3d**: datos oficiales mexicanos de sobrepeso y obesidad, actividad física, sueño y salud mental en escolares y adolescentes, nacional y de Sonora si existe. Reemplaza o complementa las estimaciones de la OMS del hallazgo 4. `[DATO PENDIENTE]`
+- **Clasificación.** De los 21 riesgos activos, 5 son jugables, 11 jugables en parte y 5 no jugables.
+- **Seis mecánicas para la demo.** M1 retraso Tierra-Marte (autonomía), M2 roles y debrief (equipo), M3 menú e invernadero (alimentación), M4 medidores de tripulación y planificador del sol (sueño, ánimo, músculo, hueso), M5 tormenta solar (blindaje y dosis) y M6 pausa de tripulación (la invitación a un hábito real). Con M1, M2 y M3 la demo cubre los tres riesgos 5×5 del hallazgo 1.
+- **Lo que hay que saber.** El 5×5 es de Marte, no de la Luna. La radiación no es un riesgo alto de operaciones: se juega como dosis acumulada. El sueño no sube de órbita baja a Marte (5×2 en ambos): entra porque es fácil de jugar, no por su calificación. OSDR respalda las mecánicas de cuerpo, no las de conducta.
+- **Reglas de diseño.** Dificultad por coordinarse entre roles, no por velocidad; un solo reloj; sin tabla de posiciones; las barras son de la tripulación, nunca del niño, y el juego no guarda datos de salud. Incluye un guion de demo de 3 minutos y una prueba de usabilidad con niños.
+
+### ENSANUT: datos oficiales de México (nasa-3d)
+
+Archivos: [`tables/mexico_ensanut.md`](tables/mexico_ensanut.md) y `tables/mexico_ensanut.csv` (cada renglón con intervalo de confianza y fuente del INSP; PDFs en `data/raw/mexico/ensanut/`).
+
+- **Peso.** ENSANUT confirma a la OMS: se puede cambiar la estimación modelada por la medición oficial sin que cambie el mensaje.
+- **Actividad física.** La cifra depende del criterio. Usamos el actual del INSP: 34.6% de 10 a 14 años es activo (hallazgo 4). En Sonora la estimación es 25.5%.
+- **Lo que la OMS no da.** Pantallas, sueño, las tres recomendaciones juntas y síntomas depresivos, con cifras nacionales y algunas de Sonora. Están en el archivo con sus cuidados (por ejemplo, el punto de corte de síntomas depresivos es provisional y no se compara con la cifra de tristeza de EE.UU. del apéndice).
+- **Cuidado.** Los intervalos de Sonora se traslapan con los nacionales: "en Sonora la estimación es X", nunca "Sonora está peor". No usar la región Pacífico-Norte para hablar de Sonora. Las cifras 36.5% y 40.4% que circulaban en el equipo son de la edición anterior (2020-2023).
+- **Falta.** Actividad, pantallas y sueño de 5 a 9 años; varios indicadores de 15 a 19 años en Sonora; Ensanut Continua 2025 aún no tiene resultados.
 
 ---
 
@@ -169,7 +186,10 @@ ssh <servidor> 'cd <dir-servidor> && python3 eda/yrbss_extract.py data/raw/youth
 ssh <servidor> 'cat <dir-servidor>/eda/out/slim.tgz' | tar xz -C eda/tables/ramona --strip-components=1
 # 2. (opcional) volver a bajar los datos de México
 python3 eda/00_fetch_mexico.py
-# 3. análisis y figuras (sólo necesita numpy y matplotlib; no usa pandas)
+# 3. ENSANUT: armar la tabla oficial y comprobar cada cifra contra su PDF del INSP (89 de 89 renglones verificados)
+python3 eda/06_ensanut_construir.py
+python3 eda/06_ensanut_verificar.py            # --descargar baja antes los PDF que falten; necesita pdftotext
+# 4. análisis y figuras (sólo necesita numpy y matplotlib; no usa pandas). 04_mexico lee mexico_ensanut.csv, así que va después del paso 3
 for f in 01_astronautas 02_hrp_osdr 03_jovenes_eeuu 04_mexico; do .venv/bin/python eda/$f.py; done
 ```
 
@@ -179,42 +199,36 @@ for f in 01_astronautas 02_hrp_osdr 03_jovenes_eeuu 04_mexico; do .venv/bin/pyth
 
 ## Dónde podemos ganar ventaja
 
-Ordenado por cuánto cambiaría la calificación de los jueces. ENSANUT, los parámetros BVAD y la tabla riesgo → mecánica ya están asignados a otras sesiones (ver "Secciones pendientes").
+Ordenado por cuánto cambiaría la calificación de los jueces. ENSANUT, los parámetros del juego (con el retraso Tierra-Marte) y la tabla riesgo → mecánica ya están hechos (ver "Trabajo de otras sesiones").
 
-### 1. Retraso de comunicación Tierra-Marte
+### 1. PISA 2025 de México con más detalle
 
-Es la base de la mecánica del hallazgo 3 y hoy no tiene número.
+Los puntajes y los porcentajes en nivel 2 ya están confirmados (hallazgo 6) y `fig_13` ya está rehecha con ENSANUT y PISA 2025.
 
-- **Dónde.** Páginas de la NASA sobre comunicación con Marte (por ejemplo, el sitio de Mars Exploration o la Deep Space Network en https://www.nasa.gov/).
-- **Qué sacar.** Retraso de ida, mínimo y máximo, y retraso a la Luna para comparar; anotar URL y fecha de consulta.
-- **Estado.** No se buscó en esta sesión. `[DATO PENDIENTE]`
-
-### 2. Confirmar PISA 2025 y agregarlo a la figura
-
-- **Qué sacar.** Confirmar 388, 408 y 414 (y 30% contra 65% en nivel 2 de matemáticas) en la nota de país; si se puede, resultados por sexo y expectativas de carrera científica de México en PISA 2025.
+- **Qué sacar.** Resultados por sexo y expectativas de carrera científica de México en PISA 2025.
 - **Dónde.** https://www.oecd.org/pisa/ y https://pisadataexplorer.oecd.org/ide/idepisa/
-- **Estado.** Ver hallazgo 6. `[DATO PENDIENTE]`
+- **Estado.** `[DATO PENDIENTE]`
 
-### 3. Evidencia de que aprender con juegos funciona
+### 2. Evidencia de que aprender con juegos funciona
 
 Ningún dato de este EDA prueba que un juego o una misión simulada mejore hábitos o aprendizaje. Es el punto más débil en Validez.
 
 - **Qué buscar.** Evaluaciones publicadas de juegos serios sobre alimentación, actividad física o trabajo en equipo en niños de 9 a 14 años, con tamaño de efecto. Buscar en https://eric.ed.gov/ y en Google Scholar; citar 2 o 3 con número de efecto.
-- **Estado.** No se buscó en esta sesión. `[DATO PENDIENTE]`
+- **Estado.** Cubierto en parte: `riesgos_a_mecanicas.md` cita estudios sobre cooperación y debriefs (con sus límites), pero ninguno mide un juego como el nuestro en niños de 9 a 14 años. `[DATO PENDIENTE]`
 
-### 4. Probabilidades de selección
+### 3. Probabilidades de selección
 
 - **Qué falta.** El HANDOFF cita ~12,000 aspirantes para 10 lugares (2021), ~18,300 para 12 (2017) y 8,000+ para 10 (2025). Otra sesión (nasa-2f) dice haberlas verificado en notas de prensa sobre anuncios de la NASA; **no se verificó aquí** y no están en ninguno de nuestros archivos.
 - **Dónde.** Comunicados de selección de astronautas de la NASA en https://www.nasa.gov/news/ `[DATO PENDIENTE]`
 
-### 5. Contexto local
+### 4. Contexto local
 
 - **Población objetivo.** Niñas y niños de 9 a 14 años en Hermosillo y Sonora: Censo 2020 de INEGI (https://www.inegi.org.mx/programas/ccpv/2020/).
 - **Actividad física.** MOPRADEF de INEGI (https://www.inegi.org.mx/programas/mopradef/).
 - **Salud mental.** ENBIARE 2021 de INEGI (https://www.inegi.org.mx/programas/enbiare/2021/) y datos de CONASAMA.
 - **Qué existe hoy.** Programas educativos de la Agencia Espacial Mexicana (https://www.gob.mx/aem), para mostrar el hueco que cubre el juego.
 
-### 6. Matrícula STEM por sexo en México y en Sonora
+### 5. Matrícula STEM por sexo en México y en Sonora
 
 - **Dónde.** Anuarios Estadísticos de Educación Superior de ANUIES (http://www.anuies.mx/informacion-y-servicios/informacion-estadistica-de-educacion-superior/anuario-estadistico-de-educacion-superior) y Principales Cifras de la SEP (https://www.planeacion.sep.gob.mx/estadisticaeindicadores.aspx).
 - **Qué sacar.** Matrícula de licenciatura por campo de formación y sexo, nacional y Sonora; matrícula de la Universidad de Sonora en ingeniería y ciencias.
@@ -226,7 +240,7 @@ Las URL de esta sección se escribieron sin abrirlas en esta sesión (salvo las 
 
 - Instalar pandas y seaborn en la laptop (red lenta). No hizo falta para el análisis.
 - Ciencias de PISA 2022, PISA de ciencias por sexo y mujeres en STEM del Banco Mundial (errores 502 y 404).
-- Abrir la nota de país de PISA 2025 de la OCDE ni el sitio de Space Apps (no cargan desde esta máquina).
+- Abrir el sitio de Space Apps (no carga desde esta máquina). Los PDF de PISA 2025 de la OCDE se consiguieron en otra sesión.
 - Tendencias de YRBSS de preparatoria anteriores a 2015 para sueño y pantallas.
 - Abrir datos de estudios individuales de OSDR o leer el texto completo de las páginas del HRP (sólo se usaron encabezado, tabla de calificaciones y enunciado del riesgo).
 

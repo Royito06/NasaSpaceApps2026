@@ -26,28 +26,32 @@ DEMO = {
 # short_title -> (jugable, mecánica demo, mecánica, qué aprende, acción saludable, parámetros reales que necesita, cuidado)
 D = {
     "Team": ("sí", "M2",
-        "Roles de tripulación (comandante, ingeniería, salud, invernadero), cada uno con su tablero. Los eventos piden que dos roles se pongan de acuerdo. "
+        "Roles de tripulación (comandante, ingeniería, salud, invernadero) con información repartida: cada rol ve un indicador que los demás no ven, "
+        "y cada evento necesita el dato de dos roles. Cada sol, cada rol toma una decisión que sólo él puede tomar, y el puesto de comandante rota. "
         "Un medidor de cohesión sube cuando se reparten tareas y se atienden los avisos de otro rol, y afecta el éxito de las tareas en equipo. "
         "Al cerrar cada evento hay un debrief de 3 preguntas sin culpables.",
         "Nadie tiene toda la información; se decide mejor hablando. Un error se revisa en equipo, no se castiga.",
         "En el salón: hacer el debrief en voz alta y agradecer a un compañero. No hay acción física.",
         "Tamaño de tripulación de referencia",
-        "La cohesión es del equipo ficticio. No se califica a ningún niño ni se comparan equipos."),
+        "La cohesión es del equipo ficticio. No se califica a ningún niño ni se comparan equipos. Fuentes del diseño cooperativo en riesgos_a_mecanicas.md."),
     "EIHSO": ("sí", "M1",
-        "El botón «Llamar a la Tierra» manda la pregunta y la respuesta llega después del retraso real, mientras la falla sigue avanzando. "
-        "La tripulación usa el manual de a bordo (tarjetas de procedimiento) y decide sola. El mismo evento en la Luna sirve de contraste.",
+        "El botón «Llamar a la Tierra» manda la pregunta y la respuesta llega después del retraso real. Si la tripulación espera, la falla avanza; "
+        "si no, usa el manual de a bordo (tarjetas de procedimiento, que siempre traen una solución) y decide sola. Es el único reloj del juego "
+        "y no se premia decidir rápido. El mismo evento en la Luna sirve de contraste.",
         "En Marte no hay a quién preguntarle a tiempo: hay que prepararse antes, seguir un procedimiento y decidir con información incompleta.",
         "Sin acción física. Hábito que aplica: leer la instrucción completa antes de actuar y pedir ayuda a tiempo.",
         "Retraso de comunicación Tierra-Marte (mínimo y máximo, un sentido) y Tierra-Luna",
         ""),
     "Food and Nutrition": ("sí", "M3",
         "La comida no es un solo número: hay comida guardada e invernadero, y el menú tiene grupos (granos, verduras, proteína). "
-        "Repetir el mismo menú muchos soles baja el ánimo; quedarse sin un grupo baja la condición física. "
+        "Repetir el mismo menú muchos soles o quedarse sin un grupo baja la condición física, porque la tripulación come menos. "
+        "La comida fresca o variada sube el ánimo. "
         "El invernadero da variedad pero gasta agua, energía y tiempo de un tripulante.",
         "Comer bien es variedad y planeación, no sólo cantidad. Lo que se siembra hoy se come semanas después.",
         "Invitación: toma agua ahora, o prueba hoy una fruta o verdura de otro color. Nunca se habla de peso, calorías ni comida «buena» o «mala».",
         "Días a cosecha de un cultivo probado por la NASA; comida por persona por día; duración de la misión",
-        "Que repetir el menú baje el ánimo («fatiga de menú») es regla nuestra: confirmar en la página del riesgo antes de atribuirlo a la NASA."),
+        "La página del riesgo liga la fatiga de menú con comer menos y perder masa corporal, como posibilidad en estudio; no dice que baje el ánimo. "
+        "Que la comida fresca suba el ánimo es regla nuestra. Con niños se dice «pierde fuerza», no se habla de peso. Detalle en parametros_juego.md."),
     "Muscle and Aerobic": ("sí", "M4",
         "Bloque de ejercicio en el horario de cada sol. Cuesta tiempo y energía eléctrica. Si se salta varios soles baja el medidor de condición física, "
         "y las tareas pesadas (cargar, reparar afuera) tardan más o fallan.",
@@ -112,7 +116,7 @@ D = {
         "El agua de beber no es donde se ahorra.",
         "Tomar agua simple, sobre todo con calor.",
         "Agua de beber por persona por día",
-        "Que la hidratación sea contramedida hay que citarlo de la página del riesgo antes de decirlo en el pitch."),
+        "Confirmado en la página del riesgo: la hidratación está entre las contramedidas. Detalle en parametros_juego.md."),
     "Hypoxia": ("parcial", "",
         "Es el medidor de oxígeno del soporte vital que ya pide el reto. Con poco oxígeno la tripulación piensa más lento y fallan más tareas.",
         "El aire de la base se fabrica y se vigila.",
@@ -124,7 +128,7 @@ D = {
         "Algunas reglas de seguridad toman tiempo y no se saltan.",
         "",
         "Tiempo de preparación (pre-respiración) antes de una caminata espacial",
-        "Verificar el protocolo en la página del riesgo antes de describirlo."),
+        "Los tiempos de preparación con fuente están en parametros_juego.csv (eva_prerespiracion_*)."),
     "Microhost": ("parcial", "",
         "Tarea de limpieza del hábitat en el horario. Si se deja varios soles, sube la probabilidad de que alguien se enferme.",
         "En un lugar cerrado la higiene es de todos.",
