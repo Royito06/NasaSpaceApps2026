@@ -1,0 +1,125 @@
+QuestionCode,Topic,Subtopic,Short,Greater_Risk_Question,Lesser_Risk_Question,national_years
+H40,Alcohol and Other Drug Use,Alcohol Use,Ever alcohol use,Ever drank alcohol,Never drank alcohol,
+H41,Alcohol and Other Drug Use,Alcohol Use,Initiation of alcohol use,Had their first drink of alcohol before age 13 years,Did not have their first drink of alcohol before age 13 years,
+H42,Alcohol and Other Drug Use,Alcohol Use,Current alcohol use,Currently drank alcohol,Did not currently drink alcohol,
+H43,Alcohol and Other Drug Use,Alcohol Use,Source of alcohol,Usually got the alcohol they drank by someone giving it to them,Did not usually get the alcohol they drank by someone giving it to them,
+H44,Alcohol and Other Drug Use,Alcohol Use,Current binge drinking,Reported current binge drinking,Did not report current binge drink,
+H45,Alcohol and Other Drug Use,Alcohol Use,Largest number of drinks,Reported 10 or more as the largest number of drinks they had in a row,Did not report 10 or more as the largest number of drinks they had in a row,
+H46,Alcohol and Other Drug Use,Other Drug Use,Ever marijuana use,Ever used marijuana,Never used marijuana,
+H47,Alcohol and Other Drug Use,Other Drug Use,Initiation of marijuana use,Tried marijuana for the first time before age 13 years,Did not try marijuana for the first time before age 13 years,
+H48,Alcohol and Other Drug Use,Other Drug Use,Current marijuana use,Currently used marijuana,Did not currently use marijuana,
+H49,Alcohol and Other Drug Use,Other Drug Use,Ever cocaine use,Ever used cocaine,Never used cocaine,
+H50,Alcohol and Other Drug Use,Other Drug Use,Ever inhalant use,Ever used inhalants,Never used inhalants,
+H51,Alcohol and Other Drug Use,Other Drug Use,Ever heroin use,Ever used heroin,Never used heroin,
+H52,Alcohol and Other Drug Use,Other Drug Use,Ever methamphetamine use,Ever used methamphetamines,Never used methamphetamines,
+H53,Alcohol and Other Drug Use,Other Drug Use,Ever ecstasy use,Ever used ecstasy,Never used ecstasy,
+H54,Alcohol and Other Drug Use,Other Drug Use,Ever synthetic marijuana use,Ever used synthetic marijuana,Never used synthetic marijuana,
+H55,Alcohol and Other Drug Use,Other Drug Use,Ever steroid use,Ever took steroids without a doctor's prescription,Never took steroids without a doctor's prescription,
+H56,Alcohol and Other Drug Use,Other Drug Use,Ever prescription pain medicine use,Ever took prescription pain medicine without a doctor's prescription or differently than how a doctor told them to use it,Never took prescription pain medicine without a doctor's prescription or differently than how a doctor told them to  use it,
+H57,Alcohol and Other Drug Use,Other Drug Use,Illegal injected drug use,Ever injected any illegal drug,Never injected any illegal drug,
+H58,Alcohol and Other Drug Use,Other Drug Use,Illegal drugs at school,"Were offered, sold, or given an illegal drug on school property","Were not offered, sold, or given an illegal drug on school property",
+QNHALLUCDRUG,Alcohol and Other Drug Use,Other Drug Use,Ever hallucinogenic drug use,Ever used hallucinogenic drugs,Never used hallucinogenic drugs,
+H76,Dietary Behaviors,Soda or pop,No soda drinking,Drank soda or pop,Did not drink soda or pop,2015 2017
+H77,Dietary Behaviors,Milk,No milk drinking,Did not drink milk,Drank milk,
+H78,Dietary Behaviors,Breakfast,Breakfast eating,Did not eat breakfast,Ate breakfast on one or more days,2015 2017
+QNBK7DAY,Dietary Behaviors,Breakfast,Daily breakfast eating,Did not eat breakfast on all 7 days,Ate breakfast on all 7 days,2015 2017
+QNFR0,Dietary Behaviors,Fruit and fruit juices,No fruit consumption,Did not eat fruit or drink 100% fruit juices,Ate fruit or drank 100% fruit juices,2015 2017
+QNFR1,Dietary Behaviors,Fruit and fruit juices,Fruit consumption >= 1 time,N/A,Ate fruit or drank 100% fruit juices one or more times per day,2015 2017
+QNFR2,Dietary Behaviors,Fruit and fruit juices,Fruit consumption >= 2 times,N/A,Ate fruit or drank 100% fruit juices two or more times per day,2015 2017
+QNFR3,Dietary Behaviors,Fruit and fruit juices,Fruit consumption >= 3 times,N/A,Ate fruit or drank 100% fruit juices three or more times per day,2015 2017
+QNMILK1,Dietary Behaviors,Milk,Milk drinking >= 1 glass,N/A,Drank one or more glasses per day of milk,
+QNMILK2,Dietary Behaviors,Milk,Milk drinking >= 2 glasses,N/A,Drank two or more glasses per day of milk,
+QNMILK3,Dietary Behaviors,Milk,Milk drinking >= 3 glasses,N/A,Drank three or more glasses per day of milk,
+QNSODA1,Dietary Behaviors,Soda or pop,Soda drinking >= 1 times,"Drank a can, bottle, or glass of soda or pop one or more times per day",NULL,2015 2017
+QNSODA2,Dietary Behaviors,Soda or pop,Soda drinking >= 2 times,"Drank a can, bottle, or glass of soda or pop two or more times per day",NULL,2015 2017
+QNSODA3,Dietary Behaviors,Soda or pop,Soda drinking >= 3 times,"Drank a can, bottle, or glass of soda or pop three or more times per day",NULL,2015 2017
+QNSPDRK1,Dietary Behaviors,Sports Drinks,Sports drinks >= 1 times,"Drank a can, bottle, or glass of a sports drink one or more times per day",NULL,2015 2017
+QNSPDRK2,Dietary Behaviors,Sports Drinks,Sports drinks >= 2 times,"Drank a can, bottle, or glass of a sports drink two or more times per day",NULL,2015 2017
+QNSPDRK3,Dietary Behaviors,Sports Drinks,Sports drinks >= 3 times,"Drank a can, bottle, or glass of a sports drink three or more times per day",NULL,2015 2017
+QNSPORTSDRINK,Dietary Behaviors,Sports Drinks,No sports drinks,Drank a sports drink,Did not drink a sports drink,2015 2017
+QNVEG0,Dietary Behaviors,Vegetables,No vegetable eating,Did not eat vegetables,Ate vegetables,2015 2017
+QNVEG1,Dietary Behaviors,Vegetables,Vegetable eating >=1 time,N/A,Ate vegetables one or more times per day,2015 2017
+QNVEG2,Dietary Behaviors,Vegetables,Vegetable eating >=2 times,N/A,Ate vegetables two or more times per day,2015 2017
+QNVEG3,Dietary Behaviors,Vegetables,Vegetable eating >=3 times,N/A,Ate vegetables three or more times per day,2015 2017
+QNWATER,Dietary Behaviors,Water Consumption,No water drinking,Did not drink plain water,Drank plain water,2015 2017
+QNWATER1,Dietary Behaviors,Water Consumption,Water drinking >= 1 glass,N/A,Drank one or more glasses per day of plain water,2015 2017
+QNWATER2,Dietary Behaviors,Water Consumption,Water drinking >= 2 glasses,N/A,Drank two or more glasses per day of plain water,2015 2017
+QNWATER3,Dietary Behaviors,Water Consumption,Water drinking >= 3 glasses,N/A,Drank three or more glasses per day of plain water,2015 2017
+H68,"Obesity, Overweight, and Weight Control",Weight Control,Perception of weight,Described themselves as slightly or very overweight,NULL,2015 2017
+H69,"Obesity, Overweight, and Weight Control",Weight Control,Weight loss,Were not trying to lose weight,Were trying to lose weight,2015 2017
+QNOBESE,"Obesity, Overweight, and Weight Control",Obesity and Overweight,Obesity,Had obesity,NULL,2015 2017
+QNOWT,"Obesity, Overweight, and Weight Control",Obesity and Overweight,Overweight,Were overweight,NULL,2015 2017
+H86,Other Health Topics,Oral Health Care,Oral health care,N/A,Saw a dentist,
+H87,Other Health Topics,Asthma,Asthma,Were ever told by a doctor or nurse that they had asthma,Were never told by a doctor or nurse that they had asthma,
+H88,Other Health Topics,Sleep,Sleep,Did not get 8 or more hours of sleep,Got 8 or more hours of sleep,2015 2017
+QNFOODALLERGY,Other Health Topics,Food Allergies,Food allergies,Had to avoid some foods because eating the food could cause an allergic reaction,NULL,
+QNINDOORTANNING,Other Health Topics,Sun Safety,Indoor tanning,Used an indoor tanning device,Did not use an indoor tanning device,
+QNNODNT,Other Health Topics,Oral Health Care,No oral health care,Never saw a dentist,NULL,
+QNSUNBURN,Other Health Topics,Sun Safety,Sunburn,Had a sunburn,Did not have a sunburn,
+H79,Physical Activity,Physical Activity,Physical activity >= 5 days,Were not physically active at least 60 minutes per day on 5 or more days,Were physically active at least 60 minutes per day on 5 or more days,2015 2017
+H80,Physical Activity,Physical Activity,Television watching,Watched television 3 or more hours per day,Did not watch television 3 or more hours per day,2015 2017
+H81,Physical Activity,Physical Activity,Computer use,Played video or computer games or used a computer for 3 or more hours per day,Did not play video or computer games or use a computer for 3 or more hours per day,2015 2017
+H82,Physical Activity,Physical Activity,PE attendance,Did not go to physical education (PE) classes on 1 or more days,Went to physical education (PE) classes on 1 or more days,2015 2017
+H83,Physical Activity,Physical Activity,Sports team participation,Did not play on at least one sports team,Played on at least one sports team,2015 2017
+H84,Physical Activity,Physical Activity,Concussion,Had a concussion from playing a sport or being physically active one or more times,Did not have a concussion from playing a sport or being physically active,2017
+QNDLYPE,Physical Activity,Physical Activity,Daily PE attendance,Did not go to physical education (PE) classes on all 5 days,Went to physical education (PE) classes on all 5 days,2015 2017
+QNMUSCLESTRENGTH,Physical Activity,Physical Activity,Muscle strengthening,Did not do exercises to strengthen or tone their muscles on three or more days,Did exercises to strengthen or tone their muscles on three or more days,2015 2017
+QNPA0DAY,Physical Activity,Physical Activity,Physical activity,Were not physically active for a total of at least 60 minutes on at least 1 day,Were physically active for a total of at least 60 minutes on at least 1 day,2015 2017
+QNPA7DAY,Physical Activity,Physical Activity,Daily physical activity,Were not physically active at least 60 minutes per day on all 7 days,Were physically active at least 60 minutes per day on all 7 days,2015 2017
+H59,Sexual Behaviors,Sexual Behaviors,Ever sexual intercourse,Ever had sexual intercourse,Never had sexual intercourse,
+H60,Sexual Behaviors,Sexual Behaviors,Sex before 13 years,Had sexual intercourse for the first time before age 13 years,Did not have sexual intercourse for the first time before age 13 years,
+H61,Sexual Behaviors,Sexual Behaviors,Multiple sex partners,Had sexual intercourse with four or more persons during their life,Did not have sexual intercourse with four or more persons during their life,
+H62,Sexual Behaviors,Sexual Behaviors,Current sexual activity,Were currently sexually active,Were not currently sexually active,
+H63,Sexual Behaviors,Sexual Behaviors,Alcohol/drugs and sex,Drank alcohol or used drugs before last sexual intercourse,Did not drink alcohol or use drugs before last sexual intercourse,
+H64,Sexual Behaviors,Sexual Behaviors,Condom use,Did not use a condom during last sexual intercourse,Used a condom during last sexual intercourse,
+H65,Sexual Behaviors,Sexual Behaviors,Birth control pill use,Did not use birth control pills before last sexual intercourse,Used birth control pills before last sexual intercourse,
+H85,Sexual Behaviors,HIV Testing,HIV testing,Were never tested for human immunodeficiency virus (HIV),Were ever tested for human immunodeficiency virus (HIV),
+QNBCNONE,Sexual Behaviors,Sexual Behaviors,No birth control use,Did not use any method to prevent pregnancy during last sexual intercourse,NULL,
+QNDUALBC,Sexual Behaviors,Sexual Behaviors,Dual birth control use,"Did not use both a condom during last sexual intercourse and birth control pills; an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon); or a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse","Used both a condom during last sexual intercourse and birth control pills; an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon); or a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse",
+QNIUDIMP,Sexual Behaviors,Sexual Behaviors,IUD or implant use,"Did not use an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon) before last sexual intercourse","Used an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon) before last sexual intercourse",
+QNOTHHPL,Sexual Behaviors,Sexual Behaviors,"Pill, IUD, or shot use","Did not use birth control pills; an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon); or a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse","Used birth control pills; an IUD (e.g., Mirena or ParaGard) or implant (e.g., Implanon or Nexplanon); or a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse",
+QNSHPARG,Sexual Behaviors,Sexual Behaviors,"Shot, patch, or ring use","Did not use a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse","Used a shot (e.g., Depo-Provera), patch (e.g., OrthoEvra), or birth control ring (e.g., NuvaRing) before last sexual intercourse",
+H30,Tobacco Use,Cigarette Use,Ever cigarette use,Ever tried cigarette smoking,Never tried cigarette smoking,
+H31,Tobacco Use,Cigarette Use,Initiation of cigarette smoking,First tried cigarette smoking before age 13 years,Did not first try cigarette smoking before age 13 years,
+H32,Tobacco Use,Cigarette Use,Current cigarette use,Currently smoked cigarettes,Did not currently smoke cigarettes,
+H33,Tobacco Use,Cigarette Use,Smoked >10 cigarettes,Smoked more than 10 cigarettes per day,Did not smoke more than 10 cigarettes per day,
+H34,Tobacco Use,Other Tobacco Use,Electronic vapor product use,Ever used an electronic vapor product,Never used an electronic vapor product,
+H35,Tobacco Use,Other Tobacco Use,Current electronic vapor product use,Currently used an electronic vapor product,Did not currently use an electronic vapor product,
+H36,Tobacco Use,Other Tobacco Use,Electronic vapor products from store,Usually got their own electronic vapor products by buying them in a store,Did not usually get their own electronic vapor products by buying them in a store,
+H37,Tobacco Use,Other Tobacco Use,Current smokeless tobacco use,Currently used smokeless tobacco,Did not currently use smokeless tobacco,
+H38,Tobacco Use,Other Tobacco Use,Current cigar use,Currently smoked cigars,Did not currently smoke cigars,
+H39,Tobacco Use,Other Tobacco Use,All tobacco cessation,Did not try to quit using all tobacco products,Tried to quit using all tobacco products,
+QNDAYCGR,Tobacco Use,Other Tobacco Use,Current daily cigar use,Currently smoked cigars daily,Did not currently smoke cigars daily,
+QNDAYCIG,Tobacco Use,Cigarette Use,Current daily cigarette use,Currently smoked cigarettes daily,Did not currently smoke cigarettes daily,
+QNDAYEVP,Tobacco Use,Other Tobacco Use,Current daily electronic vapor product use,Currently used an electronic vapor product daily,Did not currently use an electronic vapor product daily,
+QNDAYSKL,Tobacco Use,Other Tobacco Use,Current daily smokeless tobacco use,Currently used smokeless tobacco daily,Did not currently use smokeless tobacco daily,
+QNFRCGR,Tobacco Use,Other Tobacco Use,Frequent cigar use,Currently frequently smoked cigars,Did not currently frequently smoke cigars,
+QNFRCIG,Tobacco Use,Cigarette Use,Frequent cigarette use,Currently frequently smoked cigarettes,Did not currently frequently smoke cigarettes,
+QNFREVP,Tobacco Use,Other Tobacco Use,Frequent electronic vapor product use,Currently frequently used an electronic vapor product,Did not currently frequently use an electronic vapor product,
+QNFRSKL,Tobacco Use,Other Tobacco Use,Frequent smokeless tobacco use,Currently frequently used smokeless tobacco,Did not currently frequently use smokeless tobacco,
+QNTB2,Tobacco Use,Other Tobacco Use,Current cigarette or cigar use,Currently smoked cigarettes or cigars,NULL,
+QNTB3,Tobacco Use,Other Tobacco Use,"Current cigarette, cigar, or smokeless tobacco use",Currently smoked cigarettes or cigars or used smokeless tobacco,NULL,
+QNTB4,Tobacco Use,Other Tobacco Use,Current tobacco use,Currently smoked cigarettes or cigars or used smokeless tobacco or an electronic vapor product,NULL,
+H10,Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,Drinking and driving,Drove when they had been drinking alcohol,Did not drive when they had been drinking alcohol,
+H11,Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,Texting and driving,Texted or e-mailed while driving a car or other vehicle,Did not text or e-mail while driving a car or other vehicle,
+H12,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Weapon carrying,Carried a weapon,Did not carry a weapon,
+H13,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Weapon carrying at school,Carried a weapon on school property,Did not carry a weapon on school property,
+H14,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Gun carrying,Carried a gun,Did not carry a gun,
+H15,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Safety concerns at school,Did not go to school because they felt unsafe at school or on their way to or from school,NULL,2015 2017
+H16,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Threatened at school,Were threatened or injured with a weapon on school property,Were not threatened or injured with a weapon on school property,
+H17,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Physical fighting,Were in a physical fight,Were not in a physical fight,2015 2017
+H18,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Physical fighting at school,Were in a physical fight on school property,Were not in a physical fight on school property,2015 2017
+H19,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Forced sexual intercourse,Were ever physically forced to have sexual intercourse,Were never physically forced to have sexual intercourse,2015 2017
+H20,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Sexual violence,Experienced sexual violence by anyone,Did not experience sexual violence by anyone,
+H21,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Sexual dating violence,Experienced sexual dating violence,Did not experience sexual dating violence,
+H22,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Physical dating violence,Experienced physical dating violence,Did not experience physical dating violence,2015 2017
+H23,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Bullying at school,Were bullied on school property,Were not bullied on school property,2015 2017
+H24,Unintentional Injuries and Violence,Behaviors that Contribute to Violence,Electronic bullying,Were electronically bullied,Were not electronically bullied,2015 2017
+H25,Unintentional Injuries and Violence,Suicide-Related Behaviors,Sad or hopeless,Felt sad or hopeless,Did not feel sad or hopeless,2015 2017
+H26,Unintentional Injuries and Violence,Suicide-Related Behaviors,Considered suicide,Seriously considered attempting suicide,Did not seriously consider attempting suicide,2015 2017
+H27,Unintentional Injuries and Violence,Suicide-Related Behaviors,Suicide plan,Made a plan about how they would attempt suicide,Did not make a plan about how they would attempt suicide,2015 2017
+H28,Unintentional Injuries and Violence,Suicide-Related Behaviors,Attempted suicide,Attempted suicide,Did not attempt suicide,2015 2017
+H29,Unintentional Injuries and Violence,Suicide-Related Behaviors,Injurious suicide attempt,"Suicide attempt resulted in an injury, poisoning, or overdose that had to be treated by a doctor or nurse","Suicide attempt did not result in an injury, poisoning, or overdose that had to be treated by a doctor or nurse",2015 2017
+H8,Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,Seat belt use,Rarely or never wore a seat belt,"Sometimes, most of the time, or always wore a seat belt",
+H9,Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,Riding with a drinking driver,Rode with a driver who had been drinking alcohol,Did not ride with a driver who had been drinking alcohol,
+QNDRIVEMARIJUANA,Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,Drive when using marijuana,Drove when they had been using marijuana,Did not drive when they had been using marijuana,

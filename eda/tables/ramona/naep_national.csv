@@ -1,0 +1,400 @@
+subject,grade,year,variable,group,mean_score,displayable
+mathematics,4,2000,TOTAL,All students,224.206032410196,1
+mathematics,4,2003,TOTAL,All students,233.952802361629,1
+mathematics,4,2005,TOTAL,All students,237.101845034792,1
+mathematics,4,2007,TOTAL,All students,239.06429300559,1
+mathematics,4,2009,TOTAL,All students,239.093314491012,1
+mathematics,4,2011,TOTAL,All students,240.111883013115,1
+mathematics,4,2013,TOTAL,All students,241.180191279369,1
+mathematics,4,2015,TOTAL,All students,239.854464419686,1
+mathematics,4,2017,TOTAL,All students,239.162886473073,1
+mathematics,4,2019,TOTAL,All students,240.003829218706,1
+mathematics,4,2022,TOTAL,All students,234.858970982728,1
+mathematics,4,2024,TOTAL,All students,237.304735709431,1
+mathematics,4,2000,GENDER,Male,225.430444741826,1
+mathematics,4,2000,GENDER,Female,222.945902381229,1
+mathematics,4,2003,GENDER,Male,235.291531006278,1
+mathematics,4,2003,GENDER,Female,232.556194085548,1
+mathematics,4,2005,GENDER,Male,238.275578883124,1
+mathematics,4,2005,GENDER,Female,235.891268384294,1
+mathematics,4,2007,GENDER,Male,240.15823499905,1
+mathematics,4,2007,GENDER,Female,237.943236763294,1
+mathematics,4,2009,GENDER,Male,239.973991099529,1
+mathematics,4,2009,GENDER,Female,238.174934176291,1
+mathematics,4,2011,GENDER,Male,240.706532092174,1
+mathematics,4,2011,GENDER,Female,239.496972717345,1
+mathematics,4,2013,GENDER,Male,241.691512975039,1
+mathematics,4,2013,GENDER,Female,240.647330443307,1
+mathematics,4,2015,GENDER,Male,240.781911512947,1
+mathematics,4,2015,GENDER,Female,238.89536707452,1
+mathematics,4,2017,GENDER,Male,240.235902168783,1
+mathematics,4,2017,GENDER,Female,238.044293393307,1
+mathematics,4,2019,GENDER,Male,241.546555826257,1
+mathematics,4,2019,GENDER,Female,238.405687287513,1
+mathematics,4,2022,GENDER,Male,237.579546480367,1
+mathematics,4,2022,GENDER,Female,232.048084816816,1
+mathematics,4,2024,GENDER,Male,239.950397081474,1
+mathematics,4,2024,GENDER,Female,234.561880315931,1
+mathematics,4,2000,SDRACE,White,233.342206964218,1
+mathematics,4,2000,SDRACE,Black,202.942815209302,1
+mathematics,4,2000,SDRACE,Hispanic,207.101762706711,1
+mathematics,4,2000,SDRACE,Asian/Pacific Islander,999,0
+mathematics,4,2000,SDRACE,American Indian/Alaska Native,207.203805247121,1
+mathematics,4,2000,SDRACE,Two or more races,999,0
+mathematics,4,2003,SDRACE,White,242.730820010431,1
+mathematics,4,2003,SDRACE,Black,215.833931489294,1
+mathematics,4,2003,SDRACE,Hispanic,221.384696641306,1
+mathematics,4,2003,SDRACE,Asian/Pacific Islander,246.05470260371,1
+mathematics,4,2003,SDRACE,American Indian/Alaska Native,224.174215617141,1
+mathematics,4,2003,SDRACE,Two or more races,235.535854809737,1
+mathematics,4,2005,SDRACE,White,245.706138488123,1
+mathematics,4,2005,SDRACE,Black,219.68915172338,1
+mathematics,4,2005,SDRACE,Hispanic,225.058575750586,1
+mathematics,4,2005,SDRACE,Asian/Pacific Islander,250.815505712569,1
+mathematics,4,2005,SDRACE,American Indian/Alaska Native,227.136740371327,1
+mathematics,4,2005,SDRACE,Two or more races,239.604090954139,1
+mathematics,4,2007,SDRACE,White,247.882839717502,1
+mathematics,4,2007,SDRACE,Black,222.006079976241,1
+mathematics,4,2007,SDRACE,Hispanic,226.569377025941,1
+mathematics,4,2007,SDRACE,Asian/Pacific Islander,253.528804917689,1
+mathematics,4,2007,SDRACE,American Indian/Alaska Native,229.258403399521,1
+mathematics,4,2007,SDRACE,Two or more races,240.099453705753,1
+mathematics,4,2009,SDRACE,White,247.845800403679,1
+mathematics,4,2009,SDRACE,Black,221.984481026203,1
+mathematics,4,2009,SDRACE,Hispanic,227.193613577005,1
+mathematics,4,2009,SDRACE,Asian/Pacific Islander,255.05763872863,1
+mathematics,4,2009,SDRACE,American Indian/Alaska Native,226.641244881581,1
+mathematics,4,2009,SDRACE,Two or more races,241.787727951503,1
+mathematics,4,2011,SDRACE,White,248.696761714977,1
+mathematics,4,2011,SDRACE,Black,223.795842345931,1
+mathematics,4,2011,SDRACE,Hispanic,228.874095750946,1
+mathematics,4,2011,SDRACE,Asian/Pacific Islander,255.798014391157,1
+mathematics,4,2011,SDRACE,American Indian/Alaska Native,226.616190110637,1
+mathematics,4,2011,SDRACE,Two or more races,243.681975546156,1
+mathematics,4,2013,SDRACE,White,249.919628955659,1
+mathematics,4,2013,SDRACE,Black,224.463308714469,1
+mathematics,4,2013,SDRACE,Hispanic,230.414296993146,1
+mathematics,4,2013,SDRACE,Asian/Pacific Islander,258.182981834739,1
+mathematics,4,2013,SDRACE,American Indian/Alaska Native,228.080811308672,1
+mathematics,4,2013,SDRACE,Two or more races,244.402806881137,1
+mathematics,4,2015,SDRACE,White,248.185965837153,1
+mathematics,4,2015,SDRACE,Black,223.978847243942,1
+mathematics,4,2015,SDRACE,Hispanic,229.967852443979,1
+mathematics,4,2015,SDRACE,Asian/Pacific Islander,256.395119760845,1
+mathematics,4,2015,SDRACE,American Indian/Alaska Native,227.901755523431,1
+mathematics,4,2015,SDRACE,Two or more races,244.115116901158,1
+mathematics,4,2017,SDRACE,White,247.917705821821,1
+mathematics,4,2017,SDRACE,Black,222.782594483189,1
+mathematics,4,2017,SDRACE,Hispanic,229.101487348846,1
+mathematics,4,2017,SDRACE,Asian/Pacific Islander,258.018505614585,1
+mathematics,4,2017,SDRACE,American Indian/Alaska Native,227.891926446157,1
+mathematics,4,2017,SDRACE,Two or more races,243.738552451037,1
+mathematics,4,2019,SDRACE,White,248.555826000069,1
+mathematics,4,2019,SDRACE,Black,223.866483816706,1
+mathematics,4,2019,SDRACE,Hispanic,230.603212279307,1
+mathematics,4,2019,SDRACE,Asian/Pacific Islander,260.943889289125,1
+mathematics,4,2019,SDRACE,American Indian/Alaska Native,227.664014730791,1
+mathematics,4,2019,SDRACE,Two or more races,243.036193185764,1
+mathematics,4,2022,SDRACE,White,244.879617097482,1
+mathematics,4,2022,SDRACE,Black,216.485007741342,1
+mathematics,4,2022,SDRACE,Hispanic,223.567923270525,1
+mathematics,4,2022,SDRACE,Asian/Pacific Islander,257.086155538002,1
+mathematics,4,2022,SDRACE,American Indian/Alaska Native,219.852386486664,1
+mathematics,4,2022,SDRACE,Two or more races,238.071704188963,1
+mathematics,4,2024,SDRACE,White,247.067578033172,1
+mathematics,4,2024,SDRACE,Black,219.732067337597,1
+mathematics,4,2024,SDRACE,Hispanic,226.884427013292,1
+mathematics,4,2024,SDRACE,Asian/Pacific Islander,256.890395022276,1
+mathematics,4,2024,SDRACE,American Indian/Alaska Native,219.692737467643,1
+mathematics,4,2024,SDRACE,Two or more races,241.877372723769,1
+mathematics,4,2000,SLUNCH3,Eligible,208.244892161341,1
+mathematics,4,2000,SLUNCH3,Not eligible,234.561242134827,1
+mathematics,4,2000,SLUNCH3,Information not available,235.66897361938,1
+mathematics,4,2003,SLUNCH3,Eligible,221.532106227343,1
+mathematics,4,2003,SLUNCH3,Not eligible,244.341000860589,1
+mathematics,4,2003,SLUNCH3,Information not available,235.48818464355,1
+mathematics,4,2005,SLUNCH3,Eligible,225.238960590117,1
+mathematics,4,2005,SLUNCH3,Not eligible,247.521060667031,1
+mathematics,4,2005,SLUNCH3,Information not available,237.014854219126,1
+mathematics,4,2007,SLUNCH3,Eligible,227.091965295512,1
+mathematics,4,2007,SLUNCH3,Not eligible,249.246406444334,1
+mathematics,4,2007,SLUNCH3,Information not available,242.50404706599,1
+mathematics,4,2009,SLUNCH3,Eligible,227.520169240478,1
+mathematics,4,2009,SLUNCH3,Not eligible,250.008482941077,1
+mathematics,4,2009,SLUNCH3,Information not available,239.620346178293,1
+mathematics,4,2011,SLUNCH3,Eligible,229.223006598288,1
+mathematics,4,2011,SLUNCH3,Not eligible,252.128807538375,1
+mathematics,4,2011,SLUNCH3,Information not available,246.839115884119,1
+mathematics,4,2013,SLUNCH3,Eligible,230.196140073238,1
+mathematics,4,2013,SLUNCH3,Not eligible,253.979631371418,1
+mathematics,4,2013,SLUNCH3,Information not available,254.652344203094,1
+mathematics,4,2015,SLUNCH3,Eligible,229.269187919028,1
+mathematics,4,2015,SLUNCH3,Not eligible,253.154614213362,1
+mathematics,4,2015,SLUNCH3,Information not available,246.123550205295,1
+mathematics,4,2017,SLUNCH3,Eligible,228.042095866198,1
+mathematics,4,2017,SLUNCH3,Not eligible,252.650879913852,1
+mathematics,4,2017,SLUNCH3,Information not available,238.375846448094,1
+mathematics,4,2019,SLUNCH3,Eligible,228.943654883097,1
+mathematics,4,2019,SLUNCH3,Not eligible,253.129980241567,1
+mathematics,4,2019,SLUNCH3,Information not available,239.218383397376,1
+mathematics,4,2022,SLUNCH3,Eligible,222.555309943904,1
+mathematics,4,2022,SLUNCH3,Not eligible,248.356402158745,1
+mathematics,4,2022,SLUNCH3,Information not available,236.123216150651,1
+mathematics,8,2000,TOTAL,All students,271.829034996469,1
+mathematics,8,2003,TOTAL,All students,276.115275580545,1
+mathematics,8,2005,TOTAL,All students,277.519684495209,1
+mathematics,8,2007,TOTAL,All students,280.169461427268,1
+mathematics,8,2009,TOTAL,All students,281.674781063299,1
+mathematics,8,2011,TOTAL,All students,282.727131008882,1
+mathematics,8,2013,TOTAL,All students,283.615036453665,1
+mathematics,8,2015,TOTAL,All students,281.279588839312,1
+mathematics,8,2017,TOTAL,All students,281.957554900527,1
+mathematics,8,2019,TOTAL,All students,280.986598557657,1
+mathematics,8,2022,TOTAL,All students,273.132228606731,1
+mathematics,8,2024,TOTAL,All students,272.232647011559,1
+mathematics,8,2000,GENDER,Male,272.607142605753,1
+mathematics,8,2000,GENDER,Female,271.035537782427,1
+mathematics,8,2003,GENDER,Male,277.01070806061,1
+mathematics,8,2003,GENDER,Female,275.202390625045,1
+mathematics,8,2005,GENDER,Male,278.247217432574,1
+mathematics,8,2005,GENDER,Female,276.775523915672,1
+mathematics,8,2007,GENDER,Male,281.126084190806,1
+mathematics,8,2007,GENDER,Female,279.192723622425,1
+mathematics,8,2009,GENDER,Male,282.771746046953,1
+mathematics,8,2009,GENDER,Female,280.555438298985,1
+mathematics,8,2011,GENDER,Male,283.135177989885,1
+mathematics,8,2011,GENDER,Female,282.307896944512,1
+mathematics,8,2013,GENDER,Male,283.886886685314,1
+mathematics,8,2013,GENDER,Female,283.330987135385,1
+mathematics,8,2015,GENDER,Male,281.172853654182,1
+mathematics,8,2015,GENDER,Female,281.390222299648,1
+mathematics,8,2017,GENDER,Male,282.302462287879,1
+mathematics,8,2017,GENDER,Female,281.599771127405,1
+mathematics,8,2019,GENDER,Male,280.492248198609,1
+mathematics,8,2019,GENDER,Female,281.501126124363,1
+mathematics,8,2022,GENDER,Male,274.27678912204,1
+mathematics,8,2022,GENDER,Female,271.930337303881,1
+mathematics,8,2024,GENDER,Male,274.221192139844,1
+mathematics,8,2024,GENDER,Female,270.131784862478,1
+mathematics,8,2000,SDRACE,White,282.979859815953,1
+mathematics,8,2000,SDRACE,Black,243.273117325016,1
+mathematics,8,2000,SDRACE,Hispanic,251.748275477153,1
+mathematics,8,2000,SDRACE,Asian/Pacific Islander,287.462053486033,1
+mathematics,8,2000,SDRACE,American Indian/Alaska Native,262.797015615471,1
+mathematics,8,2000,SDRACE,Two or more races,999,0
+mathematics,8,2003,SDRACE,White,286.538713509389,1
+mathematics,8,2003,SDRACE,Black,251.747680510839,1
+mathematics,8,2003,SDRACE,Hispanic,258.127727645011,1
+mathematics,8,2003,SDRACE,Asian/Pacific Islander,289.364802643474,1
+mathematics,8,2003,SDRACE,American Indian/Alaska Native,264.543292161299,1
+mathematics,8,2003,SDRACE,Two or more races,275.818297758634,1
+mathematics,8,2005,SDRACE,White,287.572083680422,1
+mathematics,8,2005,SDRACE,Black,254.187196114088,1
+mathematics,8,2005,SDRACE,Hispanic,261.08522136125,1
+mathematics,8,2005,SDRACE,Asian/Pacific Islander,294.4854347615,1
+mathematics,8,2005,SDRACE,American Indian/Alaska Native,265.557119192451,1
+mathematics,8,2005,SDRACE,Two or more races,278.147231190074,1
+mathematics,8,2007,SDRACE,White,290.387344706491,1
+mathematics,8,2007,SDRACE,Black,258.899491000521,1
+mathematics,8,2007,SDRACE,Hispanic,264.36261212423,1
+mathematics,8,2007,SDRACE,Asian/Pacific Islander,296.253806804606,1
+mathematics,8,2007,SDRACE,American Indian/Alaska Native,265.483597061503,1
+mathematics,8,2007,SDRACE,Two or more races,281.970535298101,1
+mathematics,8,2009,SDRACE,White,292.023716786471,1
+mathematics,8,2009,SDRACE,Black,260.279553249067,1
+mathematics,8,2009,SDRACE,Hispanic,265.900828602768,1
+mathematics,8,2009,SDRACE,Asian/Pacific Islander,299.924307695987,1
+mathematics,8,2009,SDRACE,American Indian/Alaska Native,266.838797697504,1
+mathematics,8,2009,SDRACE,Two or more races,283.482375904416,1
+mathematics,8,2011,SDRACE,White,292.567394799431,1
+mathematics,8,2011,SDRACE,Black,261.840768912436,1
+mathematics,8,2011,SDRACE,Hispanic,269.45379200122,1
+mathematics,8,2011,SDRACE,Asian/Pacific Islander,302.194054576781,1
+mathematics,8,2011,SDRACE,American Indian/Alaska Native,265.977580425002,1
+mathematics,8,2011,SDRACE,Two or more races,286.379745022367,1
+mathematics,8,2013,SDRACE,White,293.190125154797,1
+mathematics,8,2013,SDRACE,Black,262.732992951796,1
+mathematics,8,2013,SDRACE,Hispanic,271.019501086758,1
+mathematics,8,2013,SDRACE,Asian/Pacific Islander,305.919610481859,1
+mathematics,8,2013,SDRACE,American Indian/Alaska Native,270.113843807931,1
+mathematics,8,2013,SDRACE,Two or more races,286.333380693115,1
+mathematics,8,2015,SDRACE,White,291.056966706185,1
+mathematics,8,2015,SDRACE,Black,259.849690288737,1
+mathematics,8,2015,SDRACE,Hispanic,269.471248948086,1
+mathematics,8,2015,SDRACE,Asian/Pacific Islander,305.365105054292,1
+mathematics,8,2015,SDRACE,American Indian/Alaska Native,267.186030051557,1
+mathematics,8,2015,SDRACE,Two or more races,283.470801581067,1
+mathematics,8,2017,SDRACE,White,292.164707295109,1
+mathematics,8,2017,SDRACE,Black,259.603784760393,1
+mathematics,8,2017,SDRACE,Hispanic,268.49295087561,1
+mathematics,8,2017,SDRACE,Asian/Pacific Islander,309.522764190689,1
+mathematics,8,2017,SDRACE,American Indian/Alaska Native,268.243960832386,1
+mathematics,8,2017,SDRACE,Two or more races,285.34066073755,1
+mathematics,8,2019,SDRACE,White,291.460216495554,1
+mathematics,8,2019,SDRACE,Black,259.214013504332,1
+mathematics,8,2019,SDRACE,Hispanic,267.961207505488,1
+mathematics,8,2019,SDRACE,Asian/Pacific Islander,309.389214726266,1
+mathematics,8,2019,SDRACE,American Indian/Alaska Native,262.784087885983,1
+mathematics,8,2019,SDRACE,Two or more races,284.950242588096,1
+mathematics,8,2022,SDRACE,White,283.602877837775,1
+mathematics,8,2022,SDRACE,Black,252.080523459847,1
+mathematics,8,2022,SDRACE,Hispanic,260.807962732043,1
+mathematics,8,2022,SDRACE,Asian/Pacific Islander,303.898293868065,1
+mathematics,8,2022,SDRACE,American Indian/Alaska Native,256.740748014473,1
+mathematics,8,2022,SDRACE,Two or more races,275.425862494263,1
+mathematics,8,2024,SDRACE,White,284.455151690662,1
+mathematics,8,2024,SDRACE,Black,250.833654422785,1
+mathematics,8,2024,SDRACE,Hispanic,257.389067109686,1
+mathematics,8,2024,SDRACE,Asian/Pacific Islander,304.643135086601,1
+mathematics,8,2024,SDRACE,American Indian/Alaska Native,252.66262045864,1
+mathematics,8,2024,SDRACE,Two or more races,276.60604240539,1
+mathematics,8,2000,SLUNCH3,Eligible,252.861271651751,1
+mathematics,8,2000,SLUNCH3,Not eligible,282.993046174128,1
+mathematics,8,2000,SLUNCH3,Information not available,271.088867781209,1
+mathematics,8,2003,SLUNCH3,Eligible,258.411594193841,1
+mathematics,8,2003,SLUNCH3,Not eligible,286.80263705898,1
+mathematics,8,2003,SLUNCH3,Information not available,277.823976519958,1
+mathematics,8,2005,SLUNCH3,Eligible,261.468052392935,1
+mathematics,8,2005,SLUNCH3,Not eligible,288.163461581374,1
+mathematics,8,2005,SLUNCH3,Information not available,276.580289608718,1
+mathematics,8,2007,SLUNCH3,Eligible,264.90481885292,1
+mathematics,8,2007,SLUNCH3,Not eligible,290.903353060262,1
+mathematics,8,2007,SLUNCH3,Information not available,273.909471000714,1
+mathematics,8,2009,SLUNCH3,Eligible,266.361520608837,1
+mathematics,8,2009,SLUNCH3,Not eligible,293.299557281671,1
+mathematics,8,2009,SLUNCH3,Information not available,283.825118114607,1
+mathematics,8,2011,SLUNCH3,Eligible,269.00585082592,1
+mathematics,8,2011,SLUNCH3,Not eligible,295.403462866343,1
+mathematics,8,2011,SLUNCH3,Information not available,274.658539302649,1
+mathematics,8,2013,SLUNCH3,Eligible,269.964062863951,1
+mathematics,8,2013,SLUNCH3,Not eligible,297.128633570279,1
+mathematics,8,2013,SLUNCH3,Information not available,284.733265855792,1
+mathematics,8,2015,SLUNCH3,Eligible,267.970755897417,1
+mathematics,8,2015,SLUNCH3,Not eligible,295.746660324158,1
+mathematics,8,2015,SLUNCH3,Information not available,293.437271338044,1
+mathematics,8,2017,SLUNCH3,Eligible,266.885731646767,1
+mathematics,8,2017,SLUNCH3,Not eligible,296.558941606022,1
+mathematics,8,2017,SLUNCH3,Information not available,292.939010682797,1
+mathematics,8,2019,SLUNCH3,Eligible,266.129956140551,1
+mathematics,8,2019,SLUNCH3,Not eligible,296.037413020894,1
+mathematics,8,2019,SLUNCH3,Information not available,286.186629654293,1
+mathematics,8,2022,SLUNCH3,Eligible,259.507518350377,1
+mathematics,8,2022,SLUNCH3,Not eligible,287.001728106471,1
+mathematics,8,2022,SLUNCH3,Information not available,274.066828967879,1
+science,4,2009,TOTAL,All students,148.742299094455,1
+science,4,2015,TOTAL,All students,152.762659572535,1
+science,4,2019,TOTAL,All students,150.351210415201,1
+science,4,2009,GENDER,Male,149.292587145838,1
+science,4,2009,GENDER,Female,148.167781609071,1
+science,4,2015,GENDER,Male,153.008142887241,1
+science,4,2015,GENDER,Female,152.509764528197,1
+science,4,2019,GENDER,Male,150.248547309639,1
+science,4,2019,GENDER,Female,150.457767107289,1
+science,4,2009,SDRACE,White,162.075065959259,1
+science,4,2009,SDRACE,Black,126.898114114094,1
+science,4,2009,SDRACE,Hispanic,130.214357696527,1
+science,4,2009,SDRACE,Asian/Pacific Islander,159.546080773658,1
+science,4,2009,SDRACE,American Indian/Alaska Native,136.875001572892,1
+science,4,2009,SDRACE,Two or more races,151.874827398732,1
+science,4,2015,SDRACE,White,165.110539140991,1
+science,4,2015,SDRACE,Black,132.472157796872,1
+science,4,2015,SDRACE,Hispanic,138.317486486967,1
+science,4,2015,SDRACE,Asian/Pacific Islander,166.083147449942,1
+science,4,2015,SDRACE,American Indian/Alaska Native,140.759855748991,1
+science,4,2015,SDRACE,Two or more races,157.810470328535,1
+science,4,2019,SDRACE,White,162.473855803114,1
+science,4,2019,SDRACE,Black,129.299346404311,1
+science,4,2019,SDRACE,Hispanic,138.080625248845,1
+science,4,2019,SDRACE,Asian/Pacific Islander,165.763421632879,1
+science,4,2019,SDRACE,American Indian/Alaska Native,141.166564935727,1
+science,4,2019,SDRACE,Two or more races,158.216005660272,1
+science,4,2009,SLUNCH3,Eligible,133.779765632121,1
+science,4,2009,SLUNCH3,Not eligible,162.968251283643,1
+science,4,2009,SLUNCH3,Information not available,142.599397240378,1
+science,4,2015,SLUNCH3,Eligible,140.227064167838,1
+science,4,2015,SLUNCH3,Not eligible,168.553049841359,1
+science,4,2015,SLUNCH3,Information not available,155.820965127037,1
+science,4,2019,SLUNCH3,Eligible,137.043684915183,1
+science,4,2019,SLUNCH3,Not eligible,165.964033501668,1
+science,4,2019,SLUNCH3,Information not available,158.58090219819,1
+science,8,2009,TOTAL,All students,148.659925761459,1
+science,8,2015,TOTAL,All students,152.893735753314,1
+science,8,2019,TOTAL,All students,152.586875142498,1
+science,8,2024,TOTAL,All students,148.777749081591,1
+science,8,2009,GENDER,Male,150.611340488981,1
+science,8,2009,GENDER,Female,146.657889316674,1
+science,8,2015,GENDER,Male,154.33552082343,1
+science,8,2015,GENDER,Female,151.399902916212,1
+science,8,2019,GENDER,Male,152.879092428239,1
+science,8,2019,GENDER,Female,152.282902519562,1
+science,8,2024,GENDER,Male,149.823263408671,1
+science,8,2024,GENDER,Female,147.656906284244,1
+science,8,2009,SDRACE,White,161.145565502161,1
+science,8,2009,SDRACE,Black,124.696363820164,1
+science,8,2009,SDRACE,Hispanic,130.793678674678,1
+science,8,2009,SDRACE,Asian/Pacific Islander,158.71299926016,1
+science,8,2009,SDRACE,American Indian/Alaska Native,138.498684870043,1
+science,8,2009,SDRACE,Two or more races,149.267489129019,1
+science,8,2015,SDRACE,White,165.021166722383,1
+science,8,2015,SDRACE,Black,131.10734373472,1
+science,8,2015,SDRACE,Hispanic,139.167048661822,1
+science,8,2015,SDRACE,Asian/Pacific Islander,163.094197866059,1
+science,8,2015,SDRACE,American Indian/Alaska Native,139.988949137145,1
+science,8,2015,SDRACE,Two or more races,158.170119982723,1
+science,8,2019,SDRACE,White,163.990858431504,1
+science,8,2019,SDRACE,Black,131.914003981071,1
+science,8,2019,SDRACE,Hispanic,140.236136814918,1
+science,8,2019,SDRACE,Asian/Pacific Islander,166.575882992184,1
+science,8,2019,SDRACE,American Indian/Alaska Native,142.7962353758,1
+science,8,2019,SDRACE,Two or more races,157.902068660475,1
+science,8,2024,SDRACE,White,160.525151488962,1
+science,8,2024,SDRACE,Black,129.064634648832,1
+science,8,2024,SDRACE,Hispanic,136.581032688648,1
+science,8,2024,SDRACE,Asian/Pacific Islander,166.843080617259,1
+science,8,2024,SDRACE,American Indian/Alaska Native,131.518594815875,1
+science,8,2024,SDRACE,Two or more races,155.307736910609,1
+science,8,2009,SLUNCH3,Eligible,132.887166070441,1
+science,8,2009,SLUNCH3,Not eligible,160.678694058989,1
+science,8,2009,SLUNCH3,Information not available,150.404690587862,1
+science,8,2015,SLUNCH3,Eligible,139.816946987326,1
+science,8,2015,SLUNCH3,Not eligible,167.042917187841,1
+science,8,2015,SLUNCH3,Information not available,157.700766130478,1
+science,8,2019,SLUNCH3,Eligible,140.27902410506,1
+science,8,2019,SLUNCH3,Not eligible,165.925589866872,1
+science,8,2019,SLUNCH3,Information not available,147.632988365941,1
+science,12,2009,TOTAL,All students,148.969780432456,1
+science,12,2015,TOTAL,All students,149.060144327667,1
+science,12,2019,TOTAL,All students,148.947278201799,1
+science,12,2009,GENDER,Male,151.896778818385,1
+science,12,2009,GENDER,Female,146.158400890683,1
+science,12,2015,GENDER,Male,151.456457304042,1
+science,12,2015,GENDER,Female,146.631697888578,1
+science,12,2019,GENDER,Male,150.828729409434,1
+science,12,2019,GENDER,Female,147.03604103642,1
+science,12,2009,SDRACE,White,158.502500276989,1
+science,12,2009,SDRACE,Black,124.404295420662,1
+science,12,2009,SDRACE,Hispanic,133.350693231633,1
+science,12,2009,SDRACE,Asian/Pacific Islander,163.593716114339,1
+science,12,2009,SDRACE,American Indian/Alaska Native,143.872669829019,1
+science,12,2009,SDRACE,Two or more races,144.146290209593,1
+science,12,2015,SDRACE,White,159.763385892466,1
+science,12,2015,SDRACE,Black,124.33055771709,1
+science,12,2015,SDRACE,Hispanic,135.617879945083,1
+science,12,2015,SDRACE,Asian/Pacific Islander,166.77117940014,1
+science,12,2015,SDRACE,American Indian/Alaska Native,133.934178638,1
+science,12,2015,SDRACE,Two or more races,154.636526207227,1
+science,12,2019,SDRACE,White,160.425344926648,1
+science,12,2019,SDRACE,Black,125.07762796715,1
+science,12,2019,SDRACE,Hispanic,135.400932005456,1
+science,12,2019,SDRACE,Asian/Pacific Islander,167.001220114586,1
+science,12,2019,SDRACE,American Indian/Alaska Native,141.412559481068,1
+science,12,2019,SDRACE,Two or more races,155.079304577749,1
+science,12,2009,SLUNCH3,Eligible,132.302223531147,1
+science,12,2009,SLUNCH3,Not eligible,156.344751742036,1
+science,12,2009,SLUNCH3,Information not available,145.459016264318,1
+science,12,2015,SLUNCH3,Eligible,134.595413401081,1
+science,12,2015,SLUNCH3,Not eligible,159.781643741743,1
+science,12,2015,SLUNCH3,Information not available,161.614284860984,1
+science,12,2019,SLUNCH3,Eligible,135.087173158765,1
+science,12,2019,SLUNCH3,Not eligible,159.733954831142,1
+science,12,2019,SLUNCH3,Information not available,144.604893816263,1

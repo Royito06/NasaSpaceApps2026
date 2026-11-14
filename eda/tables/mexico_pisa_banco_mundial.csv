@@ -1,0 +1,59 @@
+indicador,codigo,lugar,anio,puntaje
+Matemáticas,LO.PISA.MAT,EE.UU.,2000,493
+Matemáticas,LO.PISA.MAT,EE.UU.,2003,482.9
+Matemáticas,LO.PISA.MAT,EE.UU.,2006,474.4
+Matemáticas,LO.PISA.MAT,EE.UU.,2009,487.4
+Matemáticas,LO.PISA.MAT,EE.UU.,2012,481.4
+Matemáticas,LO.PISA.MAT,EE.UU.,2015,469.6
+Matemáticas,LO.PISA.MAT,EE.UU.,2018,478.2
+Matemáticas,LO.PISA.MAT,México,2000,387
+Matemáticas,LO.PISA.MAT,México,2003,385.2
+Matemáticas,LO.PISA.MAT,México,2006,405.7
+Matemáticas,LO.PISA.MAT,México,2009,418.5
+Matemáticas,LO.PISA.MAT,México,2012,413.3
+Matemáticas,LO.PISA.MAT,México,2015,408.0
+Matemáticas,LO.PISA.MAT,México,2018,408.8
+Matemáticas,LO.PISA.MAT,Promedio OCDE,2018,489.3
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2000,490
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2003,479.7
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2006,470.1
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2009,477.0
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2012,479.0
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2015,465.4
+"Matemáticas, mujeres",LO.PISA.MAT.FE,EE.UU.,2018,473.8
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2000,382
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2003,380.0
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2006,401.3
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2009,411.8
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2012,406.4
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2015,404.3
+"Matemáticas, mujeres",LO.PISA.MAT.FE,México,2018,403.2
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2000,497
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2003,486.0
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2006,478.6
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2009,497.3
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2012,483.6
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2015,473.9
+"Matemáticas, hombres",LO.PISA.MAT.MA,EE.UU.,2018,482.5
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2000,393
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2003,390.9
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2006,410.3
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2009,425.4
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2012,420.4
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2015,411.6
+"Matemáticas, hombres",LO.PISA.MAT.MA,México,2018,414.9
+Ciencias,LO.PISA.SCI,EE.UU.,2000,499.5
+Ciencias,LO.PISA.SCI,EE.UU.,2003,491.3
+Ciencias,LO.PISA.SCI,EE.UU.,2006,488.9
+Ciencias,LO.PISA.SCI,EE.UU.,2009,502.0
+Ciencias,LO.PISA.SCI,EE.UU.,2012,497.4
+Ciencias,LO.PISA.SCI,EE.UU.,2015,496.2
+Ciencias,LO.PISA.SCI,EE.UU.,2018,502.4
+Ciencias,LO.PISA.SCI,México,2000,421.5
+Ciencias,LO.PISA.SCI,México,2003,404.9
+Ciencias,LO.PISA.SCI,México,2006,409.7
+Ciencias,LO.PISA.SCI,México,2009,415.9
+Ciencias,LO.PISA.SCI,México,2012,414.9
+Ciencias,LO.PISA.SCI,México,2015,415.7
+Ciencias,LO.PISA.SCI,México,2018,419.2
+Ciencias,LO.PISA.SCI,Promedio OCDE,2018,488.7

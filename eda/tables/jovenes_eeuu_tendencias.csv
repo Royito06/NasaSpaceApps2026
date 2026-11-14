@@ -1,0 +1,221 @@
+indicador,anio,grupo,pct,ic_bajo,ic_alto,n,archivo
+Consideró seriamente el suicidio (12 meses),2015,Hispanos,18.8,17.1,20.7,5061,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2017,Hispanos,16.4,15.2,17.5,3593,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2019,Hispanos,17.2,15.2,19.4,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2021,Hispanos,22.0,20.8,23.3,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2023,Hispanos,18.2,16.2,20.3,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2015,Hombres,12.2,11.2,13.3,7656,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2017,Hombres,11.9,10.9,13.0,6997,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2019,Hombres,13.3,12.2,14.5,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2021,Hombres,14.3,13.3,15.4,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2023,Hombres,14.1,12.4,15.9,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2015,Mujeres,23.4,21.5,25.4,7674,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2017,Mujeres,22.1,20.0,24.4,7440,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2019,Mujeres,24.1,22.3,26.0,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2021,Mujeres,30.0,28.5,31.4,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2023,Mujeres,27.1,24.7,29.6,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2015,Total,17.7,16.7,18.8,15434,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2017,Total,17.2,16.2,18.3,14553,yrbss_hs_national.csv
+Consideró seriamente el suicidio (12 meses),2019,Total,18.8,17.6,20.0,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2021,Total,22.2,21.1,23.3,,cdc_mental_health_slim.csv
+Consideró seriamente el suicidio (12 meses),2023,Total,20.4,18.7,22.3,,cdc_mental_health_slim.csv
+Educación física diaria,2001,Hispanos,38.7,32.5,45.3,3007,cdc_npao_us.csv
+Educación física diaria,2003,Hispanos,36.7,28.9,45.3,3479,cdc_npao_us.csv
+Educación física diaria,2005,Hispanos,38.3,27.8,50.1,2937,cdc_npao_us.csv
+Educación física diaria,2007,Hispanos,36.0,28.4,44.3,3773,cdc_npao_us.csv
+Educación física diaria,2009,Hispanos,40.5,32.8,48.7,4412,cdc_npao_us.csv
+Educación física diaria,2011,Hispanos,30.0,25.4,35.1,4498,cdc_npao_us.csv
+Educación física diaria,2013,Hispanos,37.7,31.4,44.4,3267,cdc_npao_us.csv
+Educación física diaria,2015,Hispanos,37.7,30.7,45.3,4945,cdc_npao_us.csv
+Educación física diaria,2017,Hispanos,37.4,28.6,47.1,3499,cdc_npao_us.csv
+Educación física diaria,2019,Hispanos,29.9,24.5,36.0,2677,cdc_npao_us.csv
+Educación física diaria,2021,Hispanos,21.0,17.4,25.2,2629,cdc_npao_us.csv
+Educación física diaria,2023,Hispanos,30.9,23.4,39.7,2869,cdc_npao_us.csv
+Educación física diaria,2001,Hombres,36.3,30.9,42.0,5981,cdc_npao_us.csv
+Educación física diaria,2003,Hombres,30.5,25.0,36.7,6566,cdc_npao_us.csv
+Educación física diaria,2005,Hombres,37.1,31.8,42.6,5914,cdc_npao_us.csv
+Educación física diaria,2007,Hombres,33.2,28.4,38.5,6767,cdc_npao_us.csv
+Educación física diaria,2009,Hombres,34.6,28.3,41.4,7646,cdc_npao_us.csv
+Educación física diaria,2011,Hombres,35.5,30.5,40.8,7339,cdc_npao_us.csv
+Educación física diaria,2013,Hombres,34.9,30.8,39.3,6719,cdc_npao_us.csv
+Educación física diaria,2015,Hombres,33.8,27.5,40.6,7505,cdc_npao_us.csv
+Educación física diaria,2017,Hombres,34.7,28.0,42.1,6748,cdc_npao_us.csv
+Educación física diaria,2019,Hombres,28.9,24.6,33.7,5449,cdc_npao_us.csv
+Educación física diaria,2021,Hombres,21.1,17.2,25.6,6314,cdc_npao_us.csv
+Educación física diaria,2023,Hombres,31.4,24.9,38.6,6997,cdc_npao_us.csv
+Educación física diaria,2001,Mujeres,28.4,23.5,33.9,6382,cdc_npao_us.csv
+Educación física diaria,2003,Mujeres,26.4,20.6,33.1,6771,cdc_npao_us.csv
+Educación física diaria,2005,Mujeres,29.0,23.6,35.1,6575,cdc_npao_us.csv
+Educación física diaria,2007,Mujeres,27.3,22.1,33.2,6874,cdc_npao_us.csv
+Educación física diaria,2009,Mujeres,31.9,26.5,37.9,7871,cdc_npao_us.csv
+Educación física diaria,2011,Mujeres,27.2,21.1,34.3,7501,cdc_npao_us.csv
+Educación física diaria,2013,Mujeres,24.0,19.3,29.4,6499,cdc_npao_us.csv
+Educación física diaria,2015,Mujeres,25.5,19.6,32.6,7557,cdc_npao_us.csv
+Educación física diaria,2017,Mujeres,25.3,19.3,32.4,7286,cdc_npao_us.csv
+Educación física diaria,2019,Mujeres,22.8,17.9,28.5,5742,cdc_npao_us.csv
+Educación física diaria,2021,Mujeres,16.7,13.4,20.6,5987,cdc_npao_us.csv
+Educación física diaria,2023,Mujeres,23.1,18.3,28.9,6816,cdc_npao_us.csv
+Educación física diaria,2001,Total,32.2,27.4,37.4,12403,cdc_npao_us.csv
+Educación física diaria,2003,Total,28.4,22.9,34.7,13394,cdc_npao_us.csv
+Educación física diaria,2005,Total,33.0,27.8,38.6,12536,cdc_npao_us.csv
+Educación física diaria,2007,Total,30.3,25.4,35.8,13653,cdc_npao_us.csv
+Educación física diaria,2009,Total,33.3,27.7,39.3,15578,cdc_npao_us.csv
+Educación física diaria,2011,Total,31.5,26.1,37.4,14896,cdc_npao_us.csv
+Educación física diaria,2013,Total,29.4,25.1,34.1,13228,cdc_npao_us.csv
+Educación física diaria,2015,Total,29.8,24.0,36.2,15172,cdc_npao_us.csv
+Educación física diaria,2017,Total,29.9,23.6,37.0,14151,cdc_npao_us.csv
+Educación física diaria,2019,Total,25.9,21.5,31.0,11288,cdc_npao_us.csv
+Educación física diaria,2021,Total,19.0,15.7,22.7,12484,cdc_npao_us.csv
+Educación física diaria,2023,Total,27.4,21.9,33.6,13876,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2011,Hispanos,26.5,24.8,28.3,4526,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2013,Hispanos,25.5,23.0,28.3,3300,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2015,Hispanos,24.6,22.1,27.3,4972,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2017,Hispanos,25.8,23.3,28.5,3518,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2019,Hispanos,20.9,18.6,23.5,2949,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2021,Hispanos,18.9,17.3,20.5,3087,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2023,Hispanos,20.1,17.3,23.3,3763,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2011,Hombres,38.3,36.3,40.4,7431,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2013,Hombres,36.6,34.5,38.6,6773,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2015,Hombres,36.0,33.6,38.5,7536,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2017,Hombres,35.3,33.4,37.3,6789,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2019,Hombres,30.9,28.9,33.1,6371,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2021,Hombres,31.7,30.2,33.2,8502,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2023,Hombres,32.2,30.0,34.4,9431,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2011,Mujeres,18.5,16.8,20.3,7559,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2013,Mujeres,17.7,16.1,19.5,6526,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2015,Mujeres,17.7,16.2,19.3,7598,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2017,Mujeres,17.5,15.5,19.6,7329,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2019,Mujeres,15.4,14.2,16.6,6710,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2021,Mujeres,15.7,14.1,17.4,7904,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2023,Mujeres,16.6,15.0,18.3,9320,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2011,Total,28.7,27.1,30.3,15048,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2013,Total,27.1,25.5,28.8,13310,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2015,Total,27.1,25.4,28.8,15245,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2017,Total,26.1,24.1,28.3,14238,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2019,Total,23.2,21.9,24.6,13220,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2021,Total,23.9,22.8,25.0,16652,cdc_npao_us.csv
+Logra 60 min diarios de actividad física,2023,Total,24.6,22.8,26.5,18876,cdc_npao_us.csv
+Mala salud mental (30 días),2021,Hispanos,29.7,27.7,31.9,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2023,Hispanos,26.1,23.2,29.2,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2021,Hombres,18.1,17.0,19.2,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2023,Hombres,18.8,17.3,20.5,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2021,Mujeres,40.8,38.6,43.0,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2023,Mujeres,38.8,36.2,41.4,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2021,Total,29.3,27.8,30.8,,cdc_mental_health_slim.csv
+Mala salud mental (30 días),2023,Total,28.5,26.7,30.4,,cdc_mental_health_slim.csv
+Tiene obesidad,2001,Hispanos,15.1,12.3,18.2,3079,cdc_npao_us.csv
+Tiene obesidad,2003,Hispanos,16.2,13.8,18.9,3679,cdc_npao_us.csv
+Tiene obesidad,2005,Hispanos,16.7,14.4,19.2,3008,cdc_npao_us.csv
+Tiene obesidad,2007,Hispanos,16.3,14.4,18.4,3587,cdc_npao_us.csv
+Tiene obesidad,2009,Hispanos,14.9,13.3,16.6,4407,cdc_npao_us.csv
+Tiene obesidad,2011,Hispanos,14.1,12.5,15.8,4233,cdc_npao_us.csv
+Tiene obesidad,2013,Hispanos,15.2,13.1,17.5,3139,cdc_npao_us.csv
+Tiene obesidad,2015,Hispanos,16.4,14.8,18.2,4661,cdc_npao_us.csv
+Tiene obesidad,2017,Hispanos,18.2,16.9,19.5,3204,cdc_npao_us.csv
+Tiene obesidad,2019,Hispanos,19.2,16.7,21.9,2627,cdc_npao_us.csv
+Tiene obesidad,2021,Hispanos,20.2,17.9,22.8,2651,cdc_npao_us.csv
+Tiene obesidad,2023,Hispanos,19.5,17.0,22.4,3374,cdc_npao_us.csv
+Tiene obesidad,2001,Hombres,14.2,12.9,15.7,6159,cdc_npao_us.csv
+Tiene obesidad,2003,Hombres,15.7,14.2,17.2,7031,cdc_npao_us.csv
+Tiene obesidad,2005,Hombres,15.9,14.8,17.2,6358,cdc_npao_us.csv
+Tiene obesidad,2007,Hombres,16.2,15.0,17.5,6597,cdc_npao_us.csv
+Tiene obesidad,2009,Hombres,15.2,13.3,17.4,7598,cdc_npao_us.csv
+Tiene obesidad,2011,Hombres,16.1,14.4,17.9,7121,cdc_npao_us.csv
+Tiene obesidad,2013,Hombres,16.6,14.9,18.4,6414,cdc_npao_us.csv
+Tiene obesidad,2015,Hombres,16.8,14.8,19.0,7213,cdc_npao_us.csv
+Tiene obesidad,2017,Hombres,17.5,16.2,18.9,6380,cdc_npao_us.csv
+Tiene obesidad,2019,Hombres,18.9,16.7,21.3,5964,cdc_npao_us.csv
+Tiene obesidad,2021,Hombres,18.7,16.8,20.8,7836,cdc_npao_us.csv
+Tiene obesidad,2023,Hombres,18.2,16.6,19.9,9163,cdc_npao_us.csv
+Tiene obesidad,2001,Mujeres,6.9,6.0,7.9,6480,cdc_npao_us.csv
+Tiene obesidad,2003,Mujeres,8.1,6.8,9.6,7026,cdc_npao_us.csv
+Tiene obesidad,2005,Mujeres,9.9,8.9,11.1,6860,cdc_npao_us.csv
+Tiene obesidad,2007,Mujeres,9.4,8.1,10.8,6623,cdc_npao_us.csv
+Tiene obesidad,2009,Mujeres,8.1,7.3,8.9,7798,cdc_npao_us.csv
+Tiene obesidad,2011,Mujeres,9.8,8.5,11.2,7164,cdc_npao_us.csv
+Tiene obesidad,2013,Mujeres,10.9,9.8,12.1,6166,cdc_npao_us.csv
+Tiene obesidad,2015,Mujeres,10.8,9.3,12.5,7145,cdc_npao_us.csv
+Tiene obesidad,2017,Mujeres,12.1,10.7,13.7,6766,cdc_npao_us.csv
+Tiene obesidad,2019,Mujeres,11.9,10.3,13.8,6176,cdc_npao_us.csv
+Tiene obesidad,2021,Mujeres,13.7,12.3,15.2,7060,cdc_npao_us.csv
+Tiene obesidad,2023,Mujeres,13.4,11.9,15.0,8651,cdc_npao_us.csv
+Tiene obesidad,2001,Total,10.5,9.5,11.5,12639,cdc_npao_us.csv
+Tiene obesidad,2003,Total,12.0,10.7,13.4,14057,cdc_npao_us.csv
+Tiene obesidad,2005,Total,13.0,12.1,13.9,13218,cdc_npao_us.csv
+Tiene obesidad,2007,Total,12.8,11.8,13.9,13220,cdc_npao_us.csv
+Tiene obesidad,2009,Total,11.8,10.8,13.0,15396,cdc_npao_us.csv
+Tiene obesidad,2011,Total,13.0,11.7,14.4,14285,cdc_npao_us.csv
+Tiene obesidad,2013,Total,13.7,12.6,14.9,12580,cdc_npao_us.csv
+Tiene obesidad,2015,Total,13.9,12.5,15.5,14358,cdc_npao_us.csv
+Tiene obesidad,2017,Total,14.8,13.8,15.8,13146,cdc_npao_us.csv
+Tiene obesidad,2019,Total,15.5,13.8,17.3,12140,cdc_npao_us.csv
+Tiene obesidad,2021,Total,16.3,15.1,17.7,14896,cdc_npao_us.csv
+Tiene obesidad,2023,Total,15.9,14.7,17.3,17814,cdc_npao_us.csv
+Tiene sobrepeso,2001,Hispanos,16.2,14.4,18.3,3079,cdc_npao_us.csv
+Tiene sobrepeso,2003,Hispanos,17.2,15.2,19.3,3679,cdc_npao_us.csv
+Tiene sobrepeso,2005,Hispanos,16.5,14.7,18.6,3008,cdc_npao_us.csv
+Tiene sobrepeso,2007,Hispanos,17.8,15.9,20.0,3587,cdc_npao_us.csv
+Tiene sobrepeso,2009,Hispanos,19.3,17.7,21.0,4407,cdc_npao_us.csv
+Tiene sobrepeso,2011,Hispanos,17.4,15.7,19.3,4233,cdc_npao_us.csv
+Tiene sobrepeso,2013,Hispanos,18.3,16.8,19.8,3139,cdc_npao_us.csv
+Tiene sobrepeso,2015,Hispanos,18.4,17.0,19.9,4661,cdc_npao_us.csv
+Tiene sobrepeso,2017,Hispanos,19.5,18.0,21.0,3204,cdc_npao_us.csv
+Tiene sobrepeso,2019,Hispanos,19.6,17.4,22.0,2627,cdc_npao_us.csv
+Tiene sobrepeso,2021,Hispanos,20.9,19.7,22.1,2651,cdc_npao_us.csv
+Tiene sobrepeso,2023,Hispanos,16.2,14.5,18.1,3374,cdc_npao_us.csv
+Tiene sobrepeso,2001,Hombres,15.5,14.3,16.9,6159,cdc_npao_us.csv
+Tiene sobrepeso,2003,Hombres,15.2,13.9,16.5,7031,cdc_npao_us.csv
+Tiene sobrepeso,2005,Hombres,15.8,14.6,17.1,6358,cdc_npao_us.csv
+Tiene sobrepeso,2007,Hombres,16.4,15.4,17.5,6597,cdc_npao_us.csv
+Tiene sobrepeso,2009,Hombres,15.7,14.3,17.2,7598,cdc_npao_us.csv
+Tiene sobrepeso,2011,Hombres,15.1,14.1,16.2,7121,cdc_npao_us.csv
+Tiene sobrepeso,2013,Hombres,16.5,15.4,17.7,6414,cdc_npao_us.csv
+Tiene sobrepeso,2015,Hombres,15.5,14.2,17.0,7213,cdc_npao_us.csv
+Tiene sobrepeso,2017,Hombres,14.4,13.3,15.6,6380,cdc_npao_us.csv
+Tiene sobrepeso,2019,Hombres,14.9,13.5,16.4,5964,cdc_npao_us.csv
+Tiene sobrepeso,2021,Hombres,14.8,13.8,15.9,7836,cdc_npao_us.csv
+Tiene sobrepeso,2023,Hombres,14.3,13.0,15.6,9163,cdc_npao_us.csv
+Tiene sobrepeso,2001,Mujeres,11.7,10.6,12.9,6480,cdc_npao_us.csv
+Tiene sobrepeso,2003,Mujeres,14.1,12.9,15.4,7026,cdc_npao_us.csv
+Tiene sobrepeso,2005,Mujeres,15.4,14.0,16.8,6860,cdc_npao_us.csv
+Tiene sobrepeso,2007,Mujeres,14.8,13.5,16.2,6623,cdc_npao_us.csv
+Tiene sobrepeso,2009,Mujeres,15.5,14.5,16.6,7798,cdc_npao_us.csv
+Tiene sobrepeso,2011,Mujeres,15.4,14.2,16.7,7164,cdc_npao_us.csv
+Tiene sobrepeso,2013,Mujeres,16.6,15.0,18.4,6166,cdc_npao_us.csv
+Tiene sobrepeso,2015,Mujeres,16.6,15.3,17.9,7145,cdc_npao_us.csv
+Tiene sobrepeso,2017,Mujeres,16.8,15.4,18.3,6766,cdc_npao_us.csv
+Tiene sobrepeso,2019,Mujeres,17.4,15.7,19.4,6176,cdc_npao_us.csv
+Tiene sobrepeso,2021,Mujeres,17.4,15.9,18.9,7060,cdc_npao_us.csv
+Tiene sobrepeso,2023,Mujeres,15.2,14.0,16.5,8651,cdc_npao_us.csv
+Tiene sobrepeso,2001,Total,13.6,12.7,14.5,12639,cdc_npao_us.csv
+Tiene sobrepeso,2003,Total,14.7,14.0,15.4,14057,cdc_npao_us.csv
+Tiene sobrepeso,2005,Total,15.6,14.6,16.6,13218,cdc_npao_us.csv
+Tiene sobrepeso,2007,Total,15.6,14.6,16.6,13220,cdc_npao_us.csv
+Tiene sobrepeso,2009,Total,15.6,14.6,16.7,15396,cdc_npao_us.csv
+Tiene sobrepeso,2011,Total,15.2,14.4,16.2,14285,cdc_npao_us.csv
+Tiene sobrepeso,2013,Total,16.6,15.4,17.8,12580,cdc_npao_us.csv
+Tiene sobrepeso,2015,Total,16.0,15.2,16.9,14358,cdc_npao_us.csv
+Tiene sobrepeso,2017,Total,15.6,14.7,16.6,13146,cdc_npao_us.csv
+Tiene sobrepeso,2019,Total,16.1,14.9,17.5,12140,cdc_npao_us.csv
+Tiene sobrepeso,2021,Total,16.0,15.2,16.8,14896,cdc_npao_us.csv
+Tiene sobrepeso,2023,Total,14.7,13.7,15.7,17814,cdc_npao_us.csv
+Tristeza o desesperanza persistente (12 meses),2015,Hispanos,35.3,32.3,38.4,5069,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2017,Hispanos,33.7,32.2,35.3,3582,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2019,Hispanos,40.0,38.0,42.1,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2021,Hispanos,46.4,43.9,49.0,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2023,Hispanos,42.4,39.4,45.4,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2015,Hombres,20.3,18.9,21.8,7659,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2017,Hombres,21.4,19.7,23.2,6992,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2019,Hombres,26.8,25.2,28.4,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2021,Hombres,28.6,27.1,30.0,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2023,Hombres,27.7,25.9,29.6,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2015,Mujeres,39.8,36.5,43.2,7688,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2017,Mujeres,41.1,37.4,44.8,7424,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2019,Mujeres,46.6,44.4,48.9,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2021,Mujeres,56.6,54.6,58.5,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2023,Mujeres,52.6,50.1,55.0,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2015,Total,29.9,28.0,31.8,15455,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2017,Total,31.5,29.6,33.4,14527,yrbss_hs_national.csv
+Tristeza o desesperanza persistente (12 meses),2019,Total,36.7,35.1,38.3,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2021,Total,42.3,41.0,43.7,,cdc_mental_health_slim.csv
+Tristeza o desesperanza persistente (12 meses),2023,Total,39.7,37.7,41.7,,cdc_mental_health_slim.csv

@@ -1,0 +1,177 @@
+risk_id,short_title,drm,ops_LxC,ops_disposicion,ops_producto,salud_largo_plazo_LxC,salud_largo_plazo_disposicion,slp_producto
+78,IVD,LEO corto (<30 d),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,LEO largo (30 d-1 año),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Órbita lunar corto,Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Órbita lunar largo,Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Luna órbita+superficie corto,Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Luna órbita+superficie largo,Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Marte preparatorio (<1 año),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+78,IVD,Marte planetario (730-1224 d),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+99,Behavioral Health,LEO corto (<30 d),4x1,Accepted with Monitoring,4,1x3,Accepted with Monitoring,3
+99,Behavioral Health,LEO largo (30 d-1 año),5x2,Requires Mitigation,10,2x3,Accepted with Monitoring,6
+99,Behavioral Health,Órbita lunar corto,4x2,Requires Characterization,8,1x3,Accepted with Monitoring,3
+99,Behavioral Health,Órbita lunar largo,5x2,Requires Mitigation,10,2x3,Requires Characterization,6
+99,Behavioral Health,Luna órbita+superficie corto,4x2,Requires Characterization,8,1x3,Accepted with Monitoring,3
+99,Behavioral Health,Luna órbita+superficie largo,5x2,Requires Mitigation,10,2x3,Requires Characterization,6
+99,Behavioral Health,Marte preparatorio (<1 año),5x3,Requires Mitigation,15,2x3,Requires Characterization,6
+99,Behavioral Health,Marte planetario (730-1224 d),5x3,Requires Mitigation,15,2x5,Requires Mitigation,10
+95,Medical Conditions,LEO corto (<30 d),3x2,Accepted,6,3x2,Accepted,6
+95,Medical Conditions,LEO largo (30 d-1 año),4x2,Accepted,8,4x2,Accepted,8
+95,Medical Conditions,Órbita lunar corto,4x2,Accepted,8,3x2,Accepted,6
+95,Medical Conditions,Órbita lunar largo,5x3,Requires Mitigation,15,4x2,Requires Characterization,8
+95,Medical Conditions,Luna órbita+superficie corto,4x3,Requires Characterization,12,4x2,Requires Characterization,8
+95,Medical Conditions,Luna órbita+superficie largo,5x4,Requires Mitigation,20,4x4,Requires Characterization,16
+95,Medical Conditions,Marte preparatorio (<1 año),5x4,Requires Mitigation,20,4x4,Requires Characterization,16
+95,Medical Conditions,Marte planetario (730-1224 d),5x4,Requires Mitigation,20,5x4,Requires Characterization,20
+80,Microhost,LEO corto (<30 d),2x3,Accepted,6,2x2,Accepted,4
+80,Microhost,LEO largo (30 d-1 año),2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Órbita lunar corto,2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Órbita lunar largo,2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Luna órbita+superficie corto,2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Luna órbita+superficie largo,2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Marte preparatorio (<1 año),2x3,Accepted with Monitoring,6,2x2,Accepted,4
+80,Microhost,Marte planetario (730-1224 d),4x3,Requires Mitigation,12,4x3,Requires Mitigation,12
+82,Dust,LEO corto (<30 d),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+82,Dust,LEO largo (30 d-1 año),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+82,Dust,Órbita lunar corto,1x2,Accepted,2,1x2,Accepted,2
+82,Dust,Órbita lunar largo,1x2,Accepted,2,1x2,Accepted,2
+82,Dust,Luna órbita+superficie corto,2x1,Accepted with Monitoring,2,2x2,Accepted with Monitoring,4
+82,Dust,Luna órbita+superficie largo,3x3,Requires Mitigation,9,3x4,Requires Mitigation,12
+82,Dust,Marte preparatorio (<1 año),Not Applicable,Not Applicable,,Not Applicable,Not Applicable,
+82,Dust,Marte planetario (730-1224 d),4x4,Requires Characterization,16,4x4,Requires Characterization,16
+175,EIHSO,LEO corto (<30 d),5x2,Accepted,10,Not Applicable,Not Applicable,
+175,EIHSO,LEO largo (30 d-1 año),5x2,Accepted,10,Not Applicable,Not Applicable,
+175,EIHSO,Órbita lunar corto,5x2,Requires Mitigation/Standard Refinement,10,Not Applicable,Not Applicable,
+175,EIHSO,Órbita lunar largo,5x2,Requires Mitigation/Standard Refinement,10,Not Applicable,Not Applicable,
+175,EIHSO,Luna órbita+superficie corto,5x3,Requires Mitigation,15,Not Applicable,Not Applicable,
+175,EIHSO,Luna órbita+superficie largo,5x3,Requires Mitigation,15,Not Applicable,Not Applicable,
+175,EIHSO,Marte preparatorio (<1 año),5x4,Requires Mitigation,20,Not Applicable,Not Applicable,
+175,EIHSO,Marte planetario (730-1224 d),5x5,Requires Mitigation,25,Not Applicable,Not Applicable,
+88,Sensorimotor,LEO corto (<30 d),1x2,Accepted,2,1x2,Requires Characterization,2
+88,Sensorimotor,LEO largo (30 d-1 año),1x2,Accepted,2,2x2,Requires Characterization,4
+88,Sensorimotor,Órbita lunar corto,1x2,Accepted with Monitoring,2,1x2,Requires Characterization,2
+88,Sensorimotor,Órbita lunar largo,1x2,Accepted with Monitoring,2,2x2,Requires Characterization,4
+88,Sensorimotor,Luna órbita+superficie corto,3x5,Requires Mitigation/Standard Refinement,15,1x2,Requires Characterization,2
+88,Sensorimotor,Luna órbita+superficie largo,3x5,Requires Mitigation/Standard Refinement,15,2x2,Requires Characterization,4
+88,Sensorimotor,Marte preparatorio (<1 año),1x2,Accepted with Monitoring,2,1x2,Requires Characterization,2
+88,Sensorimotor,Marte planetario (730-1224 d),4x5,Requires Mitigation/Standard Refinement,20,2x2,Requires Characterization,4
+77,Bone Fracture,LEO corto (<30 d),1x2,Accepted,2,1x1,Accepted,1
+77,Bone Fracture,LEO largo (30 d-1 año),1x2,Accepted,2,2x2,Requires Characterization,4
+77,Bone Fracture,Órbita lunar corto,1x2,Accepted,2,1x1,Accepted,1
+77,Bone Fracture,Órbita lunar largo,2x2,Requires Characterization,4,4x2,Requires Characterization,8
+77,Bone Fracture,Luna órbita+superficie corto,2x3,Accepted,6,1x1,Accepted,1
+77,Bone Fracture,Luna órbita+superficie largo,3x3,Requires Characterization,9,4x2,Requires Characterization,8
+77,Bone Fracture,Marte preparatorio (<1 año),2x2,Requires Characterization,4,4x2,Requires Characterization,8
+77,Bone Fracture,Marte planetario (730-1224 d),4x4,Requires Characterization,16,5x2,Requires Characterization,10
+179,Cardiovascular,LEO corto (<30 d),3x3,Requires Characterization,9,1x2,Accepted,2
+179,Cardiovascular,LEO largo (30 d-1 año),4x3,Requires Characterization,12,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Órbita lunar corto,3x3,Requires Characterization,9,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Órbita lunar largo,4x3,Requires Characterization,12,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Luna órbita+superficie corto,3x3,Requires Characterization,9,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Luna órbita+superficie largo,4x3,Requires Characterization,12,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Marte preparatorio (<1 año),4x3,Requires Characterization,12,1x2,Accepted with Monitoring,2
+179,Cardiovascular,Marte planetario (730-1224 d),4x4,Requires Mitigation/Standard Refinement,16,2x4,Requires Mitigation/Standard Refinement,8
+85,Immune,LEO corto (<30 d),4x2,Accepted with Monitoring,8,4x1,Accepted with Monitoring,4
+85,Immune,LEO largo (30 d-1 año),4x2,Accepted with Monitoring,8,4x1,Accepted with Monitoring,4
+85,Immune,Órbita lunar corto,4x2,Accepted with Monitoring,8,4x1,Accepted with Monitoring,4
+85,Immune,Órbita lunar largo,4x2,Accepted with Monitoring,8,4x2,Requires Characterization,8
+85,Immune,Luna órbita+superficie corto,4x2,Accepted with Monitoring,8,4x1,Accepted with Monitoring,4
+85,Immune,Luna órbita+superficie largo,4x3,Requires Mitigation,12,4x2,Requires Mitigation,8
+85,Immune,Marte preparatorio (<1 año),4x3,Requires Mitigation,12,4x2,Requires Characterization,8
+85,Immune,Marte planetario (730-1224 d),4x3,Requires Mitigation,12,4x2,Requires Characterization,8
+167,Dynamic Loads,LEO corto (<30 d),4x3,Accepted with Optimization,12,3x2,Accepted,6
+167,Dynamic Loads,LEO largo (30 d-1 año),4x3,Accepted with Optimization,12,3x2,Accepted,6
+167,Dynamic Loads,Órbita lunar corto,4x3,Accepted with Optimization,12,3x2,Accepted with Optimization,6
+167,Dynamic Loads,Órbita lunar largo,4x3,Requires Mitigation,12,3x2,Requires Mitigation,6
+167,Dynamic Loads,Luna órbita+superficie corto,4x4,Accepted with Optimization,16,3x4,Accepted with Optimization,12
+167,Dynamic Loads,Luna órbita+superficie largo,4x4,Requires Mitigation,16,4x4,Requires Mitigation,16
+167,Dynamic Loads,Marte preparatorio (<1 año),4x3,Requires Mitigation,12,3x2,Requires Mitigation,6
+167,Dynamic Loads,Marte planetario (730-1224 d),4x4,Requires Mitigation,16,4x4,Requires Mitigation,16
+101,Team,LEO corto (<30 d),4x2,Accepted with Monitoring,8,Not Applicable,Not Applicable,
+101,Team,LEO largo (30 d-1 año),4x2,Accepted with Monitoring,8,Not Applicable,Not Applicable,
+101,Team,Órbita lunar corto,4x2,Requires Mitigation,8,Not Applicable,Not Applicable,
+101,Team,Órbita lunar largo,5x3,Requires Mitigation,15,Not Applicable,Not Applicable,
+101,Team,Luna órbita+superficie corto,5x3,Accepted with Monitoring,15,Not Applicable,Not Applicable,
+101,Team,Luna órbita+superficie largo,5x3,Requires Mitigation,15,Not Applicable,Not Applicable,
+101,Team,Marte preparatorio (<1 año),5x4,Requires Mitigation,20,Not Applicable,Not Applicable,
+101,Team,Marte planetario (730-1224 d),5x5,Requires Mitigation,25,Not Applicable,Not Applicable,
+177,Pharm,LEO corto (<30 d),1x1,Accepted,1,1x1,Accepted,1
+177,Pharm,LEO largo (30 d-1 año),1x1,Accepted,1,1x1,Accepted,1
+177,Pharm,Órbita lunar corto,2x1,Accepted,2,1x1,Accepted,1
+177,Pharm,Órbita lunar largo,3x2,Accepted with Optimization,6,2x2,Accepted with Monitoring,4
+177,Pharm,Luna órbita+superficie corto,3x1,Accepted with Optimization,3,2x1,Accepted with Monitoring,2
+177,Pharm,Luna órbita+superficie largo,4x2,Accepted with Optimization,8,2x2,Accepted with Monitoring,4
+177,Pharm,Marte preparatorio (<1 año),4x3,Requires Characterization,12,3x2,Accepted with Monitoring,6
+177,Pharm,Marte planetario (730-1224 d),5x3,Requires Mitigation,15,5x3,Requires Mitigation,15
+84,EVA,LEO corto (<30 d),4x2,Accepted,8,5x2,Accepted with Optimization,10
+84,EVA,LEO largo (30 d-1 año),4x2,Accepted,8,5x2,Accepted with Optimization,10
+84,EVA,Órbita lunar corto,4x3,Accepted with Optimization,12,5x2,Accepted with Optimization,10
+84,EVA,Órbita lunar largo,4x3,Accepted with Optimization,12,5x2,Accepted with Optimization,10
+84,EVA,Luna órbita+superficie corto,5x4,Requires Mitigation,20,5x2,Accepted with Optimization,10
+84,EVA,Luna órbita+superficie largo,5x4,Requires Mitigation,20,5x2,Accepted with Optimization,10
+84,EVA,Marte preparatorio (<1 año),4x3,Accepted with Optimization,12,5x2,Accepted with Optimization,10
+84,EVA,Marte planetario (730-1224 d),5x4,Requires Mitigation,20,5x2,Accepted with Optimization,10
+168,DCS,LEO corto (<30 d),2x2,Accepted,4,2x1,Accepted,2
+168,DCS,LEO largo (30 d-1 año),2x2,Accepted,4,2x1,Accepted,2
+168,DCS,Órbita lunar corto,2x2,Accepted,4,2x1,Accepted,2
+168,DCS,Órbita lunar largo,2x2,Accepted,4,2x1,Accepted,2
+168,DCS,Luna órbita+superficie corto,5x3,Requires Mitigation,15,2x1,Accepted,2
+168,DCS,Luna órbita+superficie largo,5x3,Requires Mitigation,15,2x1,Accepted,2
+168,DCS,Marte preparatorio (<1 año),2x2,Accepted,4,2x1,Accepted,2
+168,DCS,Marte planetario (730-1224 d),5x3,Requires Mitigation,15,2x1,Accepted,2
+180,Muscle and Aerobic,LEO corto (<30 d),5x1,Accepted with Optimization,5,3x1,Accepted,3
+180,Muscle and Aerobic,LEO largo (30 d-1 año),5x1,Requires Characterization,5,5x2,Accepted with Optimization,10
+180,Muscle and Aerobic,Órbita lunar corto,5x1,Accepted with Optimization,5,3x1,Accepted,3
+180,Muscle and Aerobic,Órbita lunar largo,5x1,Requires Characterization,5,5x2,Accepted with Optimization,10
+180,Muscle and Aerobic,Luna órbita+superficie corto,5x2,Requires Characterization,10,3x1,Accepted with Optimization,3
+180,Muscle and Aerobic,Luna órbita+superficie largo,5x3,Requires Mitigation,15,5x2,Requires Characterization,10
+180,Muscle and Aerobic,Marte preparatorio (<1 año),5x2,Requires Mitigation,10,5x2,Requires Characterization,10
+180,Muscle and Aerobic,Marte planetario (730-1224 d),5x4,Requires Mitigation,20,5x3,Requires Mitigation,15
+176,Food and Nutrition,LEO corto (<30 d),2x2,Accepted with Monitoring,4,1x1,Accepted,1
+176,Food and Nutrition,LEO largo (30 d-1 año),5x2,Accepted with Optimization,10,3x2,Accepted with Monitoring,6
+176,Food and Nutrition,Órbita lunar corto,5x2,Accepted with Optimization,10,3x2,Accepted with Monitoring,6
+176,Food and Nutrition,Órbita lunar largo,5x3,Requires Mitigation,15,4x2,Requires Mitigation,8
+176,Food and Nutrition,Luna órbita+superficie corto,5x3,Requires Mitigation,15,3x2,Accepted with Monitoring,6
+176,Food and Nutrition,Luna órbita+superficie largo,5x4,Requires Mitigation,20,4x3,Requires Mitigation,12
+176,Food and Nutrition,Marte preparatorio (<1 año),5x4,Requires Mitigation,20,5x3,Requires Mitigation,15
+176,Food and Nutrition,Marte planetario (730-1224 d),5x5,Requires Mitigation,25,5x3,Requires Mitigation,15
+100,Sleep,LEO corto (<30 d),5x2,Accepted with Optimization,10,3x1,Accepted with Monitoring,3
+100,Sleep,LEO largo (30 d-1 año),5x2,Accepted with Optimization,10,3x1,Accepted with Monitoring,3
+100,Sleep,Órbita lunar corto,5x2,Requires Characterization,10,3x1,Accepted with Monitoring,3
+100,Sleep,Órbita lunar largo,5x2,Requires Characterization,10,3x1,Accepted with Monitoring,3
+100,Sleep,Luna órbita+superficie corto,5x2,Requires Characterization,10,3x1,Accepted with Monitoring,3
+100,Sleep,Luna órbita+superficie largo,5x2,Requires Characterization,10,3x1,Accepted with Monitoring,3
+100,Sleep,Marte preparatorio (<1 año),5x2,Requires Mitigation,10,4x2,Requires Mitigation,8
+100,Sleep,Marte planetario (730-1224 d),5x2,Requires Mitigation,10,4x2,Requires Mitigation,8
+96,Carcinogenesis,LEO corto (<30 d),1x1,Accepted,1,3x1,Accepted,3
+96,Carcinogenesis,LEO largo (30 d-1 año),1x1,Accepted,1,3x2,Requires Characterization,6
+96,Carcinogenesis,Órbita lunar corto,1x1,Accepted,1,3x1,Accepted,3
+96,Carcinogenesis,Órbita lunar largo,1x1,Accepted,1,3x2,Requires Characterization,6
+96,Carcinogenesis,Luna órbita+superficie corto,1x1,Accepted,1,3x1,Accepted,3
+96,Carcinogenesis,Luna órbita+superficie largo,1x1,Accepted,1,3x2,Requires Characterization,6
+96,Carcinogenesis,Marte preparatorio (<1 año),1x1,Accepted,1,3x3,Requires Mitigation,9
+96,Carcinogenesis,Marte planetario (730-1224 d),1x1,Accepted,1,3x3,Requires Mitigation,9
+173,Hypoxia,LEO corto (<30 d),3x2,Accepted with Monitoring,6,2x1,Accepted,2
+173,Hypoxia,LEO largo (30 d-1 año),3x2,Accepted with Monitoring,6,2x2,Requires Characterization,4
+173,Hypoxia,Órbita lunar corto,3x2,Accepted with Monitoring,6,2x1,Accepted,2
+173,Hypoxia,Órbita lunar largo,3x2,Accepted with Monitoring,6,2x2,Requires Characterization,4
+173,Hypoxia,Luna órbita+superficie corto,3x2,Accepted with Monitoring,6,2x1,Accepted,2
+173,Hypoxia,Luna órbita+superficie largo,3x3,Accepted with Monitoring,9,2x2,Requires Characterization,4
+173,Hypoxia,Marte preparatorio (<1 año),3x3,Accepted with Monitoring,9,2x2,Requires Characterization,4
+173,Hypoxia,Marte planetario (730-1224 d),3x3,Accepted with Monitoring,9,2x2,Requires Characterization,4
+81,Renal Stone,LEO corto (<30 d),1x4,Accepted with Monitoring,4,1x3,Accepted with Monitoring,3
+81,Renal Stone,LEO largo (30 d-1 año),3x4,Accepted with Monitoring,12,2x3,Accepted with Monitoring,6
+81,Renal Stone,Órbita lunar corto,1x4,Accepted with Monitoring,4,1x3,Accepted with Monitoring,3
+81,Renal Stone,Órbita lunar largo,3x4,Accepted with Monitoring,12,2x3,Accepted with Monitoring,6
+81,Renal Stone,Luna órbita+superficie corto,1x4,Accepted with Monitoring,4,1x3,Accepted with Monitoring,3
+81,Renal Stone,Luna órbita+superficie largo,3x4,Accepted with Monitoring,12,2x3,Accepted with Monitoring,6
+81,Renal Stone,Marte preparatorio (<1 año),3x4,Requires Mitigation,12,3x4,Requires Mitigation,12
+81,Renal Stone,Marte planetario (730-1224 d),4x4,Requires Mitigation,16,4x4,Requires Mitigation,16
+105,SANS,LEO corto (<30 d),4x1,Accepted,4,2x2,Accepted,4
+105,SANS,LEO largo (30 d-1 año),4x3,Accepted with Monitoring,12,4x3,Requires Mitigation,12
+105,SANS,Órbita lunar corto,4x1,Accepted,4,2x2,Accepted,4
+105,SANS,Órbita lunar largo,4x3,Accepted with Monitoring,12,4x3,Requires Mitigation,12
+105,SANS,Luna órbita+superficie corto,4x1,Accepted,4,2x2,Accepted,4
+105,SANS,Luna órbita+superficie largo,4x3,Accepted with Monitoring,12,4x3,Requires Mitigation,12
+105,SANS,Marte preparatorio (<1 año),4x3,Accepted with Monitoring,12,4x3,Requires Mitigation,12
+105,SANS,Marte planetario (730-1224 d),4x4,Requires Mitigation,16,4x5,Requires Mitigation,20

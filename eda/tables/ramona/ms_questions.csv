@@ -1,0 +1,59 @@
+Topic,Subtopic,QuestionCode,ShortQuestionText,Greater_Risk_Question,rows,rows_with_value
+Alcohol and Other Drug Use,Alcohol Use,M26,Ever alcohol use,Ever drank alcohol,18144,5936
+Alcohol and Other Drug Use,Alcohol Use,M27,Initiation of alcohol use,Drank alcohol for the first time before age 11 years,15264,5341
+Alcohol and Other Drug Use,Other Drug Use,M28,Ever marijuana use,Ever used marijuana,19104,6179
+Alcohol and Other Drug Use,Other Drug Use,M29,Initiation of marijuana use,Tried marijuana for the first time before age 11 years,15264,5437
+Alcohol and Other Drug Use,Other Drug Use,M30,Ever cocaine use,Ever used cocaine,16800,5714
+Alcohol and Other Drug Use,Other Drug Use,M31,Ever inhalant use,Ever used inhalants,9792,3644
+Alcohol and Other Drug Use,Other Drug Use,M32,Ever steroid use,Ever took steroids without a doctor's prescription,7872,2727
+Alcohol and Other Drug Use,Other Drug Use,M33,Ever prescription pain medicine use,Ever took prescription pain medicine without a doctor's prescription or differently than how a doctor told them to use it,2592,1041
+Dietary Behaviors,Breakfast,M40,Breakfast eating,Did not eat breakfast,8448,3181
+Dietary Behaviors,Breakfast,QNBK7DAY,Daily breakfast eating,Did not eat breakfast on all 7 days,8448,3181
+Other Health Topics,Asthma,M47,Asthma,Were ever been told by a doctor or nurse that they had asthma,13920,4968
+Other Health Topics,Sleep,M48,Sleep,Did not get 8 or more hours of sleep,5760,2310
+Physical Activity,Physical Activity,M41,Physical activity >= 5 days,Were not physically active at least 60 minutes per day on 5 or more days,15168,5427
+Physical Activity,Physical Activity,M42,Television watching,Watched television 3 or more hours per day,19296,6542
+Physical Activity,Physical Activity,M43,Computer use,Played video or computer games or used a computer 3 or more hours per day,14400,5125
+Physical Activity,Physical Activity,M44,PE attendance,Did not go to physical education (PE) classes on 1 or more days,18144,6068
+Physical Activity,Physical Activity,M45,Sports team participation,Did not play on at least one sports team,12864,4591
+Physical Activity,Physical Activity,M46,Concussion,Had a concussion from playing a sport or being physically active,2112,824
+Physical Activity,Physical Activity,QNDLYPE,Daily PE attendance,Did not go to physical education (PE) classes on all 5 days,18144,6068
+Physical Activity,Physical Activity,QNPA0DAY,Physical activity,Were not physically active for a total of at least 60 minutes on at least 1 day,15168,5427
+Physical Activity,Physical Activity,QNPA7DAY,Daily physical activity,Were not physically active at least 60 minutes per day on all 7 days,15168,5427
+Sexual Behaviors,Sexual Behaviors,M34,Ever sexual intercourse,Ever had sexual intercourse,16320,5191
+Sexual Behaviors,Sexual Behaviors,M35,Sex before 11 years,Had sexual intercourse for the first time before age 11 years,11712,3961
+Sexual Behaviors,Sexual Behaviors,M36,Multiple sex partners,Ever had sexual intercourse with three or more persons,10656,3587
+Sexual Behaviors,Sexual Behaviors,M37,Condom use,Did not use a condom during last sexual intercourse,15264,1005
+Tobacco Use,Cigarette Use,M17,Ever cigarette use,Ever tried cigarette smoking,17376,5677
+Tobacco Use,Cigarette Use,M18,Initiation of cigarette use,Tried cigarette smoking for the first time before age 11 years,2208,855
+Tobacco Use,Cigarette Use,M19,Current cigarette use,Currently smoked cigarettes,21024,6966
+Tobacco Use,Cigarette Use,M20,Smoked >10 cigarettes,Smoked more than 10 cigarettes per day,16416,422
+Tobacco Use,Cigarette Use,QNDAYCIG,Current daily cigarette use,Currently smoked cigarettes daily,21024,6966
+Tobacco Use,Cigarette Use,QNFRCIG,Frequent cigarette use,Currently frequently smoked cigarettes,21024,6966
+Tobacco Use,Other Tobacco Use,M21,Electronic vapor product use,Ever used an electronic vapor product,4416,1801
+Tobacco Use,Other Tobacco Use,M22,Current electronic vapor product use,Currently used an electronic vapor product,4512,1840
+Tobacco Use,Other Tobacco Use,M23,Electronic vapor products from store,Usually got their own electronic vapor products by buying them in a store,1728,71
+Tobacco Use,Other Tobacco Use,M24,Current smokeless tobacco use,Currently used smokeless tobacco,2208,812
+Tobacco Use,Other Tobacco Use,M25,Current cigar use,Currently smoked cigars,16224,5319
+Tobacco Use,Other Tobacco Use,QNDAYCGR,Current daily cigar use,Currently smoked cigars daily,16224,5319
+Tobacco Use,Other Tobacco Use,QNDAYEVP,Current daily electronic vapor product use,Currently used electronic vapor products daily,4512,1840
+Tobacco Use,Other Tobacco Use,QNDAYSKL,Current daily smokeless tobacco use,Currently used smokeless tobacco daily,2208,812
+Tobacco Use,Other Tobacco Use,QNFRCGR,Frequent cigar use,Currently frequently smoked cigars,16224,5319
+Tobacco Use,Other Tobacco Use,QNFREVP,Frequent electronic vapor product use,Currently frequently used electronic vapor products,4512,1840
+Tobacco Use,Other Tobacco Use,QNFRSKL,Frequent smokeless tobacco use,Currently frequently used smokeless tobacco,2208,812
+Tobacco Use,Other Tobacco Use,QNTB2,Current cigarette or cigar use,Currently smoked cigarettes or cigars,16320,5257
+Tobacco Use,Other Tobacco Use,QNTB3,"Current cigarette, cigar, or smokeless tobacco use",Currently smoked cigarettes or cigars or used smokeless tobacco,2112,750
+Tobacco Use,Other Tobacco Use,QNTB4,Current tobacco use,Currently smoked cigarettes or cigars or used smokeless tobacco or an electronic vapor product,2016,708
+Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,M6,Bicycle helmet use,Rarely or never wore a bicycle helmet,19680,5952
+Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,M7,Rollerblading helmet use,Rarely or never wore a helmet when rollerblading or skateboarding,17568,4055
+Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,M8,Seat belt use,Rarely or never wore a seat belt,20352,6635
+Unintentional Injuries and Violence,Behaviors that Contribute to Unintentional Injuries,M9,Riding with a drinking driver,Ever rode with a driver who had been drinking alcohol,19584,6555
+Unintentional Injuries and Violence,Behaviors that Contribute to Violence,M10,Weapon carrying,Ever carried a weapon,15072,4998
+Unintentional Injuries and Violence,Behaviors that Contribute to Violence,M11,Physical fighting,Were ever in a physical fight,16896,5473
+Unintentional Injuries and Violence,Behaviors that Contribute to Violence,M12,Bullying at school,Were ever bullied on school property,12096,4343
+Unintentional Injuries and Violence,Behaviors that Contribute to Violence,M13,Electronic Bullying,Were ever electronically bullied,10272,3773
+Unintentional Injuries and Violence,Suicide-Related Behaviors,M14,Considered suicide,Ever seriously thought about killing themselves,20544,6924
+Unintentional Injuries and Violence,Suicide-Related Behaviors,M15,Suicide plan,Ever made a plan about how they would kill themselves,18720,6451
+Unintentional Injuries and Violence,Suicide-Related Behaviors,M16,Attempted suicide,Ever tried to kill themselves,19680,6472
+Weight Control,Weight Control,M38,Perception of weight,Described themselves as slightly or very overweight,20160,6680
+Weight Control,Weight Control,M39,Weight loss,Were not trying to lose weight,19872,6506

@@ -1,0 +1,18 @@
+tema,bandera,estudios,pct_de_577,en_vuelo_espacial,en_raton_o_rata,en_humano
+Sistema inmune / inflamación,t_inmune,213,36.9,118,100,60
+"Cerebro, sistema nervioso y estrés",t_cerebro_conducta,183,31.7,99,67,41
+Hígado y metabolismo,t_higado_metabolismo,174,30.2,110,98,24
+Radiación,t_radiacion,146,25.3,33,61,43
+Hueso,t_hueso,115,19.9,81,72,22
+Astronautas / tripulación,t_astronautas_humanos,111,19.2,67,45,34
+Plantas,t_plantas,107,18.5,58,11,4
+Músculo,t_musculo,105,18.2,67,75,23
+Corazón y vasos,t_cardiovascular,81,14.0,63,65,12
+Ejercicio y contramedidas,t_ejercicio_contramedida,59,10.2,26,25,21
+Microbioma,t_microbioma,52,9.0,38,5,1
+Dieta / nutrición,t_nutricion_dieta,50,8.7,31,13,4
+Ojo / visión,t_ojo_SANS,41,7.1,35,30,3
+"Análogos: aislamiento, reposo en cama",t_aislamiento_confinamiento,31,5.4,8,10,10
+Piel,t_piel,26,4.5,14,12,9
+Riñón,t_rinon,23,4.0,18,18,1
+Sueño / ritmo circadiano,t_sueno_circadiano,3,0.5,3,3,0

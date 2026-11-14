@@ -1,0 +1,21 @@
+metrica,valor
+filas (astronauta-misión),1277
+personas únicas (number+name),565
+personas de carrera (sin turistas/participantes),554
+edad selección mediana,34.0
+edad selección q1,31.0
+edad selección q3,37.0
+edad selección p10,28.0
+edad selección p90,40.0
+edad selección min,23
+edad selección max,55
+% seleccionados entre 26 y 40,87.7
+edad primer vuelo mediana,40.0
+espera selección→primer vuelo mediana (años),6.0
+"% civiles (carrera, todas las décadas)",39.9
+mujeres (personas),64
+% mujeres (personas),11.3
+banderas distintas,40
+% personas EE.UU. + URSS/Rusia,82.5
+personas con bandera México,1
+misión más larga (días),437.7

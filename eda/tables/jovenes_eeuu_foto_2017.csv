@@ -1,0 +1,6 @@
+indicador,codigo_secundaria,codigo_prepa,secundaria_mediana_estados_pct,secundaria_n_estados,secundaria_min_estado,secundaria_max_estado,secundaria_mujeres_mediana,secundaria_hombres_mediana,prepa_nacional_pct,prepa_ic_bajo,prepa_ic_alto,prepa_n,prepa_mujeres_pct,prepa_hombres_pct
+No hace 60 min de actividad física los 7 días,QNPA7DAY,QNPA7DAY,69.8,14,56.2,75.1,76.3,64.0,73.9,71.7,75.9,14238,82.5,64.7
+Duerme menos de 8 horas entre semana,M48,H88,46.4,11,36.4,51.1,47.4,43.5,74.6,73.1,76.0,11811,75.4,73.7
+3 h o más al día de pantalla recreativa,M43,H81,44.4,13,37.5,49.5,44.8,43.9,43.0,41.1,44.9,13839,43.1,43.0
+No juega en ningún equipo deportivo,M45,H83,39.5,11,31.2,50.4,42.5,37.3,45.7,42.0,49.4,11720,50.7,40.3
+No tiene educación física diaria,QNDLYPE,QNDLYPE,72.0,11,46.8,93.1,72.6,71.3,70.1,63.0,76.4,14151,74.7,65.3

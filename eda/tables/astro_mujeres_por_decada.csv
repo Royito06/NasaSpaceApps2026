@@ -1,0 +1,13 @@
+eje,decada,n,mujeres,pct_mujeres
+decada_seleccion (personas de carrera),1959-69,101,1,1.0
+decada_seleccion (personas de carrera),1970s,76,6,7.9
+decada_seleccion (personas de carrera),1980s,129,17,13.2
+decada_seleccion (personas de carrera),1990s,172,25,14.5
+decada_seleccion (personas de carrera),2000s,64,9,14.1
+decada_seleccion (personas de carrera),2010-18*,12,4,33.3
+"decada_mision (asientos, todos)",1960s,66,1,1.5
+"decada_mision (asientos, todos)",1970s,79,0,0.0
+"decada_mision (asientos, todos)",1980s,231,17,7.4
+"decada_mision (asientos, todos)",1990s,452,68,15.0
+"decada_mision (asientos, todos)",2000s,292,37,12.7
+"decada_mision (asientos, todos)",2010s,157,20,12.7

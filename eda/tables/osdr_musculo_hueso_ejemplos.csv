@@ -1,0 +1,157 @@
+Accession,Study Title,organism,Project Type,Mission,t_musculo,t_hueso,t_ejercicio_contramedida
+OSD-232,The response of murine cartilages to 30 days of microgravity,Mus musculus,Spaceflight Study,BION-M1,0,1,0
+OSD-225,Expression profiling of soleus muscle under the effect of simulated spaceflight,Rattus norvegicus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,1
+OSD-548,Balancing apelin and angiotensin-II signaling to reduce heart injury during weightlessness,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-195,Effects of 21 days of bedrest on human skeletal muscle gene expression,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,1
+OSD-133,Acute transcriptional up-regulation specific to osteoblasts/osteoclasts in medaka fish immediately after exposure to microgravity,Oryzias latipes,Spaceflight Study,Expedition 33/34,0,1,0
+OSD-484,Astronauts plasma-derived exosomes induced gene expression in AC16 cells,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,0
+OSD-943,Longitudinal transcriptomic and epigenetic analysis in astronauts reveals dynamic immune response to spaceflight [DNA methylation],Homo sapiens,Spaceflight Study,AX-1,0,1,0
+OSD-903,Longitudinal transcriptomic and epigenetic analysis in astronauts reveals dynamic immune response to spaceflight [RNA-seq],Homo sapiens,Spaceflight Study,AX-1,0,1,0
+OSD-343,Comprehensive multi-omics analysis reveals mitochondrial stress as a central biological hub for spaceflight impact,Mus musculus,Spaceflight Study,SpaceX-12,1,0,0
+OSD-52,Expression data from SPHINX (SPaceflight of Huvec: an INtegrated eXperiment),Homo sapiens,Spaceflight Study,Expedition 25,1,1,0
+OSD-30,Transcription profiling of mouse osteoblasts under static vs simulated microgravity,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-18,Microarray Profile of Gene Expression during Osteoclast Differentiation in Modeled Microgravity,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-342,Targeting myostatin/activin A protects against skeletal muscle and bone loss during spaceflight [plasma proteomics],Mus musculus,Spaceflight Study,SpaceX-19,1,1,0
+OSD-319,"Muscle atrophy, osteoporosis prevention in hibernating mammals",Urocitellus parryii,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,0
+OSD-984,Low-dose Simulated Galactic Cosmic Radiation Exposure After Hindlimb Unloading Has Long-term Impact on Skeletal Muscle Metabolic Proteins,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-541,Simulated Microgravity Exerts an Age-Dependent Effect on the Differentiation of Cardiovascular Progenitors Isolated from the Human Heart,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,0
+OSD-214,Impact of Antiorthostatic Suspension on Mouse response to Tetanus Toxoid and CpG: bone marrow transcriptomic data,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-201,Impact of Antiorthostatic Suspension on Mouse response to Tetanus Toxoid and CpG,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-227,Effect of acute muscle unloading on soleus and gastrocnemius muscle gene expression,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,0
+OSD-467,Transcriptomic profiling of cortical bone from hindlimb unloaded mice,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-946,Exercise Training Attenuates the Muscle Mitochondria Genomic Response to Bed Rest (miRNA microarray data),Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,1
+OSD-539,Transcriptomic response of bioengineered human cartilage to parabolic flight microgravity is sex-dependent,Homo sapiens,High Altitude Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-83,Comparative Transcriptomic Analysis of Adult Medaka Tissues Sampled after Adaptation to a Space Environment,Oryzias latipes,Spaceflight Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-21,Effects of spaceflight on murine skeletal muscle gene expression,Mus musculus,Spaceflight,STS-108,1,1,0
+OSD-107,The Role of PTHrP in Osteoblast Response to Microgravity: Implications for Osteoporosis Development.,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-123,Exposure of zebrafish larvae to 3g and 5g hyper gravity between 5-6 days post-fertilization.,Danio rerio,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,1
+OSD-127,Global gene expression profiles of cardiac progenitors differentiated from human pluripotent stem cells in 3D culture under simulated microg,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,0
+OSD-228,Hindlimb suspension and reloading study,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-354,Molecular Transducers of Human Skeletal Muscle Remodeling under Different Loading States,Homo sapiens,Ground study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,0
+OSD-401,Alternative splicing regulates the physiological adaptation of the mouse hind limb postural and phasic muscles to microgravity,Mus musculus,Spaceflight Study,SpaceX-11,1,1,0
+OSD-430,Modulation of gene expression in rat muscle cells following treatment with nanoceria in different gravity regimes,Rattus norvegicus,Spaceflight Study,SpaceX-12,1,0,1
+OSD-44,Transcriptomics analysis of etiolated Arabidopsis thaliana seedlings in response to microgravity,Arabidopsis thaliana,Spaceflight Study,STS-131,0,1,0
+OSD-153,Non-targeted effects of low dose ionizing radiation act via TGF-beta to promote mammary carcinogenesis,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-117,Delayed Cardiomyocyte Response to Total Body Particle Radiation Exposure - Identification of Regulatory Gene Network [proton],Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-135,Global gene expression analysis highlights microgravity sensitive key genes in longissimus dorsi and tongue of 30 days space-flown mice,Mus musculus,Spaceflight Study,Bion_M1,1,0,0
+OSD-942,Exercise Training Attenuates the Muscle Mitochondria Genomic Response to Bed Rest (microarray data),Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,1
+OSD-876,Zfp697 is an RNA-binding protein that regulates skeletal muscle inflammation and remodeling,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-198,Effects of bedrest and hypoxia on human skeletal muscle miRNA expression,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,1
+OSD-949,"Skeletal muscle-specific inducible AMPKa1/a2 knockout mice develop muscle weakness, glycogen depletion, and fibrosis that persists during di",Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-295,RNA-Seq transcriptome profiling of soleus from adult and aged mice following disuse muscle atrophy and recovery,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,0
+OSD-236,"Transcriptomic analysis of quadriceps from mice subjected to simulated spaceflight euthanasia, freezing, and tissue preservation protocols",Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-370,Insulin resistance induced by physical inactivity is associated with multiple transcriptional changes in skeletal muscle in young men,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,1
+OSD-918,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Blood data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-109,Delayed Cardiomyocyte Response to Total Body Particle Radiation Exposure - Identification of Regulatory Gene Network [iron],Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-76,Zebrafish larvae submitted to simulated microgravity on a clinostat (CLINO) at 5dpf for one day,Danio rerio,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-60,Exposure of zebrafish larvae to relative microgravity between 5-6 days post-fertilization,Danio rerio,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,1
+OSD-345,Mouse femur LC-MSMS upon weightlessness,Mus musculus,Spaceflight Study,Bion-M1,0,1,0
+OSD-867,Impact of spaceflight on gene expression in cultured human mesenchymal stem/stromal cell,Homo sapiens,Spaceflight Study,SpaceX-10,1,0,0
+OSD-787,Skeletal muscle-on-a-chip in microgravity as a platform for regeneration modeling and drug screening - vastus lateralis data,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-111,Global gene expression analysis highlights microgravity sensitive key genes in soleus and EDL of 30 days space flown mice,Mus musculus,Spaceflight Study,Bion_M1,1,1,1
+OSD-61,Effect of a 91 day long stay in weightlessness on the International Space Station on mouse skin physiology,Mus musculus,Spaceflight Study,STS-128,0,1,0
+OSD-29,Genechip analysis of bone marrow osteoprogenitors exposed to microgravity,Mus musculus,Spaceflight Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-122,Microgravity induces proteomics changes involved in endoplasmic reticulum stress and mitochondrial protection,Rattus norvegicus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-78,Transcription profiling of human MCF10A cells subjected to ionizing radiation and treatment with transforming growth factor beta-1,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,1
+OSD-924,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - limb muscle data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-920,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Eye data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-921,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Heart atria data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-880,Zfp697 is an RNA-binding protein that regulates skeletal muscle inflammation and remodeling - Zfp697 skeletal muscle knockout RNA-Seq of unl,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-289,Impact of spaceflight on gene expression in the thymus,Mus musculus,Spaceflight study,SpaceX-9  SpaceX-12,1,0,0
+OSD-100,Rodent Research-1 (RR1) NASA Validation Flight: Mouse eye transcriptomic and epigenomic data,Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-315,Comparative proteomic analysis and bioluminescent reporter gene assays to investigate effects of simulated microgravity on Caco-2 cells,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-258,Effects of Spaceflight on Human Induced Pluripotent Stem Cell-Derived Cardiomyocyte Structure and Function,Homo sapiens,Spaceflight Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,0
+OSD-922,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Heart ventricles data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-784,Multidirectional effect of low-intensity electrical myostimulation on gene expression and phenotype in thigh and calf muscles after one week,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,1
+OSD-783,Multidirectional effect of low-intensity electrical myostimulation on gene expression and phenotype in thigh and calf muscles after one week,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,1
+OSD-702,"Effects of 32 Days Aboard the ISS on Quadricep Tendon Nanomechanics (Quadricep femoris tendon, RR-1 and Atomic Force Microscopy)",Mus musculus,Spaceflight Study,SpaceX-4,1,0,0
+OSD-51,Woman skeletal muscle transcriptome with bed rest and countermeasures.,Homo sapiens,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,1
+OSD-927,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Myeloid cerebellum data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-956,Gravitational and mechanical forces drive mitochondrial translation - C. elegans datasets,Caenorhabditis elegans,Spaceflight Study,SpaceX-5,1,1,0
+OSD-811,Space microgravity increases expression of genes associated with proliferation and differentiation in human cardiac spheres,Homo sapiens,Spaceflight Study,SpaceX-20,1,0,0
+OSD-928,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Myeloid forebrain data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-240,Transcriptional analysis of dorsal skin from mice flown on the RR-5 mission,Mus musculus,Spaceflight Study,SpaceX-11,0,1,0
+OSD-516,Modeling cellular responses to serum and vitamin D in microgravity using a human kidney microphysiological system,Homo sapiens,Spaceflight Study,SpaceX-17,0,1,0
+OSD-334,miRNA signature detection and countermeasures against HZE radiation exposure for tissue degeneration-Heart tissue,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,1
+OSD-139,Mouse muscle LC-MSMS upon weightlessness,Mus musculus,Spaceflight Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,0
+OSD-929,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Myeloid hippocampus data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-919,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Bone data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-599,Transcriptomic Effects on the Mouse Heart Following 30 Days on the International Space Station,Mus musculus,Spaceflight Study,NG-11,0,1,0
+OSD-635,Spaceflight effects on human vascular smooth muscle cell phenotype and function,Homo sapiens,Spaceflight Study,SpaceX-17,1,1,0
+OSD-935,Long non‐coding RNAs Kcnq1ot1 and Lncpint are involved in skeletal muscle atrophy induced by the space exposome,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-540,Ten-day human unilateral lower limb suspension and active recovery in young healthy men,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,1
+OSD-933,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Skeletal stem cells data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-923,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Large intestine data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-241,Transcriptional analysis of femoral skin from mice flown on the RR-5 mission,Mus musculus,Spaceflight Study,SpaceX-11,0,1,0
+OSD-335,miRNA signature detection and countermeasures against HZE radiation exposure for tissue degeneration-Liver tissue,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,1
+OSD-337,miRNA signature detection and countermeasures against HZE radiation exposure for tissue degeneration-Soleus muscle,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,1
+OSD-466,Microbiome profiling of feces from mice flown on the RR-10 mission,Microbiota,Spaceflight Study,SpaceX-21,0,1,0
+OSD-598,Simulated Microgravity-Induced Changes in SUMOylation and Protein Expression in Saccharomyces cerevisiae,Saccharomyces cerevisiae,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,0
+OSD-110,The influence of simulated microgravity on the proteome of Daphnia magna,Daphnia magna,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-932,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Non-myeloid hippocampus data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-930,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Non-myeloid cerebellum data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-326,Gene-metabolite network linked to inhibited bioenergetics in association with spaceflight induced loss of quadriceps muscle,Mus musculus,Spaceflight Study,SpaceX-10,1,1,0
+OSD-419,Transcriptional profiling of the right gastrocnemius muscle from mice flown on the RR-1 mission,Mus musculus,Spaceflight Study,SpaceX-4,1,0,0
+OSD-926,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Bone marrow data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-937,Microgravity accelerates skeletal muscle degeneration: Functional and transcriptomic insights from an ISS muscle lab-on-chip model,Homo sapiens,Spaceflight Study,SpaceX-25,1,1,1
+OSD-941,Spaceflight reshapes Alzheimer's disease–associated molecular programs in human brain organoids,Homo sapiens,Spaceflight Study,SpaceX-30,0,1,0
+OSD-666,Transcriptional profiling of right quadriceps femoris muscle from mice flown on the RR-23 mission,Mus musculus,Spaceflight Study,SpaceX-21,1,0,0
+OSD-689,Single-cell analysis identifies conserved features of immune dysfunction in simulated microgravity and spaceflight,Homo sapiens,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",0,1,1
+OSD-418,Transcriptional profiling of gastrocnemius from rats exposed to partial weight bearing treatment to mimic Martian gravity,Rattus norvegicus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,1,0
+OSD-336,miRNA signature detection and countermeasures against HZE radiation exposure for tissue degeneration-Plasma,Mus musculus,Ground Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",1,0,1
+OSD-931,Spaceflight induces systemic effects on extracellular matrix and immune system in different age-stages - Non-myeloid forebrain data,Mus musculus,Spaceflight Study,SpaceX-16,1,1,0
+OSD-665,Transcriptional profiling of right extensor digitorum longus muscle from mice flown on the RR-23 mission,Mus musculus,Spaceflight Study,SpaceX-21,1,0,0
+OSD-546,SCD – Stem Cell Differentiation Toward Osteoblast Onboard the International Space Station,Homo sapiens,Spaceflight Study,Soyuz TMA-16M  Soyuz TMA-15M,0,1,0
+OSD-20,Candida albicans response to spaceflight (NASA STS-115),Candida albicans,Spaceflight Study,STS-115,0,1,0
+OSD-324,Osteocytes transcriptome is altered during spaceflight,Mus musculus,Spaceflight Study,SpaceX-6,0,1,0
+OSD-50,Evaluation of in vitro macrophage differentiation during space flight,,Spaceflight Study,STS-126,0,1,0
+OSD-96,The development of Drosophila melanogaster during space flight,Drosophila melanogaster,Spaceflight Study,Foton-M4 and ISS Expedition 40/41,0,1,0
+OSD-422,Transcriptional profiling of gastrocnemius muscle from rats flown on the SLS-1 mission,Rattus norvegicus,Spaceflight Study,STS-40,1,0,0
+OSD-770,Transcriptional profiling of soleus muscle from mice flown on the RR-23 mission,Mus musculus,Spaceflight Study,SpaceX-21,1,0,0
+OSD-423,Transcriptional profiling of thymus tissue from rats flown on the SLS-2 mission,Rattus norvegicus,Spaceflight Study,STS-58,1,1,0
+OSD-426,Cerium oxide nanoparticle administration to skeletal muscle cells under different gravity and radiation conditions,Mus musculus,Spaceflight Study,SpaceX-17,1,1,0
+OSD-485,Changes of Gene Expression in Euglena gracilis Obtained During the 29th DLR Parabolic Flight Campaign,Euglena gracilis,High Altitude Study,"{""Start Date"": """", ""End Date"": """", ""Name"": """"}",0,1,0
+OSD-99,Rodent Research-1 (RR1) NASA Validation Flight: Mouse extensor digitorum longus muscle transcriptomic and epigenomic data,Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-274,Transcriptional analysis of soleus from mice preserved with the Rapid Freeze hardware,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,0,0
+OSD-243,Transcriptional analysis of dorsal skin from mice flown on the RR-6 mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-576,Transcriptional profiling of tibialis anterior muscle from mice flown on the RR-23 mission,Mus musculus,Spaceflight Study,SpaceX-21,1,1,0
+OSD-955,Gravitational and mechanical forces drive mitochondrial translation - mouse datasets,Mus musculus,Ground Study,"{""End Date"": """", ""Start Date"": """", ""Name"": """"}",1,1,0
+OSD-244,Transcriptional analysis of thymus from mice flown on the RR-6 Mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-58,Genes Required for Survival in Microgravity Revealed by Genome-Wide Yeast Deletion Collections Cultured during Spaceflight,Saccharomyces cerevisiae,Spaceflight Study,STS-135,0,1,0
+OSD-248,Transcriptional analysis of lung from mice flown on the RR-6 mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-245,Transcriptional analysis of liver from mice flown on the RR-6 mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-104,Rodent Research-1 (RR1) NASA Validation Flight: Mouse soleus muscle transcriptomic and epigenomic data,Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-247,Transcriptional analysis of colon from mice flown on the RR-6 mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-396,Gene-metabolite networks associated with impediment of bone fracture repair in spaceflight,Mus musculus,Spaceflight Study,SpaceX-10,0,1,0
+OSD-403,Single cell transcriptional profiling of humerus bone marrow from mice flown on Rodent Research Reference Mission-2 (RRRM-2),Mus musculus,Spaceflight Study,SpaceX-18,0,1,0
+OSD-194,Rodent Research-3-CASIS: Mouse retina transcriptomic data,Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-402,Single cell transcriptional profiling of femur bone marrow from mice flown on Rodent Research Reference Mission-2 (RRRM-2),Mus musculus,Spaceflight Study,SpaceX-18,0,1,0
+OSD-781,Skeletal muscle-on-a-chip in microgravity as a platform for regeneration modeling and drug screening - myoblast data,Homo sapiens,Spaceflight Study,NG-16,1,1,0
+OSD-667,Transcriptional profiling of colon from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-246,Transcriptional analysis of spleen from mice flown on the RR-6 mission,Mus musculus,Spaceflight Study,SpaceX-13,1,0,0
+OSD-457,Expression profiles in multiple tissues of WT and Nrf2-knockout mouse under space flight,Mus musculus,Spaceflight Study,SpaceX-14,0,1,0
+OSD-899,Transcriptional profiling of cecum from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-900,Transcriptional profiling of lungs from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-270,Bulk and spatially resolved transcriptional analysis of hearts from mice flown on the RR-3,Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-714,Lunar gravity prevents skeletal muscle atrophy but not myofiber type shift in mice,Mus musculus,Spaceflight Study,SpaceX-9  SpaceX-17  SpaceX-20,1,1,0
+OSD-98,"Rodent Research-1 (RR1) NASA Validation Flight: Mouse adrenal gland transcriptomic, proteomic, and epigenomic data",Not Applicable; Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-161,"Rodent Research-3-CASIS: Mouse adrenal gland transcriptomic, proteomic, and epigenomic data",Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-690,Nrf2 alleviates spaceflight-induced immunosuppression and thrombotic microangiopathy in mice,Mus musculus,Spaceflight Study,SpaceX-14,0,1,0
+OSD-417,Specific Host Metabolite and Gut Microbiome Alterations Are Associated with Bone-loss During Spaceflight,Mus musculus; Microbiota,Spaceflight Study,SpaceX-11,0,1,0
+OSD-162,Rodent Research-3-CASIS: Mouse eye transcriptomic and proteomic data,Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-163,"Rodent Research-3-CASIS: Mouse kidney transcriptomic, proteomic, and epigenomic data",Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-102,"Rodent Research-1 (RR1) NASA Validation Flight: Mouse kidney transcriptomic, proteomic, and epigenomic data",Not Applicable; Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-563,Bulk RNA sequencing and spatially resolved transcriptional profiling of cerebellums from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-352,Multi-modal transcriptional and chromatin accessibility analysis of brains from mice flown on the RR-3 mission,Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-936,Gravitational and mechanical forces drive mitochondrial translation- human HEK293 cell datasets,Homo sapiens,Spaceflight Study,NG-14,1,1,0
+OSD-137,"Rodent Research-3-CASIS: Mouse liver transcriptomic, proteomic, epigenomic and histology data",Mus musculus,Spaceflight Study,SpaceX-8,1,1,1
+OSD-103,"Rodent Research-1 (RR1) NASA Validation Flight: Mouse quadriceps muscle transcriptomic, proteomic, and epigenomic data",Not Applicable; Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-564,Bulk RNA sequencing and spatially resolved transcriptional profiling of hippocampi from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-249,Metagenomic analysis of feces from mice flown on the RR-6 mission,Microbiota,Spaceflight Study,SpaceX-13,1,0,0
+OSD-101,"Rodent Research-1 (RR1) NASA Validation Flight: Mouse left gastrocnemius muscle transcriptomic, proteomic, and epigenomic data",Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-121,"Biological Research in Canisters-16 (BRIC-16): Transcriptomics, Glycomics, and Morphometric photography.",Arabidopsis thaliana,Spaceflight Study,STS-131,0,1,0
+OSD-47,"Rodent Research-1 (RR1) National Lab Validation Flight: Mouse liver transcriptomic, proteomic, epigenomic and histology data",Mus musculus,Spaceflight Study,SpaceX-4,1,0,0
+OSD-105,"Rodent Research-1 (RR1) NASA Validation Flight: Mouse tibialis anterior muscle transcriptomic, proteomic, and epigenomic data",Not Applicable; Mus musculus,Spaceflight Study,SpaceX-4,1,1,0
+OSD-612,Bulk RNA sequencing and single nuclei transcriptomics and epigenomics of brain tissue from mice flown on the RR-10 mission,Mus musculus,Spaceflight Study,SpaceX-21,0,1,0
+OSD-684,Human skeletal muscle tissue chip autonomous payload reveals changes in fiber type and metabolic gene expression due to spaceflight,Homo sapiens,Ground Study,SpaceX-21,1,1,0
+OSD-462,"Transcriptional profiling, protein expression profiling, and phosphoprotein profiling of kidneys from mice flown on the RR-10 mission",Mus musculus,Spaceflight Study,SpaceX-21,0,1,0

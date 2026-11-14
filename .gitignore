@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+*.log
+data/raw/mexico/ensanut/
+data/raw/youth_health/
