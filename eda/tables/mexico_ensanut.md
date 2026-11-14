@@ -47,5 +47,5 @@ El criterio actual del INSP cuenta como activo a quien hizo 60 minutos de activi
 - `[DATO PENDIENTE]` Actividad física, pantallas y sueño de 5 a 9 años: las publicaciones revisadas los miden desde los 10 años.
 - `[DATO PENDIENTE]` Sueño, síntomas depresivos y pantallas de 15 a 19 años en Sonora: el suplemento estatal no los trae. Saldrían de los microdatos del INSP.
 - `[DATO PENDIENTE]` Actividad, pantallas y sueño por región: sólo hay un mapa sin cifras (Ensanut 2022).
-- `[DATO PENDIENTE]` Ficha de la OMS del indicador de actividad física, para confirmar que su criterio es 60 minutos todos los días. No se abrió en esta sesión.
+- `[DATO PENDIENTE]` Ficha de la OMS del indicador de actividad física, para confirmar que su criterio es 60 minutos todos los días. No se abrió en esta revisión.
 - Ensanut Continua 2025: al 14-nov-2026 el sitio del INSP sólo lista el diseño metodológico, sin resultados.
