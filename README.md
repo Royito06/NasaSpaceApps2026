@@ -18,8 +18,10 @@ Kids don't memorize facts. They make decisions that cost something, and see the 
 - **Level 1, the Moon (Apollo 15, 1971).** Drive the rover. The rare white rock is far away, and bringing it back uses most of your spare oxygen for the walk home. Mission Control answers in 2.6 seconds: on the Moon, Earth can still help.
 - **Level 2, a Mars outpost.** Two roles each report half of the picture: **Engineering** sees the power fault, **Protection** sees the solar storm. There is time for one job: reinforce the shelter or repair the power, and both roles must agree. Earth's answer needs 40 minutes and the storm arrives in 30, so **the crew decides alone**.
 - **Three things to manage:** power, oxygen and radiation. Low power means the oxygen machine fills fewer tanks tonight and the greenhouse lamp stays off, so the choice shows up the next sol and again on harvest day (lettuce takes 28 days).
-- **No answer always wins.** The job that wins on sol 30 can lose on sol 31. A **free mission** of three sols is different every time, with storm cards drawn from real NASA DONKI events, and ends in "Mission goals met" or "Mission strained", never "you lose".
-- **Predict first, then decide, then explain.** A crew logbook, saved only on the device, shows how the crew improves.
+- **No answer always wins.** The job that wins on sol 30 can lose on sol 31. A **free mission** of three sols is different every time, with storm cards drawn from real NASA DONKI events. On storm sols Earth's advice still arrives 10 minutes too late. It ends in "Mission goals met" or "Mission strained", never "you lose", with **one star for each goal met** (no score, no leaderboard).
+- **Predict first, then decide, then explain.** Before each job the crew predicts tomorrow's oxygen tanks and sees whether it was right the next morning.
+- **Hints that follow the crew.** If the crew votes without reading both reports, or has two hard missions in a row, the Commander steps in with a hint, and steps back after a mission that meets its goals. Hints never change the odds or the rules.
+- **A crew logbook, saved only on the device,** shows missions played, goals met, stars, predictions right, how often both reports were read, and the days the real Sun was checked. Nothing leaves the browser.
 
 ## Real NASA data, and how each piece drives a mechanic
 
