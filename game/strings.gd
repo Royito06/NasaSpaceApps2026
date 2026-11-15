@@ -8,7 +8,7 @@ const MONTHS := {
 
 const S := {
 	# --- general
-	"title": ["Junior Astronaut Mission Trainer", "Entrenador de Misión para Astronautas Junior"],
+	"title": ["Two Small Steps", "Two Small Steps"],
 	"subtitle": ["Two missions: the Moon, then Mars. Decide as a crew.", "Dos misiones: la Luna y luego Marte. Decidan en equipo."],
 	"ages": ["Ages 7 to 12 · about 15 minutes", "De 7 a 12 años · unos 15 minutos"],
 	"disclaimer": ["Independent student project. Not endorsed by NASA.", "Proyecto estudiantil independiente. Sin aval de la NASA."],
@@ -205,6 +205,8 @@ const S := {
 	"btn_next_mars": ["One last experiment", "Un último experimento"],
 	"to_mars_title": ["Now Earth is too far away to help", "Ahora la Tierra está muy lejos para ayudar"],
 	"to_mars_body": ["On the Moon, Mission Control answered in under 3 seconds. From Mars, a message takes 3 to 22 minutes each way. This time the crew decides on its own.", "En la Luna, Control de Misión contestó en menos de 3 segundos. Desde Marte, un mensaje tarda de 3 a 22 minutos en cada sentido. Esta vez la tripulación decide sola."],
+	"btn_land_moon": ["Land on the Moon", "Aterrizar en la Luna"],
+	"to_scale": ["The picture is not to scale.", "El dibujo no está a escala."],
 	"to_mars_scale": ["The story jumps from the Moon to Mars. Sizes and distances in this picture are not to scale.", "La historia salta de la Luna a Marte. Los tamaños y las distancias de este dibujo no están a escala."],
 	"btn_land_mars": ["Land on Mars", "Aterrizar en Marte"],
 	"bar_oxygen": ["Oxygen reserve", "Reserva de oxígeno"],

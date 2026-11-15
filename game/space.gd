@@ -20,8 +20,9 @@ var open_ids: Array = []     # the worlds that can be tapped
 var reduced_motion := false
 var rocket: Node3D
 var flame: MeshInstance3D
-var travel := 0.0            # the trip from the Moon to Mars: 0 at the Moon, 1 at Mars
-const TRAVEL_SECS := 11.0
+var travel := 0.0            # the trip between worlds: 0 at the start, 1 on arrival
+var _travel_t0 := 0
+const TRAVEL_SECS := 8.0
 var _t := 0.0
 var _fly: Tween
 
@@ -211,23 +212,28 @@ func _build_rocket() -> void:
 	flame.position.y = -0.57
 	rocket.add_child(flame)
 
+func restart_travel() -> void:
+	travel = 0.0
+	_travel_t0 = Time.get_ticks_msec()
+
 # ---------------------------------------------------------------- state the game can set
 
 ## "title": Earth drifts into view. "select": the worlds line up. Anything else hides them.
 func set_mode(new_mode: String, open: Array, locked: Array) -> void:
 	open_ids = open
 	for id in worlds:
-		worlds[id].node.visible = new_mode == "select" or (new_mode == "travel" and (id == "moon" or id == "mars"))
+		worlds[id].node.visible = new_mode == "select" or (new_mode == "travel_mars" and (id == "moon" or id == "mars")) or (new_mode == "travel_moon" and id == "moon")
 		for pair in worlds[id].mats:
 			(pair[0] as StandardMaterial3D).albedo_color = (pair[1] as Color) * (0.3 if locked.has(id) else 1.0)
 	if new_mode == mode:
 		return
 	mode = new_mode
-	rocket.visible = mode == "travel"
-	if mode == "travel":
-		travel = 0.0
+	rocket.visible = mode.begins_with("travel")
+	if mode.begins_with("travel"):
+		restart_travel()
 		for id in ["moon", "mars"]:
 			worlds[id].node.rotation = Vector3.ZERO
+		_travel_step(0.0)   # place everything now, so no frame shows the mission select layout
 	if _fly != null and _fly.is_valid():
 		_fly.kill()
 	if mode == "title":
@@ -253,7 +259,7 @@ func _process(dt: float) -> void:
 		return
 	if not reduced_motion:
 		earth.get_node("Spin").rotation.y += dt * 0.12
-	if mode == "travel":
+	if mode.begins_with("travel"):
 		_travel_step(dt)
 		return
 	if mode != "select":
@@ -269,27 +275,41 @@ func _process(dt: float) -> void:
 			if SLOTS[i] == "asteroid":
 				n.rotation.x += dt * 0.3
 
-## The trip: the rocket leaves the Moon, Earth and the Moon shrink behind it, and Mars grows ahead.
-## Sizes and distances are not to scale. It is slow and smooth, and with less motion it shows the arrival only.
-func _travel_step(dt: float) -> void:
-	travel = 1.0 if reduced_motion else minf(travel + dt / TRAVEL_SECS, 1.0)
-	var k: float = travel * travel * (3.0 - 2.0 * travel)   # ease in and out
+## The trip between worlds: "travel_moon" (Earth to the Moon) or "travel_mars" (the Moon to Mars).
+## The rocket starts clear of the world it leaves and moves at once, fast first and slower on arrival.
+## Progress follows the clock, so a slow device still sees the whole trip in the same time.
+## Sizes and distances are not to scale. With less motion, only the arrival is shown.
+func _travel_step(_dt: float) -> void:
+	var secs: float = (Time.get_ticks_msec() - _travel_t0) / 1000.0
+	travel = 1.0 if reduced_motion else clampf(secs / TRAVEL_SECS, 0.0, 1.0)
+	var k: float = 1.0 - pow(1.0 - travel, 2.2)   # ease out: it moves from the first frame
 	var w: float = _half_width()
-	earth.scale = Vector3.ONE * lerpf(0.5, 0.09, k)
-	earth.position = Vector3(lerpf(-0.70, -0.86, k) * w, lerpf(0.5, 1.5, k), 0.0)
 	var moon_n: Node3D = worlds.moon.node
-	moon_n.scale = Vector3.ONE * lerpf(0.42, 0.055, k)
-	moon_n.position = earth.position + Vector3(lerpf(2.3, 0.42, k), lerpf(1.0, 0.2, k), 0.0)
 	var mars_n: Node3D = worlds.mars.node
-	mars_n.scale = Vector3.ONE * lerpf(0.16, 1.45, k)
-	mars_n.position = Vector3(lerpf(0.86, 0.66, k) * w, lerpf(1.3, 0.9, k), 0.0)
-	if not reduced_motion:
-		mars_n.rotation.y += dt * 0.15
-	# The rocket flies a gentle arc from the Moon to just short of Mars, nose first.
-	var from := Vector3(-0.70 * w + 2.3 + 0.55, 1.6, 0.4)
-	var to := Vector3(0.66 * w - 2.85, 1.1, 0.4)
-	var at: Vector3 = from.lerp(to, k) + Vector3(0, sin(PI * k) * 0.55, 0)
-	var ahead: Vector3 = from.lerp(to, minf(k + 0.02, 1.0)) + Vector3(0, sin(PI * minf(k + 0.02, 1.0)) * 0.55, 0)
+	var from: Vector3
+	var to: Vector3
+	if mode == "travel_moon":
+		# Earth falls behind on the left; the Moon grows ahead on the right.
+		earth.scale = Vector3.ONE * lerpf(0.62, 0.22, k)
+		earth.position = Vector3(lerpf(-0.62, -0.78, k) * w, lerpf(0.3, 1.3, k), 0.0)
+		moon_n.scale = Vector3.ONE * lerpf(0.3, 1.5, k)
+		moon_n.position = Vector3(lerpf(0.80, 0.62, k) * w, lerpf(1.5, 0.9, k), 0.0)
+		from = Vector3(-0.62 * w + 2.7, 1.2, 0.6)
+		to = Vector3(0.62 * w - 2.9, 1.2, 0.6)
+	else:
+		# Earth and the Moon shrink behind the rocket; Mars grows ahead.
+		earth.scale = Vector3.ONE * lerpf(0.5, 0.09, k)
+		earth.position = Vector3(lerpf(-0.70, -0.86, k) * w, lerpf(0.5, 1.5, k), 0.0)
+		moon_n.scale = Vector3.ONE * lerpf(0.42, 0.055, k)
+		moon_n.position = earth.position + Vector3(lerpf(2.3, 0.42, k), lerpf(1.0, 0.2, k), 0.0)
+		mars_n.scale = Vector3.ONE * lerpf(0.16, 1.45, k)
+		mars_n.position = Vector3(lerpf(0.86, 0.66, k) * w, lerpf(1.3, 0.9, k), 0.0)
+		from = Vector3(-0.70 * w + 2.3 + 1.25, 1.75, 0.6)   # just beyond the Moon, not inside it
+		to = Vector3(0.66 * w - 2.95, 1.1, 0.6)
+	# The rocket flies a gentle arc, nose first.
+	var at: Vector3 = from.lerp(to, k) + Vector3(0, sin(PI * k) * 0.5, 0)
+	var k2: float = minf(k + 0.02, 1.0)
+	var ahead: Vector3 = from.lerp(to, k2) + Vector3(0, sin(PI * k2) * 0.5, 0)
 	rocket.position = at
 	var dir: Vector3 = ahead - at
 	rocket.rotation = Vector3(0, 0, (atan2(dir.y, dir.x) if dir.length() > 0.0001 else 0.0) - PI * 0.5)

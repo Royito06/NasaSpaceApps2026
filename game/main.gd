@@ -55,7 +55,7 @@ const BOX := Color(0.09, 0.08, 0.15, 0.78)   # dialogue box and notes: see-throu
 const BARS_W := 176      # width kept free in the bottom-right corner for the two bars
 const VOICE_TONE := {"cmd": [0.9, 0.95], "mc": [1.0, 1.0], "eng": [1.15, 1.0], "pro": [1.3, 1.0], "earth": [0.8, 0.9]}   # read-aloud [pitch, pace] per character
 const STORM_PIC_URL := "https://images-assets.nasa.gov/image/PIA26302/PIA26302~small.jpg"   # Curiosity, 20 May 2024
-const MODAL_STATES := ["title", "players", "select", "m_card", "m_term", "p_term", "m_compare", "to_mars", "decide", "compare", "debrief", "end", "f_decide", "f_end"]
+const MODAL_STATES := ["title", "players", "select", "m_card", "m_term", "p_term", "m_compare", "to_mars", "to_moon", "decide", "compare", "debrief", "end", "f_decide", "f_end"]
 const NOTE_STATES := ["meet", "role_eng", "role_pro", "ask_earth", "earth_q"]
 
 var world: Node3D               # level 2: Mars
@@ -472,7 +472,6 @@ func _moon_reset() -> void:
 	moon.reset_scene()
 
 func _start_moon() -> void:
-	_set_level(1)
 	m_runs = []
 	picks.erase("m_plan")
 	term.erase("moon")
@@ -484,7 +483,12 @@ func _start_moon() -> void:
 	drop_guess = ""
 	drop_done = {"moon": false, "air": false}
 	moon.set_deploy(0.0, false, false)
-	_go("m_card")
+	_set_level(0)
+	_go("to_moon")   # the rocket flies from Earth to the Moon while Mission Control gives the brief
+
+func _land_moon() -> void:
+	_set_level(1)
+	_go("m_term")
 
 ## The rover is down: the crew climbs aboard.
 func _deploy_done() -> void:
@@ -914,8 +918,9 @@ func _sync_world() -> void:
 		if not moon_done:
 			locked.append("mars")
 		space.reduced_motion = world.reduced_motion
-		if state == "to_mars":
-			space.set_mode("travel", [], [])   # the trip from the Moon to Mars plays behind the brief
+		if state == "to_mars" or state == "to_moon":
+			# The trip plays behind the brief: Earth to the Moon, or the Moon to Mars.
+			space.set_mode("travel_mars" if state == "to_mars" else "travel_moon", [], [])
 		else:
 			space.set_mode(state if (state == "title" or state == "select") else "", open, locked)
 	if level == 1:
@@ -1587,6 +1592,8 @@ func _rebuild() -> void:
 				_r_m_compare()
 			"to_mars":
 				_r_to_mars()
+			"to_moon":
+				_r_to_moon()
 			"meet":
 				_r_meet()
 			"role_eng":
@@ -2599,6 +2606,16 @@ func _r_m_compare() -> void:
 	foot.add_child(UI.button(t("btn_next_mars"), func(): moon.set_drop(true); _go("m_drop"), "Green", 28))
 
 ## Between the levels: the same question, with Earth too far away to answer in time.
+func _r_to_moon() -> void:
+	# The rocket leaves Earth for the Moon while Mission Control tells the real story behind the level.
+	var v := _talk("mc", t("m_card_title") + ". " + t("m_card_body"))
+	var row := UI.hbox(16)
+	v.add_child(row)
+	row.add_child(_pill(t("level_1"), COL_O2, 20))
+	row.add_child(UI.label(t("m_card_credit") + " " + t("to_scale"), 15, UI.SOFT, null, 640))
+	row.add_child(UI.spacer())
+	row.add_child(UI.button(t("btn_land_moon"), _land_moon, "Green", 30))
+
 func _r_to_mars() -> void:
 	# No card over the scene: the rocket leaves the Moon for Mars while the Commander gives the brief.
 	var v := _talk("cmd", t("to_mars_title") + ". " + t("to_mars_body"))
@@ -3728,7 +3745,7 @@ func _dev_demo(demo: String) -> void:
 			"m_card":
 				_start_moon()
 			"m_term":
-				_go("m_term")
+				_land_moon()
 				await _dev_step()
 				await _term_run("moon")
 				if OS.get_cmdline_user_args().has("--live"):
@@ -3922,8 +3939,8 @@ func _dev_demo(demo: String) -> void:
 		await _m_take_photo()
 	world.reduced_motion = false
 	space.reduced_motion = false
-	if state == "to_mars":
-		space.travel = 0.0   # the demo ran without motion: start the trip again so it can be seen
+	if state == "to_mars" or state == "to_moon":
+		space.restart_travel()   # the demo ran without motion: start the trip again so it can be seen
 	live_off = false
 	_spoken = ""
 	_drawn = ""
