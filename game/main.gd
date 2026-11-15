@@ -209,6 +209,17 @@ func _sun_read() -> void:
 		if age <= SUN_DAYS * 86400.0:
 			sun.size = "big"   # DONKI gives no size for Mars: the game trains for the biggest surge Curiosity measured
 			sun.date = latest.substr(0, 10)
+	if start == "c":
+		# The crew's diary of the real Sun: one entry a day, only when NASA really answered.
+		var today := Time.get_date_string_from_system()
+		var known := false
+		for pair in logb.sun:
+			if pair[0] == today:
+				known = true
+		if not known:
+			logb.sun.append([today, sun.size])
+			logb.sun = logb.sun.slice(-60)
+			_log_save()
 
 func _sun_line() -> String:
 	if not sun.live:
@@ -372,7 +383,7 @@ func _overlay() -> bool:
 # ---------------------------------------------------------------- the crew logbook (this device only)
 
 func _log_blank() -> Dictionary:
-	return {"missions": 0, "free": 0, "free_met": 0, "pred": 0, "pred_right": 0, "sols": 0, "both": 0, "last": [], "streak": 0, "hinted": false}
+	return {"missions": 0, "free": 0, "free_met": 0, "pred": 0, "pred_right": 0, "sols": 0, "both": 0, "last": [], "streak": 0, "hinted": false, "stars": 0, "best": 0, "sun": []}
 
 ## Reads the logbook saved on this device. Anything missing or odd in the file is ignored.
 func _log_load() -> void:
@@ -382,10 +393,16 @@ func _log_load() -> void:
 	var d = JSON.parse_string(FileAccess.get_file_as_string(LOG_FILE))
 	if not (d is Dictionary):
 		return
-	for k in ["missions", "free", "free_met", "pred", "pred_right", "sols", "both", "streak"]:
+	for k in ["missions", "free", "free_met", "pred", "pred_right", "sols", "both", "streak", "stars", "best"]:
 		if d.has(k) and (d[k] is float or d[k] is int):
 			logb[k] = maxi(int(d[k]), 0)
 	logb.hinted = bool(d.get("hinted", false))
+	logb.best = mini(logb.best, 3)
+	if d.get("sun") is Array:
+		for pair in d["sun"]:
+			if pair is Array and pair.size() == 2 and pair[0] is String and (pair[0] as String).length() == 10 and ["none", "big"].has(pair[1]):
+				logb.sun.append([pair[0], pair[1]])
+		logb.sun = logb.sun.slice(-60)
 	if d.get("last") is Array:
 		for e in d["last"]:
 			if e is Dictionary and e.get("sols") is Array:
@@ -430,6 +447,11 @@ func _log_text() -> String:
 	lines.append("%s: %s" % [t("lb_free"), t("lb_of").format({"n": logb.free_met, "m": logb.free})])
 	lines.append("%s: %s" % [t("lb_pred"), t("lb_of").format({"n": logb.pred_right, "m": logb.pred})])
 	lines.append("%s: %s" % [t("lb_read"), t("lb_of").format({"n": logb.both, "m": logb.sols})])
+	lines.append("%s: %d" % [t("lb_stars"), logb.stars])
+	if logb.free > 0:
+		lines.append(t("lb_best").format({"n": logb.best}))
+	if not logb.sun.is_empty():
+		lines.append(_log_sun_line())
 	for e in logb.last:
 		lines.append(_log_line(e))
 	lines.append(t("lb_private"))
@@ -438,6 +460,34 @@ func _log_text() -> String:
 func _log_copy() -> void:
 	DisplayServer.clipboard_set(_log_text())
 	log_note = t("lb_copied")
+	_render()
+
+## The real-Sun diary: days counted, never streaks.
+func _log_sun_line() -> String:
+	var calm := 0
+	for pair in logb.sun:
+		calm += 1 if pair[1] == "none" else 0
+	return t("lb_sun").format({"d": logb.sun.size(), "c": calm, "a": logb.sun.size() - calm})
+
+## A gold star for a goal that was met; a faint one for a goal that was not.
+func _star(ok: bool, px: int) -> TextureRect:
+	return UI.ui_icon("Yellow/Default/star.png", Color.WHITE if ok else Color(1, 1, 1, 0.22), px)
+
+## How many of the free mission's three goals were met.
+func _f_stars() -> int:
+	return (1 if f.science else 0) + (1 if snappedf(f.expo, 0.1) <= F_RAD_GOAL else 0) + (1 if not f.low else 0)
+
+## How much help the Commander offers right now: 0 none, 1 a nudge, 2 a nudge and highlighted reports.
+## Only hints change with it. The odds and the rules never do.
+func _scaffold_tier() -> int:
+	if logb.streak >= 2 or f.blind >= 2:
+		return 2
+	if logb.streak == 1 or not (f.read.eng and f.read.pro):
+		return 1
+	return 0
+
+func _f_guess(n: int) -> void:
+	f.guess = n
 	_render()
 
 func _log_line(e: Dictionary) -> String:
@@ -572,7 +622,7 @@ func _start_free() -> void:
 	carried = ""
 	runs = []
 	data_open = false
-	f = {"sol": 1, "offline": 0, "tanks": TANKS_FULL, "science": false, "expo": 0.0, "low": false, "storm": "none", "card": [], "fault": false, "log": [], "read": {"eng": false, "pro": false}, "blind": 0, "hint": false}
+	f = {"sol": 1, "offline": 0, "tanks": TANKS_FULL, "science": false, "expo": 0.0, "low": false, "storm": "none", "card": [], "fault": false, "log": [], "read": {"eng": false, "pro": false}, "blind": 0, "hint": false, "guess": -1}
 	_f_new_sol()
 	if logb.streak >= 2 and not logb.hinted:
 		# Two hard missions in a row: the Commander offers a hint, once. The odds never change.
@@ -687,7 +737,13 @@ func _f_do(c: String) -> void:
 		f.low = true
 	f.tanks = maxi(after, 0)
 	f.expo += add
-	f.log.append({"sol": f.sol, "storm": f.storm, "job": c, "add": add, "made": made, "used": used, "tanks": f.tanks, "low": low, "idle": idle})
+	f.log.append({"sol": f.sol, "storm": f.storm, "job": c, "add": add, "made": made, "used": used, "tanks": f.tanks, "low": low, "idle": idle, "guess": f.guess})
+	if f.guess >= 0:
+		# The crew's prediction of the tanks at dawn goes into the logbook. It changes nothing in the mission.
+		logb.pred += 1
+		if f.guess == f.tanks:
+			logb.pred_right += 1
+		_log_save()
 	exposure = f.expo
 	tanks = f.tanks
 	tanks_view = f.tanks
@@ -707,12 +763,18 @@ func _f_next() -> void:
 		logb.free += 1
 		logb.free_met += 1 if met else 0
 		logb.streak = 0 if met else logb.streak + 1
+		if met:
+			logb.hinted = false   # the Commander steps back; the hint can be offered again after two hard missions
+		var stars := _f_stars()
+		logb.stars += stars
+		logb.best = maxi(logb.best, stars)
 		logb.last.append({"met": met, "sols": sols})
 		logb.last = logb.last.slice(-5)
 		_log_save()
 		_go("f_end")
 		return
 	f.sol += 1
+	f.guess = -1
 	_f_new_sol()
 	_go("f_decide")
 
@@ -1387,6 +1449,9 @@ func _advance() -> void:
 		_log_save()
 	if start == "c":
 		_log_add("missions")
+	if runs.size() == 1:
+		# Stars for the crew's own plan on this sol: one for each goal met. Replays do not add stars.
+		_log_add("stars", (1 if runs[0].power >= GOAL_POWER else 0) + (1 if snappedf(runs[0].exposure, 0.1) <= GOAL_RAD else 0))
 	busy = false
 	_go("result")
 
@@ -2854,8 +2919,9 @@ func _verdict(run: Dictionary, size := 20) -> PanelContainer:
 ## Did the plan meet each goal, and what did it cost? No "safe" or "in danger": only met or not met.
 func _goal_lines(run: Dictionary, size: int, wrap_w: int) -> VBoxContainer:
 	var v := UI.vbox(6)
-	v.add_child(_fact(t("goal_power").format({"p": int(run.power)}), "r", _tick(run.power >= GOAL_POWER, size + 6), size, wrap_w))
-	v.add_child(_fact(t("goal_rad").format({"x": _n1(run.exposure)}), "c", _tick(snappedf(run.exposure, 0.1) <= GOAL_RAD, size + 6), size, wrap_w))
+	# One star for each goal met.
+	v.add_child(_fact(t("goal_power").format({"p": int(run.power)}), "r", _star(run.power >= GOAL_POWER, size + 8), size, wrap_w))
+	v.add_child(_fact(t("goal_rad").format({"x": _n1(run.exposure)}), "c", _star(snappedf(run.exposure, 0.1) <= GOAL_RAD, size + 8), size, wrap_w))
 	# Oxygen is not a goal: it is what last night's power left for tomorrow.
 	var o2 := t("goal_tanks").format({"m": run.made, "n": run.tanks}) if wrap_w >= 600 else t("tanks_short").format({"n": run.tanks})
 	v.add_child(_fact(o2, "r", UI.icon("astronaut-helmet.svg", COL_O2, size + 6), size, wrap_w))
@@ -3277,9 +3343,10 @@ func _f_note(role: String, text: String, small := "") -> PanelContainer:
 	if not f.read[role]:
 		# The report is closed until someone taps it: reading both before choosing is the crew's job.
 		var c := PanelContainer.new()
+		var loud: bool = _scaffold_tier() >= 2   # after hard missions the closed reports stand out
 		var cs := UI.panel_box(UI.NAVY2, 14, 10)
-		cs.set_border_width_all(3)
-		cs.border_color = SPEAKER_COL[role]
+		cs.set_border_width_all(6 if loud else 3)
+		cs.border_color = UI.COL_POWER if loud else SPEAKER_COL[role]
 		c.add_theme_stylebox_override("panel", cs)
 		c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		c.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -3294,6 +3361,10 @@ func _f_note(role: String, text: String, small := "") -> PanelContainer:
 		var cl := UI.bold(t("f_read_" + role), 21, SPEAKER_COL[role])
 		cl.mouse_filter = IGNORE
 		ch.add_child(cl)
+		if loud:
+			var tag := _pill(t("f_read_first"), UI.COL_POWER, 15)
+			ch.add_child(UI.spacer())
+			ch.add_child(tag)
 		return c
 	var p := UI.panel(UI.NAVY2, 14, 10)
 	p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -3377,14 +3448,24 @@ func _r_f_decide() -> void:
 		msg = t("vote_ok")
 	elif split:
 		msg = t("vote_split")
-	var fv := UI.vbox(2)
+	var fv := UI.vbox(4)
 	foot.add_child(fv)
-	fv.add_child(UI.bold(msg, 22, UI.COL_POWER if split else UI.PAPER, 900))
+	if agree:
+		# Predict before acting: how many tanks at dawn? The answer arrives the next morning.
+		var prow := UI.hbox(8)
+		fv.add_child(prow)
+		prow.add_child(UI.bold(t("f_predict_q"), 21, UI.COL_POWER, 640))
+		for n in range(TANKS_FULL + 1):
+			prow.add_child(UI.button(str(n), func(): _f_guess(n), "Yellow" if f.guess == n else "Grey", 22))
+		if _scaffold_tier() >= 1 and not (f.read.eng and f.read.pro):
+			fv.add_child(UI.label(t("f_read_nudge"), 18, UI.COL_GOOD, null, 1000))
+	else:
+		fv.add_child(UI.bold(msg, 22, UI.COL_POWER if split else UI.PAPER, 900))
 	if f.hint:
 		fv.add_child(UI.label(t("f_hint_line"), 18, UI.COL_GOOD, null, 900))
 	foot.add_child(UI.spacer())
 	var go := UI.button(t("btn_go"), func(): _f_do(votes.eng), "Green", 32)
-	go.disabled = not agree
+	go.disabled = not agree or f.guess < 0
 	foot.add_child(go)
 
 ## The free mission's next morning: what today's job left.
@@ -3397,6 +3478,12 @@ func _r_f_result() -> void:
 	v.add_child(_fact(t("f_r_sample_yes" if f.science else "f_r_sample_no"), "r", lead, 23, 900))
 	if last.idle:
 		v.add_child(UI.label(t("f_r_idle"), 21, UI.COL_POWER, null, 900))
+	if last.storm != "none":
+		# Earth answered too late, as on sol 30: the delay belongs to the free mission too.
+		v.add_child(_fact(t("f_earth_late"), "r", UI.icon("sun.svg", SPEAKER_COL.earth, 28), 20, 1000))
+	if int(last.get("guess", -1)) >= 0:
+		var right: bool = int(last.guess) == int(last.tanks)
+		v.add_child(UI.bold((t("predict_right") if right else t("predict_wrong")) + " " + t("f_pred_line").format({"g": int(last.guess), "n": int(last.tanks)}), 21, UI.COL_GOOD if right else UI.COL_POWER, 1000))
 	var row := UI.hbox(0)
 	v.add_child(row)
 	row.add_child(UI.spacer())
@@ -3413,9 +3500,13 @@ func _r_f_end() -> void:
 	top.add_child(_pill(t("f_end_ok") if met else t("f_end_no"), UI.COL_GOOD if met else UI.COL_POWER, 24))
 	for e in f.log:
 		top.add_child(_pill(t("f_log").format({"n": e.sol, "storm": t("f_st_" + e.storm), "job": t("f_job_" + e.job)}), UI.PAPER, 15))
-	v.add_child(_fact(t("f_r_sample_yes" if f.science else "f_g_sample_no"), "r", _tick(f.science, 30), 24, 1000))
-	v.add_child(_fact(t("f_g_rad").format({"t": _n1(f.expo)}), "c", _tick(rad_ok, 30), 24, 1000))
-	v.add_child(_fact(t("f_g_o2_no" if f.low else "f_g_o2_yes"), "r", _tick(not f.low, 30), 24, 1000))
+	var stars := _f_stars()
+	if stars > 0:
+		# One star beside each goal that was met. With no star earned, only the tip is shown.
+		top.add_child(_pill(t("f_stars").format({"n": stars}), COL_SCI, 18))
+		v.add_child(_fact(t("f_r_sample_yes" if f.science else "f_g_sample_no"), "r", _star(f.science, 34), 24, 1000))
+		v.add_child(_fact(t("f_g_rad").format({"t": _n1(f.expo)}), "c", _star(rad_ok, 34), 24, 1000))
+		v.add_child(_fact(t("f_g_o2_no" if f.low else "f_g_o2_yes"), "r", _star(not f.low, 34), 24, 1000))
 	var tip := t("f_tip_ok")
 	if not met and f.blind > 0:
 		tip = t("f_tip_read").format({"n": f.blind})
@@ -3445,7 +3536,7 @@ func _lb_tile(value: String, label: String) -> PanelContainer:
 	var v := UI.vbox(2)
 	p.add_child(v)
 	v.add_child(_centered(UI.title(value, 40, UI.COL_POWER)))
-	v.add_child(_centered(UI.label(label, 17, UI.PAPER, null, 230)))
+	v.add_child(_centered(UI.label(label, 16, UI.PAPER, null, 190)))
 	return p
 
 ## The crew logbook: what this crew has done so far. It lives on the device and nowhere else.
@@ -3458,6 +3549,7 @@ func _r_logbook() -> void:
 	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.free_met, "m": logb.free}), t("lb_free")))
 	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.pred_right, "m": logb.pred}), t("lb_pred")))
 	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.both, "m": logb.sols}), t("lb_read")))
+	tiles.add_child(_lb_tile(str(logb.stars), t("lb_stars")))
 	if logb.missions == 0 and logb.pred == 0:
 		v.add_child(UI.label(t("lb_empty"), 24, UI.PAPER, null, 1100))
 	var recent: Array = logb.last
@@ -3477,6 +3569,10 @@ func _r_logbook() -> void:
 			v.add_child(row)
 			row.add_child(_tick(true, 24) if e.met else UI.label("•", 22, UI.COL_POWER))
 			row.add_child(UI.label(_log_line(e), 18, UI.PAPER, null, 1080))
+	if logb.free > 0:
+		v.add_child(UI.label(t("lb_best").format({"n": logb.best}), 20, UI.PAPER, null, 1100))
+	if not logb.sun.is_empty():
+		v.add_child(UI.label(_log_sun_line(), 20, UI.PAPER, null, 1100))
 	v.add_child(UI.label(t("lb_private"), 18, UI.SOFT, UI.bold_font(), 1100))
 	var foot := UI.hbox(14)
 	v.add_child(foot)
@@ -3840,6 +3936,8 @@ func _dev_demo(demo: String) -> void:
 		upto = order.size() - 1
 	if demo == "m_photo":
 		upto = order.find("m_collect")
+	if demo == "f_predict" or demo == "f_nudge":
+		upto = order.find("f_decide")
 	if demo == "settings":
 		_start_mars()
 		_open_settings()
@@ -4099,6 +4197,8 @@ func _dev_demo(demo: String) -> void:
 				_f_read("pro")
 				_vote("eng", _f_rule())
 				await _dev_step()
+				_f_guess(3)
+				await _dev_step()
 				await _f_do(votes.eng)
 			"f_end":
 				while f.sol < F_SOLS:
@@ -4110,6 +4210,14 @@ func _dev_demo(demo: String) -> void:
 			"data":
 				_finish()
 		await _dev_step()
+	if demo == "f_predict":
+		_f_read("eng")
+		_f_read("pro")
+		_vote("eng", "a")
+		_f_guess(2)
+	if demo == "f_nudge":
+		logb.streak = 2
+		_vote("eng", "b")
 	if demo == "m_photo":
 		await _m_dig(2)
 		await _dev_step()
