@@ -1,62 +1,73 @@
-# Junior Astronaut Mission Trainer · NASA Space Apps 2026 (Hermosillo, México)
+# Two Small Steps
 
-**Challenge:** *Build a Junior Astronaut Mission Trainer*: a game that teaches kids aged 7–12 the real trade-offs of running a lunar or Martian outpost ([official text](CHALLENGE.md)).
+### ▶ Play it in your browser: **https://royito06.github.io/NasaSpaceApps2026/play/**
 
-## The idea in one minute
+No download, no account. Ages 7 to 12, about 15 minutes. One player, or two players sharing one keyboard or touch screen.
 
-On Mars, a message to Earth takes **3 to 22 minutes each way**, so the crew has to decide on its own.
+**NASA Space Apps 2026, Hermosillo, Mexico · Team El Nuevo Imperio Azteca**
+**Challenge:** *Build a Junior Astronaut Mission Trainer* ([official text](CHALLENGE.md))
 
-In our game, two kids play two roles that each see something the other can't:
-- **Engineering** sees that the power equipment needs repair.
-- **Protection** sees a solar storm coming and the state of the shelter.
+*An independent student project inspired by NASA's expeditionary skills. Not a NASA product, and not endorsed by NASA.*
 
-They have **one work slot** before the storm hits:
-- **Reinforce the shelter:** less radiation exposure, but no power repair tonight.
-- **Repair the power:** the lights stay on, but more exposure in the existing shelter.
+---
 
-Neither choice is free. They advance one sol, see what each plan saved and what it cost, then **retry the other choice** and compare. A short debrief asks: *What did we give up? What did each of us know? What would we change?*
+## The game in one minute
 
-The solar storm is a **real event recorded by NASA's DONKI** space-weather database, bundled into the game and labelled as archived data. Every number on screen says where it comes from, and whether it is a **measurement**, a **calculation** or a **game rule**.
+Kids don't memorize facts. They make decisions that cost something, and see the consequence the next day.
 
-*An independent educational game inspired by NASA's expeditionary skills. Not a NASA product, and not endorsed by NASA.*
+- **Level 1, the Moon (Apollo 15, 1971).** Drive the rover. The rare white rock is far away, and bringing it back uses most of your spare oxygen for the walk home. Mission Control answers in 2.6 seconds: on the Moon, Earth can still help.
+- **Level 2, a Mars outpost.** Two roles each report half of the picture: **Engineering** sees the power fault, **Protection** sees the solar storm. There is time for one job: reinforce the shelter or repair the power, and both roles must agree. Earth's answer needs 40 minutes and the storm arrives in 30, so **the crew decides alone**.
+- **Three things to manage:** power, oxygen and radiation. Low power means the oxygen machine fills fewer tanks tonight and the greenhouse lamp stays off, so the choice shows up the next sol and again on harvest day (lettuce takes 28 days).
+- **No answer always wins.** The job that wins on sol 30 can lose on sol 31. A **free mission** of three sols is different every time, with storm cards drawn from real NASA DONKI events, and ends in "Mission goals met" or "Mission strained", never "you lose".
+- **Predict first, then decide, then explain.** A crew logbook, saved only on the device, shows how the crew improves.
+
+## Real NASA data, and how each piece drives a mechanic
+
+Every number in the game carries a tag: **Measurement**, **Calculation** or **Game rule**. The full list with links is in [`game/REFERENCES.md`](game/REFERENCES.md) and on the in-game "NASA data" screen.
+
+| NASA data | Mechanic in the game | Why it matters |
+|---|---|---|
+| **Apollo 15 Mission Report** and **Apollo Lunar Surface Journal** | Level 1: the 5 km line (the farthest Apollo 15 drove from its lander), 7 hours of suit oxygen, the Genesis Rock | A real mission's real safety rule: never drive farther than you can walk back |
+| **NASA DONKI** (space weather) | The Mars storm (the eruption of 20 May 2024), the free mission's storm cards, and a **live request** on the bonus sol that decides whether a storm comes | Links the shielding decision to actual space weather; archived data is always labelled as archived |
+| **Curiosity RAD** (NASA JPL) | Radiation counted in "sols of normal radiation" (0.69 mSv per sol); the storm's size (8.1 mGy measured on 20 May 2024) | A real radiation reading from the surface of Mars |
+| **NASA NSSDCA fact sheets** (distance ÷ speed of light) and **JPL Horizons** | 2.6 seconds to the Moon and back vs 3 to 22 minutes each way to Mars | Communication delay: why the Mars crew must decide alone |
+| **NASA Life Support Baseline Values (BVAD)**, **MOXIE**, **Veggie** | Oxygen tanks (0.895 kg of oxygen per crew member per day), the oxygen machine, the 28-day lettuce harvest | "A choice that saves power today might cost oxygen tomorrow" |
+| **NASA Human Research Program** risk ratings | Two roles with split information, and Earth's late answer | Teamwork and Earth-independent operations are two of the three human risks rated highest for Mars |
+| **NASA Open Science Data Repository**, study OSD-342 | A fact on the mission report: mice lost 18% of a calf muscle after 33 days in microgravity | Real astronaut-health research, explained in plain words (mice, not astronauts) |
+| **NASA Image and Video Library** | The NASA terminal fetches Apollo 15 photo AS15-86-11603 and Curiosity image PIA26302 during play | Real photos, fetched live and labelled "Fetched from NASA just now" |
+
+## Balance: no safe choice
+
+We simulated 20,000 three-sol missions. Always sheltering, or always repairing, meets the goals 0% of the time. Reading both roles' reports and deciding together meets them in 89.3%. The free mission implements that model, and its built-in self-test met the goals in 274 of 300 missions. Storms come about 26 times more often than in reality so that something happens in three sols: that is a game rule, and the game says so.
+
+![No fixed plan wins](eda/figures/fig_18_no_dominant_choice.png)
+
+| | |
+|---|---|
+| ![Solar storm odds from NASA DONKI](eda/figures/fig_14_donki_storms.png) | ![Earth–Mars delay](eda/figures/fig_15_mars_delay_timeline.png) |
+| ![Radiation budget](eda/figures/fig_16_radiation_budget.png) | ![Power vs dust](eda/figures/fig_17_power_vs_dust.png) |
+
+## Why Hermosillo, and what's next
+
+Built in Hermosillo, in English and Spanish, with voice, touch controls and a less-motion setting. In Mexico, 80.5% of kids aged 10 to 14 spend more than two hours a day on screens, and 34.6% are physically active (ENSANUT 2022–2024). Only 30% of Mexican students reach basic level in PISA 2025 mathematics, against 65% across the OECD.
+
+**Testing with children is pending.** The next step is a pilot in Hermosillo schools, using the [teacher card](TEACHER_CARD.md) and the crew logbook to check whether a child can explain what their crew gave up and why.
 
 ## What's in this repo
 
 | Folder / file | What it is |
 |---|---|
-| `pitch/DECK_7_SLIDES_EN.md` | The 7-slide demo deck (English) with speaker notes |
-| `pitch/historical_missions.md` | Real missions behind the mechanics, plus the 30-second video plan (English) |
-| `pitch/PITCH.md`, `pitch/preguntas_jueces.md` | Live pitch script and judge Q&A (Spanish, for the local event) |
-| `eda/riesgos_a_mecanicas.md` | Game design: NASA human-spaceflight risks → game mechanics (Spanish) |
-| `eda/tables/parametros_juego.csv` | Real values behind the game, each with its source URL |
-| `eda/FINDINGS.md` | Data analysis and findings (Spanish) |
-| `eda/figures/` | Charts used in the pitch |
-| `eda/*.py`, `scripts/fetch_data.py` | Scripts to re-download the data and rebuild every table and figure |
-| `CHALLENGE.md`, `JUDGING.md` | Official challenge text and judging rules |
+| [`play/`](play/) | The web build served at the play link |
+| [`game/`](game/) | Godot 4 source code and assets; [`game/REFERENCES.md`](game/REFERENCES.md) lists every NASA dataset and asset |
+| [`TEACHER_CARD.md`](TEACHER_CARD.md) | One page for a 15-minute classroom session |
+| [`REFERENCES.md`](REFERENCES.md) | Every external resource: data, research, assets, software and AI tools |
+| [`pitch/`](pitch/) | The 7-slide deck (PDF and PPTX), its outline with a source for every number, and real missions behind the mechanics |
+| [`eda/`](eda/) | Data analysis scripts, tables and figures |
+| [`game_design_drafts/`](game_design_drafts/) | Design notes |
+| [`CHALLENGE.md`](CHALLENGE.md), [`JUDGING.md`](JUDGING.md) | Official challenge text and judging rules |
 
-## NASA data we use
+## How it was made
 
-- **DONKI** (Space Weather Database of Notifications, Knowledge, Information): real solar storm events.
-- **Curiosity RAD:** radiation measured on the surface of Mars.
-- **Artemis I** (HERA sensors inside Orion, *Nature* 2024): radiation measured around the Moon.
-- **JPL Horizons and the NSSDCA fact sheets:** Earth–Mars and Earth–Moon distances, which give the communication delays.
-- **NASA Human Research Program:** the official risk ratings for human spaceflight. Teamwork, working without Earth's help, and food are the top-rated risks for Mars operations.
-- **NASA Life Support Baseline Values (BVAD):** oxygen, water and food per astronaut per day.
-- **NASA OSDR (Open Science Data Repository):** spaceflight biology studies on bone and muscle.
-
-Local context (why Hermosillo): Mexico's official health survey (ENSANUT, INSP) and OECD PISA 2025. Every value lists its source in `eda/tables/`.
-
-## Figures
-
-| | |
-|---|---|
-| ![NASA risks](eda/figures/fig_08_riesgos_hrp.png) | ![Mexico context](eda/figures/fig_13_mexico_contexto.png) |
-| ![Mission length](eda/figures/fig_03_misiones_mas_largas.png) | ![OSDR topics](eda/figures/fig_09_osdr_temas.png) |
-
-## Sources and licenses
-
-- **NASA data:** public domain (US Government). Use does not imply NASA endorsement.
-- **Astronaut database:** Stavnichuk & Corlett (2020), Mendeley Data, CC BY 4.0 (TidyTuesday version).
-- **ENSANUT (INSP, México):** published results are cited; the original PDFs are not redistributed here (source lists and checksums are in `data/raw/mexico/*/FUENTES.md`).
-- **OECD PISA 2025:** OECD reports. **WHO GHO:** CC BY-NC-SA 3.0 IGO. **World Bank:** CC BY 4.0. **Our World in Data:** CC BY 4.0.
-- **CDC YRBSS and NCES NAEP:** US public domain.
+- Engine: Godot 4.7 (MIT). Art: human-made CC0 and CC BY assets (Kenney, KayKit, game-icons.net) and NASA imagery. **No AI-generated images.**
+- The team used AI assistants (Claude by Anthropic and Gemini by Google) to help with code, data analysis and writing.
+- NASA data is public domain; using it does not imply NASA endorsement. Other licenses are listed in [`REFERENCES.md`](REFERENCES.md).
