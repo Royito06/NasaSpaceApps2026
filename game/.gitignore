@@ -1,0 +1,5 @@
+.godot/
+build/
+*.log
+probe.txt
+nasa_key.txt

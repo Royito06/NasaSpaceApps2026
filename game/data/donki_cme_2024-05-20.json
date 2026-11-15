@@ -1,0 +1,39 @@
+{
+ "_about": "Archived copy of one real NASA DONKI record (coronal mass ejection, an eruption on the Sun). Bundled with the game; it is NOT live data.",
+ "_source": "NASA DONKI (Space Weather Database Of Notifications, Knowledge, Information), CCMC, NASA Goddard",
+ "_api": "https://api.nasa.gov/DONKI/CME?startDate=2024-05-20&endDate=2024-05-20",
+ "_retrieved": "2026-11-15",
+ "_note": "DONKI records the eruption on the far side of the Sun. It has no solar-particle or flare record for this event and records nothing at Mars. That this eruption and the radiation surge Curiosity measured on Mars that day (NASA JPL release, 10 June 2024) are the same event is the team's inference. Some fields of the full record were left out to keep the file small.",
+ "record": {
+  "activityID": "2024-05-20T05:36:00-CME-001",
+  "catalog": "M2M_CATALOG",
+  "startTime": "2024-05-20T05:36Z",
+  "instruments": [
+   {
+    "displayName": "SOHO: LASCO/C2"
+   },
+   {
+    "displayName": "SOHO: LASCO/C3"
+   },
+   {
+    "displayName": "STEREO A: SECCHI/COR2"
+   }
+  ],
+  "sourceLocation": "",
+  "activeRegionNum": null,
+  "note": "Fast halo CME visible in SOHO LASCO C2/C3 and STEREO A COR2. The source is believed to be backsided, with moving field lines and EUV wave visible in SDO AIA 171/193 at 2024-05-20T05:22Z. A filament eruption and C6.7 flare peaking at 2024-05-20T05:54Z from Active Region 3683 (approx. S24W65) occurred around the same time, but was determined not be the source of this fast halo CME due to location and timing.",
+  "submissionTime": "2024-05-20T14:47Z",
+  "link": "https://ccmc.gsfc.nasa.gov/DONKI/view/CME/31034/-1",
+  "linkedEvents": null,
+  "mostAccurateAnalysis": {
+   "time21_5": "2024-05-20T06:40Z",
+   "latitude": 2.0,
+   "longitude": 172.0,
+   "halfAngle": 45.0,
+   "speed": 2678.0,
+   "type": "R",
+   "note": "Measurement of what was determined to likely be the SHOCK of this CME using backsided source and the best fit between SOHO LASCO C2/C3 and STEREO A COR2 in SWPC_CAT.",
+   "link": "https://ccmc.gsfc.nasa.gov/DONKI/view/CMEAnalysis/31035/-1"
+  }
+ }
+}
