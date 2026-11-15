@@ -921,7 +921,7 @@ func _sync_world() -> void:
 		if state == "to_mars" or state == "to_moon":
 			# The trip plays behind the brief: Earth to the Moon, or the Moon to Mars.
 			space.set_mode("travel_mars" if state == "to_mars" else "travel_moon", [], [])
-		else:
+		elif state != "cover":
 			space.set_mode(state if (state == "title" or state == "select") else "", open, locked)
 	if level == 1:
 		var drive := false
@@ -1563,6 +1563,10 @@ func _rebuild() -> void:
 		_r_players()
 	elif state == "select":
 		_r_select()
+	elif state == "poster":
+		_r_poster()
+	elif state == "cover":
+		_r_cover()
 	else:
 		_r_hud()
 		match state:
@@ -3483,6 +3487,171 @@ func _r_logbook() -> void:
 	foot.add_child(UI.spacer())
 	foot.add_child(UI.button(t("btn_close"), _close_logbook, "Blue", 26))
 
+## Development: a still picture for the last slide. The crew waves from Mars, a rocket stands behind the base,
+## and the Commander leans out of the dialogue box. Built from the game's own models and shapes.
+## Raises one of a model's own arms (the models have separate arm parts hinged at the shoulder).
+func _dev_wave(model: Node, left: bool) -> void:
+	var arm := model.find_child("armLeft" if left else "armRight", true, false)
+	if arm is Node3D:
+		(arm as Node3D).rotation.z = deg_to_rad(-150.0 if left else 150.0)
+
+func _dev_poster() -> void:
+	moon_done = true
+	_start_mars()
+	state = "poster"
+	world.reset_scene()
+	world.set_units_online(4)
+	world.set_room_power(1.0, false)
+	world.set_tanks(4)
+	world.set_tappable([], [])
+	world.set_goals([])
+	world.set_controls({})
+	var spots := {"eng": Vector3(1.55, 0, 2.55), "pro": Vector3(-0.35, 0, 2.55)}
+	for r in ["eng", "pro"]:
+		var n: Node3D = world.crew[r].node
+		n.position = spots[r]
+		n.scale = Vector3.ONE * 1.9
+		for c in n.find_children("*", "Sprite3D", true, false):
+			(c as Sprite3D).pixel_size *= 0.5   # the role badges stay, but small
+		for c in n.get_children():
+			if c != world.crew[r].body:
+				(c as Node3D).visible = false   # no badges or floor rings in the picture
+		_dev_wave(world.crew[r].body, r == "eng")   # each astronaut raises the arm on the outer side
+	# The rocket, standing behind the base.
+	var rk := Node3D.new()
+	rk.position = Vector3(3.6, 0, -9.5)
+	rk.scale = Vector3.ONE * 0.6
+	world.add_child(rk)
+	var white := StandardMaterial3D.new()
+	white.albedo_color = Color(0.95, 0.95, 0.98)
+	var red := StandardMaterial3D.new()
+	red.albedo_color = Color(0.92, 0.30, 0.22)
+	var body := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = 0.62
+	cyl.bottom_radius = 0.62
+	cyl.height = 3.4
+	body.mesh = cyl
+	body.material_override = white
+	body.position.y = 2.3
+	rk.add_child(body)
+	var nose := MeshInstance3D.new()
+	var cone := CylinderMesh.new()
+	cone.top_radius = 0.0
+	cone.bottom_radius = 0.62
+	cone.height = 1.4
+	nose.mesh = cone
+	nose.material_override = red
+	nose.position.y = 4.7
+	rk.add_child(nose)
+	for i in range(3):
+		var a := TAU * float(i) / 3.0 + 0.5
+		var fin: MeshInstance3D = world._box(Vector3(0.16, 1.3, 1.0), Vector3(sin(a) * 0.85, 0.75, cos(a) * 0.85), Color(0.92, 0.30, 0.22), rk)
+		fin.rotation.y = a
+	var win := MeshInstance3D.new()
+	var sm := SphereMesh.new()
+	sm.radius = 0.26
+	sm.height = 0.52
+	win.mesh = sm
+	var blue := StandardMaterial3D.new()
+	blue.albedo_color = Color(0.35, 0.75, 1.0)
+	win.material_override = blue
+	win.position = Vector3(0.1, 3.1, 0.58)
+	rk.add_child(win)
+	# The Commander waves from the portrait.
+	_dev_wave(portraits.cmd.holder, true)
+	for c in (portraits.cmd.vp as SubViewport).get_children():
+		if c is Camera3D:
+			(c as Camera3D).look_at_from_position(Vector3(0.12, 0.60, 1.6), Vector3(-0.03, 0.52, 0), Vector3.UP)   # a wider frame, so the raised arm fits
+	_render()
+
+func _r_poster() -> void:
+	# The Commander's own model rises from behind the dialogue box: it is drawn first, and the box covers its lower part.
+	var face := TextureRect.new()
+	face.texture = portraits.cmd.vp.get_texture()
+	face.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	face.mouse_filter = IGNORE
+	ui.add_child(face)
+	face.size = Vector2(360, 360)
+	face.position = Vector2(ui.size.x - 430, ui.size.y - 18 - 215 - 255)
+	var m := _margins(18)
+	_full(m)
+	var p := UI.panel(Color(0.09, 0.08, 0.15, 1.0), 30, 24)
+	p.size_flags_vertical = Control.SIZE_SHRINK_END
+	m.add_child(p)
+	var v := UI.vbox(2)
+	p.add_child(v)
+	v.add_child(_name_tag("cmd"))
+	v.add_child(UI.title("Play the game here!", 84, UI.PAPER))
+	v.add_child(UI.bold("royito06.github.io/NasaSpaceApps2026/play", 36, UI.COL_POWER))
+
+## Development: a cover picture for a slide. The title screen's deep space, with the two steps drawn:
+## Earth to the Moon, then the Moon to Mars. Built from the game's own shapes.
+func _dev_cover() -> void:
+	_set_level(0)
+	state = "cover"
+	space.set_mode("", [], [])
+	space.mode = "cover"
+	# The Moon fills the foreground; Earth is small and far behind; Mars waits ahead.
+	space.earth.scale = Vector3.ONE * 0.16
+	space.earth.position = Vector3(1.5, -2.35, 0.0)
+	var moon_n: Node3D = space.worlds.moon.node
+	var mars_n: Node3D = space.worlds.mars.node
+	for n in [moon_n, mars_n]:
+		n.visible = true
+	moon_n.rotation = Vector3(0.25, 0.9, 0.0)
+	moon_n.scale = Vector3.ONE * 2.55
+	moon_n.position = Vector3(-4.7, -2.0, 0.0)
+	mars_n.rotation = Vector3(0.2, 0.6, 0.0)
+	mars_n.scale = Vector3.ONE * 0.95
+	mars_n.position = Vector3(4.75, 1.15, 0.0)
+	# The two steps, as dotted arcs: Earth to the Moon, then the Moon to Mars.
+	var dot_mat: StandardMaterial3D = space._mat(Color(1.0, 0.86, 0.45), true)
+	var legs: Array = [[Vector3(0.95, -2.2, 0.3), Vector3(-2.0, -1.35, 0.3), 0.55, 7, -1.0], [Vector3(-2.35, 0.05, 0.3), Vector3(3.55, 0.85, 0.3), 0.3, 14, 0.78]]
+	for leg in legs:
+		var n_dots: int = leg[3]
+		for i in range(1, n_dots):
+			var k: float = float(i) / float(n_dots)
+			if absf(k - float(leg[4])) < 0.11:
+				continue   # the rocket sits here
+			var dot: MeshInstance3D = space._ball(0.05, dot_mat, space)
+			dot.position = (leg[0] as Vector3).lerp(leg[1], k) + Vector3(0, sin(PI * k) * float(leg[2]), 0)
+	# The rocket, on its way from the Moon to Mars.
+	var rk: float = 0.78
+	space.rocket.visible = true
+	space.rocket.scale = Vector3.ONE * 1.45
+	space.rocket.position = (legs[1][0] as Vector3).lerp(legs[1][1], rk) + Vector3(0, sin(PI * rk) * 0.3, 0.3)
+	space.rocket.rotation = Vector3(0, 0, deg_to_rad(-84.0))
+	space.flame.visible = true
+	space.flame.scale = Vector3.ONE
+	_render()
+
+func _r_cover() -> void:
+	var edge := Color(0.02, 0.02, 0.06)
+	var m := _margins(64)
+	m.add_theme_constant_override("margin_top", 52)
+	_full(m)
+	var v := UI.vbox(6)
+	m.add_child(v)
+	v.add_child(UI.outlined(UI.title("Two Small Steps", 128, UI.PAPER), 16, edge))
+	v.add_child(UI.outlined(UI.label(t("subtitle"), 40, UI.COL_POWER, null, 1100), 10, edge))
+	var gap := Control.new()
+	gap.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	gap.mouse_filter = IGNORE
+	v.add_child(gap)
+	var foot := UI.hbox(0)
+	v.add_child(foot)
+	foot.add_child(UI.spacer())
+	var fv := UI.vbox(0)
+	foot.add_child(fv)
+	var l1 := UI.outlined(UI.bold("A game for ages 7 to 12", 30, UI.PAPER), 8, edge)
+	l1.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	fv.add_child(l1)
+	var l2 := UI.outlined(UI.label("Challenge: Build a Junior Astronaut Mission Trainer", 24, UI.SOFT), 6, edge)
+	l2.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	fv.add_child(l2)
+
 ## Development: the rule a child can say out loud, used to test the free mission.
 func _f_rule() -> String:
 	var can_go: bool = f.tanks - 1 + _tanks_made(100.0 - 25.0 * f.offline) - TANKS_USED >= 1
@@ -3691,6 +3860,14 @@ func _dev_demo(demo: String) -> void:
 		else:
 			await _bag_tap(1)
 			await _bag_tap(0)
+	elif demo == "cover":
+		_dev_cover()
+		world.reduced_motion = false
+		return
+	elif demo == "poster":
+		_dev_poster()
+		world.reduced_motion = false
+		return
 	elif demo == "f_sim":
 		# development: play many free missions with the rule a child can say, and count how many meet the goals
 		var met := 0

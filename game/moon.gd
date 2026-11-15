@@ -107,7 +107,25 @@ func _build_sky_and_light() -> void:
 	sun.shadow_enabled = true
 	sun.directional_shadow_max_distance = 40.0
 	add_child(sun)
-	# Earth, low over the horizon: close enough to answer in seconds.
+	# Earth, low over the horizon: close enough to answer in seconds. NASA's own model of Earth, if it is there.
+	var earth_path := "res://assets/nasa/models/earth.glb"
+	if ResourceLoader.exists(earth_path):
+		var res = load(earth_path)
+		if res is PackedScene:
+			var e3: Node3D = (res as PackedScene).instantiate()
+			e3.scale = Vector3.ONE * (2.0 / 500.0)
+			e3.position = Vector3(-8.0, -1.3, -62.0)
+			e3.rotation_degrees = Vector3(12.0, -40.0, 0.0)
+			add_child(e3)
+			for c in e3.find_children("*", "MeshInstance3D", true, false):
+				var mi := c as MeshInstance3D
+				for i in range(mi.mesh.get_surface_count()):
+					var m = mi.get_active_material(i)
+					if m is StandardMaterial3D:
+						var copy: StandardMaterial3D = (m as StandardMaterial3D).duplicate()
+						copy.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+						mi.set_surface_override_material(i, copy)
+			return
 	var earth := MeshInstance3D.new()
 	var sm := SphereMesh.new()
 	sm.radius = 2.0

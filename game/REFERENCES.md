@@ -40,6 +40,14 @@ NASA content is generally not subject to copyright. It is credited here and in t
 | PIA24264, "Mastcam-Z's First 360-Degree Panorama" (Perseverance, Jezero crater) | NASA/JPL-Caltech/MSSS/ASU | https://science.nasa.gov/photojournal/mastcam-zs-first-360-degree-panorama/ | `assets/nasa/PIA24264.jpg` (the game shows the horizon strip) |
 | Apollo 11 bootprint, AS11-40-5878 | NASA/JSC | https://science.nasa.gov/3d-resources/moon-apollo-astronaut-bootprint/ | `assets/nasa/apollo11_AS11-40-5878.jpg` |
 
+### NASA 3D models of the worlds
+
+| File | Source | License / terms | Changes |
+|---|---|---|---|
+| `assets/nasa/models/earth.glb` | NASA/JPL-Caltech, "Earth 3D Model", https://science.nasa.gov/learn/heat/resource/earth-3d-model/ | NASA media: generally not copyrighted; used factually with NASA credited and no endorsement implied (https://www.nasa.gov/nasa-brand-center/images-and-media/) | Colour map reduced to 2048x1536 and brightened; normal map removed |
+| `assets/nasa/models/mars.glb` | NASA/JPL-Caltech, "Planet Mars 3D Model", https://science.nasa.gov/resource/planet-mars-3d-model | Same NASA media terms | Colour map reduced to 1536x1152; normal map removed |
+| `assets/nasa/models/moon.glb` | NASA's Goddard Space Flight Center, "Moon 3D Models for Web, AR, and Animation" (`moon_small.glb`), https://svs.gsfc.nasa.gov/14959/ | Same NASA media terms; credit requested to NASA's Goddard Space Flight Center | Colour map reduced to 1536x1536; gloss settings removed |
+
 ## NASA data
 
 | Data | Source | How the game uses it | File |

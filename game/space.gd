@@ -75,6 +75,31 @@ func _patch(parent: Node3D, ball_r: float, lat: float, lon: float, size: float, 
 	var up := Vector3.UP if absf(dir.y) < 0.95 else Vector3.RIGHT
 	mi.transform = Transform3D(Basis.looking_at(-dir, up) * Basis.from_scale(Vector3(size, size, size * 0.35)), dir * (ball_r - size * 0.22))
 
+## One of NASA's own 3D models of a world (a sphere with a real photo map), scaled to the radius the game wants.
+## Returns its materials, so the mission select can dim a locked world. Empty if the model is missing.
+func _nasa_world(file: String, model_radius: float, radius: float, parent: Node3D) -> Array:
+	var path := "res://assets/nasa/models/" + file
+	if not ResourceLoader.exists(path):
+		return []
+	var res = load(path)
+	if not (res is PackedScene):
+		return []
+	var inst: Node3D = (res as PackedScene).instantiate()
+	inst.scale = Vector3.ONE * (radius / model_radius)
+	parent.add_child(inst)
+	var mats: Array = []
+	for c in inst.find_children("*", "MeshInstance3D", true, false):
+		var mi := c as MeshInstance3D
+		for i in range(mi.mesh.get_surface_count()):
+			var m = mi.get_active_material(i)
+			if m is StandardMaterial3D:
+				var copy: StandardMaterial3D = (m as StandardMaterial3D).duplicate()
+				copy.roughness = 1.0
+				copy.metallic = 0.0
+				mi.set_surface_override_material(i, copy)
+				mats.append(copy)
+	return mats
+
 func _build_stars() -> void:
 	var mm := MultiMesh.new()
 	mm.transform_format = MultiMesh.TRANSFORM_3D
@@ -101,6 +126,11 @@ func _build_earth() -> void:
 	var spin := Node3D.new()
 	spin.name = "Spin"
 	earth.add_child(spin)
+	if not _nasa_world("earth.glb", 500.0, 2.7, spin).is_empty():
+		spin.rotation.y = deg_to_rad(-150.0)   # start with the Americas toward the camera
+		earth.position = EARTH_AWAY
+		return
+	# Fallback, drawn with simple shapes, if the NASA model is not there.
 	_ball(2.7, _mat(Color(0.20, 0.45, 0.92)), spin)
 	var land := _mat(Color(0.30, 0.68, 0.36))
 	var cloud := _mat(Color(0.95, 0.97, 1.0))
@@ -123,22 +153,28 @@ func _add_world(id: String, node: Node3D, mats: Array) -> void:
 func _build_worlds() -> void:
 	# The Moon: grey, with darker plains and craters.
 	var moon := Node3D.new()
-	var m_grey := _mat(Color(0.74, 0.74, 0.78))
-	var m_dark := _mat(Color(0.52, 0.52, 0.57))
-	_ball(1.0, m_grey, moon)
-	for p in [[0.4, 0.3, 0.42], [-0.2, 1.0, 0.3], [0.1, 5.6, 0.36], [-0.6, 0.0, 0.25], [0.7, 5.0, 0.22], [0.0, 2.6, 0.4], [0.5, 3.6, 0.3]]:
-		_patch(moon, 1.0, p[0], p[1], p[2], m_dark)
-	_add_world("moon", moon, [m_grey, m_dark])
+	var moon_mats := _nasa_world("moon.glb", 1.272, 1.0, moon)
+	if moon_mats.is_empty():
+		var m_grey := _mat(Color(0.74, 0.74, 0.78))
+		var m_dark := _mat(Color(0.52, 0.52, 0.57))
+		_ball(1.0, m_grey, moon)
+		for p in [[0.4, 0.3, 0.42], [-0.2, 1.0, 0.3], [0.1, 5.6, 0.36], [-0.6, 0.0, 0.25], [0.7, 5.0, 0.22], [0.0, 2.6, 0.4], [0.5, 3.6, 0.3]]:
+			_patch(moon, 1.0, p[0], p[1], p[2], m_dark)
+		moon_mats = [m_grey, m_dark]
+	_add_world("moon", moon, moon_mats)
 	# Mars: rust red, darker regions and a white polar cap.
 	var mars := Node3D.new()
-	var m_rust := _mat(Color(0.82, 0.40, 0.22))
-	var m_shade := _mat(Color(0.56, 0.26, 0.16))
-	var m_cap := _mat(Color(0.96, 0.95, 0.94))
-	_ball(1.15, m_rust, mars)
-	for p in [[0.2, 0.4, 0.5], [-0.3, 1.3, 0.4], [0.1, 5.4, 0.45], [-0.5, 4.4, 0.35], [0.4, 2.8, 0.4]]:
-		_patch(mars, 1.15, p[0], p[1], p[2], m_shade)
-	_patch(mars, 1.15, 1.35, 0.3, 0.34, m_cap)
-	_add_world("mars", mars, [m_rust, m_shade, m_cap])
+	var mars_mats := _nasa_world("mars.glb", 500.0, 1.15, mars)
+	if mars_mats.is_empty():
+		var m_rust := _mat(Color(0.82, 0.40, 0.22))
+		var m_shade := _mat(Color(0.56, 0.26, 0.16))
+		var m_cap := _mat(Color(0.96, 0.95, 0.94))
+		_ball(1.15, m_rust, mars)
+		for p in [[0.2, 0.4, 0.5], [-0.3, 1.3, 0.4], [0.1, 5.4, 0.45], [-0.5, 4.4, 0.35], [0.4, 2.8, 0.4]]:
+			_patch(mars, 1.15, p[0], p[1], p[2], m_shade)
+		_patch(mars, 1.15, 1.35, 0.3, 0.34, m_cap)
+		mars_mats = [m_rust, m_shade, m_cap]
+	_add_world("mars", mars, mars_mats)
 	# An asteroid: a tumbling rock from the kit.
 	var rock := Node3D.new()
 	var m_rock := _mat(Color(0.58, 0.55, 0.52))
