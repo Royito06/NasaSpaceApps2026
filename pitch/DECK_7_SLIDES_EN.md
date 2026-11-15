@@ -50,7 +50,7 @@ Fill in before building the slides: `[Team name]`, `[play URL]`, `[repo URL]`, a
   - A self-test of 300 free missions played with a simple rule a child can say ("Storm coming: shelter. Something broken: repair. Quiet sol: science.") met the goals in 274 (91%), close to the model's 89.3%.
 - **An OSDR finding** on the mission report and the NASA data screen: mice that spent 33 days on the Space Station came back with 18% less of a calf muscle (NASA OSDR, study OSD-342). The data screen adds "These are mice, not astronauts." It also explains "microgravity".
 - **The NASA terminal** (Moon and Mars):
-  - When the request to NASA succeeds, it shows an Apollo 15 photo from the NASA Image Library, or the DONKI solar-particle events from the last 60 days, labelled "Fetched from NASA just now" with the time.
+  - In a browser, only the DONKI request is live: it shows the solar-particle events from the last 60 days. The Apollo 15 photo and the Curiosity image are saved NASA copies labelled "ARCHIVED", because NASA's image server blocks browser downloads, labelled "Fetched from NASA just now" with the time.
   - When it fails, it shows a labelled archived note. There is no saved photo offline.
   - The storm the crew trains with is always the **archived** 20 May 2024 event.
 - **The "NASA data used" screen.** Every number carries a tag: Measurement, Calculation or Game rule.
@@ -114,7 +114,7 @@ Fill in before building the slides: `[Team name]`, `[play URL]`, `[repo URL]`, a
 | Radiation in "sols of normal radiation" | Curiosity RAD: one normal sol on Mars ≈ 0.69 mSv | Measurement |
 | Earth's answer is too late | NASA NSSDCA Moon and Mars fact sheets, distance ÷ speed of light: 3 to 22 minutes each way to Mars; about 1.3 seconds each way to the Moon. The game's 40 minutes (2 × 20) is a game rule inside that range | Calculation, and Game rule |
 
-- **Support line:** The NASA terminal asks DONKI and the NASA Image Library for data during play, and labels what it gets as "Fetched from NASA just now". On the bonus sol, today's DONKI answer decides whether a storm comes (game rule).
+- **Support line:** During play, the NASA terminal asks NASA DONKI live and labels the answer "Fetched from NASA just now". The Apollo 15 and Curiosity photos are saved NASA copies labelled "ARCHIVED" (browsers block live downloads from NASA's image server). On the bonus sol, today's DONKI answer decides whether a storm comes (game rule).
 - **Optional fifth row** (if space allows): oxygen tanks · NASA BVAD: 0.895 kg of oxygen per crew member per day; one tank = half a sol for a crew of 4. The real oxygen machine is MOXIE, which made 122 g on Mars · Measurement and Calculation; the machine's fill rate is a game rule.
 - **Speaker note:** Several numbers are game rules, and the game tags them that way: the shelter share, the goals (75% power, 6 sols), 50 minutes per rock, the science points, and counting Curiosity's 8.1 mGy as 8.1 mSv. The goals are not health limits.
 - **Figure:** the "NASA data used" screen, or the terminal showing "Fetched from NASA just now". Optional inset: `eda/figures/fig_14_donki_storms.png` (English).

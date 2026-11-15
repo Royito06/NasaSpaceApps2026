@@ -30,13 +30,13 @@ Every number in the game carries a tag: **Measurement**, **Calculation** or **Ga
 | NASA data | Mechanic in the game | Why it matters |
 |---|---|---|
 | **Apollo 15 Mission Report** and **Apollo Lunar Surface Journal** | Level 1: the 5 km line (the farthest Apollo 15 drove from its lander), 7 hours of suit oxygen, the Genesis Rock | A real mission's real safety rule: never drive farther than you can walk back |
-| **NASA DONKI** (space weather) | The Mars storm (the eruption of 20 May 2024), the free mission's storm cards, and a **live request** on the bonus sol that decides whether a storm comes | Links the shielding decision to actual space weather; archived data is always labelled as archived |
+| **NASA DONKI** (space weather), requested **live** from the browser | The Mars storm (the eruption of 20 May 2024), the free mission's storm cards, and a **live request** on the bonus sol that decides whether a storm comes | Links the shielding decision to actual space weather; archived data is always labelled as archived |
 | **Curiosity RAD** (NASA JPL) | Radiation counted in "sols of normal radiation" (0.69 mSv per sol); the storm's size (8.1 mGy measured on 20 May 2024) | A real radiation reading from the surface of Mars |
 | **NASA NSSDCA fact sheets** (distance ÷ speed of light) and **JPL Horizons** | 2.6 seconds to the Moon and back vs 3 to 22 minutes each way to Mars | Communication delay: why the Mars crew must decide alone |
 | **NASA Life Support Baseline Values (BVAD)**, **MOXIE**, **Veggie** | Oxygen tanks (0.895 kg of oxygen per crew member per day), the oxygen machine, the 28-day lettuce harvest | "A choice that saves power today might cost oxygen tomorrow" |
 | **NASA Human Research Program** risk ratings | Two roles with split information, and Earth's late answer | Teamwork and Earth-independent operations are two of the three human risks rated highest for Mars |
 | **NASA Open Science Data Repository**, study OSD-342 | A fact on the mission report: mice lost 18% of a calf muscle after 33 days in microgravity | Real astronaut-health research, explained in plain words (mice, not astronauts) |
-| **NASA Image and Video Library** | The NASA terminal fetches Apollo 15 photo AS15-86-11603 and Curiosity image PIA26302 during play | Real photos, fetched live and labelled "Fetched from NASA just now" |
+| **NASA Image and Video Library** | Apollo 15 photo AS15-86-11603 and Curiosity image PIA26302, shown in the NASA terminal as saved copies with their NASA source and caption | Real mission photos; browsers block live downloads from NASA's image server, so the game ships the same NASA files and labels them "ARCHIVED" |
 
 ## Balance: no safe choice
 
