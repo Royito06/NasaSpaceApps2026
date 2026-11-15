@@ -81,6 +81,7 @@ var shelter_reinforced := false
 var controls := {}                      # role -> "wasd", "arrows" or "both": who steers which astronaut
 var tappables := {}                     # id -> {pos: Vector3, radius: float, marker: Sprite3D}
 var reduced_motion := false
+var tap_gain := 1.0                     # fingers are less exact than a mouse: touch screens get a wider reach
 var _t := 0.0
 var _mood: Tween
 var _mood_name := "day"
@@ -902,7 +903,7 @@ func _unhandled_input(e: InputEvent) -> void:
 		var wp: Vector3 = _tap_pos(t) - (Vector3(0, 0.45, 0) if t.follow != null else Vector3.ZERO)
 		var sp: Vector2 = cam.unproject_position(wp)
 		var d: float = sp.distance_to(e.position)
-		if d < t.radius * k and d < best_d:
+		if d < t.radius * k * tap_gain and d < best_d:
 			best = id
 			best_d = d
 	if best != "":

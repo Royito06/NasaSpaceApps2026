@@ -511,6 +511,26 @@ const S := {
 	"f_predict_q": ["Predict first: how many full oxygen tanks will we have at dawn?", "Primero predigan: ¿cuántos tanques de oxígeno llenos tendremos al amanecer?"],
 	"f_pred_line": ["You predicted {g} full tanks. At dawn there are {n}.", "Predijeron {g} tanques llenos. Al amanecer hay {n}."],
 
+	# --- sound effects (off until the player turns them on)
+	"btn_sound_on": ["Sound: on", "Sonido: sí"],
+	"btn_sound_off": ["Sound: off", "Sonido: no"],
+	"set_sound_hint": ["Soft sound effects: footsteps, machines, the rover and the base's air system.", "Efectos de sonido suaves: pasos, máquinas, el rover y el sistema de aire de la base."],
+	"tip_sound": ["Soft sound effects", "Efectos de sonido suaves"],
+
+	# --- touch screens
+	"keys_touch": ["Tap a yellow arrow and the crew walks there. Tap an astronaut to pick who leads.", "Toca una flecha amarilla y la tripulación camina hasta ahí. Toca a un astronauta para escoger quién guía."],
+	"m_keys_touch": ["Tap a rock site and the rover drives there.", "Toca un sitio de rocas y el rover maneja hasta ahí."],
+	"m_keys_back_touch": ["Tap the lander and the rover drives back.", "Toca el módulo y el rover regresa."],
+	"keys_tap": ["Tap to move", "Toca para mover"],
+	"dep_a_touch": ["Let it go · tap", "Soltar · toca"],
+	"dep_b_touch": ["Pull the tape · tap", "Jalar la cinta · toca"],
+	"dep_hint_touch": ["Tap both buttons: the rover only moves while both are on.", "Toca los dos botones: el rover sólo se mueve con los dos encendidos."],
+	"rotate_device": ["Turn your device sideways to play.", "Gira tu dispositivo de lado para jugar."],
+
+	# --- saved copies of the two NASA pictures, for when the live download is blocked
+	"term_photo_blocked": ["NASA's image server did not let this page download the picture", "el servidor de imágenes de la NASA no dejó que esta página descargara la imagen"],
+	"pic_saved": ["copy saved inside the game", "copia guardada en el juego"],
+
 	# --- NASA data screen
 	"data_title": ["NASA data used", "Datos de la NASA usados"],
 	"data_legend_m": ["a number from a NASA source", "un número de una fuente de la NASA"],
@@ -518,8 +538,8 @@ const S := {
 	"data_legend_r": ["our own design choice", "una decisión de diseño nuestra"],
 	"credits_title": ["Credits", "Créditos"],
 	"credits": [
-		"3D models: Kenney (Space Kit, Space Station Kit) and Kay Lousberg (KayKit Space Base Bits), CC0. UI: Kenney UI Pack, CC0. Icons made by Lorc and Delapouite, available on game-icons.net, CC BY 3.0. Fonts: Atkinson Hyperlegible (Braille Institute), Fredoka (The Fredoka Project Authors), OFL 1.1. Photos: NASA/JPL-Caltech/MSSS/ASU (PIA24264), NASA/JSC (AS11-40-5878). 3D models of Earth and Mars: NASA/JPL-Caltech. 3D model of the Moon: NASA's Goddard Space Flight Center. Made with Godot Engine. No AI-generated imagery. Independent student project, not endorsed by NASA.",
-		"Modelos 3D: Kenney (Space Kit, Space Station Kit) y Kay Lousberg (KayKit Space Base Bits), CC0. Interfaz: Kenney UI Pack, CC0. Iconos hechos por Lorc y Delapouite, disponibles en game-icons.net, CC BY 3.0. Fuentes: Atkinson Hyperlegible (Braille Institute), Fredoka (The Fredoka Project Authors), OFL 1.1. Fotos: NASA/JPL-Caltech/MSSS/ASU (PIA24264), NASA/JSC (AS11-40-5878). Modelos 3D de la Tierra y Marte: NASA/JPL-Caltech. Modelo 3D de la Luna: Goddard Space Flight Center de la NASA. Hecho con Godot Engine. Sin imágenes generadas por IA. Proyecto estudiantil independiente, sin aval de la NASA.",
+		"3D models: Kenney (Space Kit, Space Station Kit) and Kay Lousberg (KayKit Space Base Bits), CC0. UI: Kenney UI Pack, CC0. Icons made by Lorc and Delapouite, available on game-icons.net, CC BY 3.0. Fonts: Atkinson Hyperlegible (Braille Institute), Fredoka (The Fredoka Project Authors), OFL 1.1. Photos: NASA/JPL-Caltech/MSSS/ASU (PIA24264), NASA/JSC (AS11-40-5878). 3D models of Earth and Mars: NASA/JPL-Caltech. 3D model of the Moon: NASA's Goddard Space Flight Center. Sound effects by audiopapkin, daviddumaisaudio, dragon-studio, freesound_community, u_edtmwfwu7c and u_xg7ssi08yr, via Pixabay. Made with Godot Engine. No AI-generated imagery. Independent student project, not endorsed by NASA.",
+		"Modelos 3D: Kenney (Space Kit, Space Station Kit) y Kay Lousberg (KayKit Space Base Bits), CC0. Interfaz: Kenney UI Pack, CC0. Iconos hechos por Lorc y Delapouite, disponibles en game-icons.net, CC BY 3.0. Fuentes: Atkinson Hyperlegible (Braille Institute), Fredoka (The Fredoka Project Authors), OFL 1.1. Fotos: NASA/JPL-Caltech/MSSS/ASU (PIA24264), NASA/JSC (AS11-40-5878). Modelos 3D de la Tierra y Marte: NASA/JPL-Caltech. Modelo 3D de la Luna: Goddard Space Flight Center de la NASA. Efectos de sonido de audiopapkin, daviddumaisaudio, dragon-studio, freesound_community, u_edtmwfwu7c y u_xg7ssi08yr, vía Pixabay. Hecho con Godot Engine. Sin imágenes generadas por IA. Proyecto estudiantil independiente, sin aval de la NASA.",
 	],
 }
 
@@ -530,9 +550,9 @@ const DATA_ROWS := [
 	["m", "Moon: the Genesis Rock was found sitting on a pedestal of soil, and was photographed beside the gnomon before it was collected.", "Luna: la Roca Génesis estaba sobre un pedestal de suelo, y se fotografió junto al gnomon antes de recogerla.", "Apollo Lunar Surface Journal, Apollo 15, Spur Crater"],
 	["m", "Moon: at the end of the last moonwalk, a 1.32 kg hammer and a 0.03 kg falcon feather were let go together and reached the ground together.", "Luna: al final de la última salida, se soltaron juntos un martillo de 1.32 kg y una pluma de halcón de 0.03 kg, y llegaron juntos al suelo.", "NASA Science, The Apollo 15 Hammer-Feather Drop"],
 	["r", "Moon: in the game only the rare rock needs a photo first, and the hammer and feather are drawn larger than life.", "Luna: en el juego sólo la roca rara necesita foto antes, y el martillo y la pluma se dibujan más grandes que en la realidad.", ""],
-	["m", "Live: the Mars terminal also downloads Curiosity's camera image of 20 May 2024 (PIA26302), with streaks and specks made by the storm's particles.", "En vivo: la terminal de Marte también descarga la imagen de la cámara de Curiosity del 20 de mayo de 2024 (PIA26302), con rayas y puntos hechos por las partículas de la tormenta.", "NASA/JPL-Caltech, NASA Image and Video Library"],
+	["m", "Live: the Mars terminal also downloads Curiosity's camera image of 20 May 2024 (PIA26302), with streaks and specks made by the storm's particles. If NASA's image server blocks the download, the game shows the copy saved inside it and says so.", "En vivo: la terminal de Marte también descarga la imagen de la cámara de Curiosity del 20 de mayo de 2024 (PIA26302), con rayas y puntos hechos por las partículas de la tormenta. Si el servidor de imágenes de la NASA bloquea la descarga, el juego muestra la copia guardada y lo dice.", "NASA/JPL-Caltech, NASA Image and Video Library"],
 	["m", "Live: when you open the terminal on Mars, the game asks NASA DONKI for the solar particle events of the last 60 days. If NASA does not answer, the terminal says so and uses the archived copy.", "En vivo: al abrir la terminal en Marte, el juego le pide a NASA DONKI los eventos de partículas solares de los últimos 60 días. Si la NASA no contesta, la terminal lo dice y usa la copia archivada.", "NASA DONKI through api.nasa.gov (live request)"],
-	["m", "Live: the terminal on the Moon downloads the Apollo 15 photo AS15-86-11603 and its caption from NASA when you open it.", "En vivo: la terminal en la Luna descarga de la NASA la foto AS15-86-11603 del Apolo 15 y su descripción al abrirla.", "NASA Image and Video Library, images.nasa.gov (live request)"],
+	["m", "Live: the terminal on the Moon downloads the Apollo 15 photo AS15-86-11603 and its caption from NASA when you open it. If NASA's image server blocks the download, the game shows the copy saved inside it and says so.", "En vivo: la terminal en la Luna descarga de la NASA la foto AS15-86-11603 del Apolo 15 y su descripción al abrirla. Si el servidor de imágenes de la NASA bloquea la descarga, el juego muestra la copia guardada y lo dice.", "NASA Image and Video Library, images.nasa.gov (live request)"],
 	["m", "Moon: Apollo 15 (1971) drove its rover at most 5.0 km from the lander, at about 10 km/h.", "Luna: el Apolo 15 (1971) manejó su rover a lo más a 5.0 km del módulo, a unos 10 km/h.", "NASA, Apollo 15 Mission Report (NTRS 19720021182)"],
 	["m", "Moon: the suit backpack held about 7 hours of oxygen, as Mission Control said during the mission.", "Luna: la mochila del traje tenía unas 7 horas de oxígeno, como dijo Control de Misión durante la misión.", "Apollo Lunar Surface Journal, Apollo 15 (CapCom Joe Allen)"],
 	["m", "Moon: the walk-back rule set how far the crew could drive, so they had oxygen and water to walk home if the rover failed (astronaut Jim Irwin).", "Luna: la regla de regreso a pie fijaba qué tan lejos podía manejar la tripulación, para tener oxígeno y agua y volver caminando si el rover fallaba (astronauta Jim Irwin).", "Apollo Lunar Surface Journal, Apollo 15, Spur Crater"],

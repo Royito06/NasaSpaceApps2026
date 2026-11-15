@@ -3,7 +3,7 @@
 A browser game for ages 7–12, made with Godot 4.7.2. Two levels, each built around one decision. Level 1, the Moon (Apollo 15): drive the rover to the close rock site or the far one, with Mission Control answering in seconds. Level 2, Mars: two crew roles and one job before a solar storm, with Earth too far away to help.
 
 - It opens in deep space. After "solo or co-op", a mission select shows the Moon, Mars (locked until the Moon is played) and worlds still to come.
-- A "NASA terminal" in each level makes a real request to NASA while you play: an Apollo 15 photo from the NASA Image and Video Library on the Moon, and the solar particle events of the last 60 days from DONKI on Mars. Live data is labelled live; if NASA does not answer, the game says so and uses the archived copies in `data/`.
+- A "NASA terminal" in each level makes a real request to NASA while you play: on Mars, the solar particle events of the last 60 days from DONKI; on the Moon, an Apollo 15 photo and its caption from the NASA Image and Video Library. What arrives live is labelled as fetched now; anything NASA does not deliver is replaced by the copy saved inside the game and labelled archived.
 - The narrator names what the players have to manage before they act, one line each, with an arrow on the thing it names: oxygen reserve and science on the Moon; power, oxygen tanks and radiation on Mars.
 - Mars has three things to manage. Power runs the oxygen machine and the greenhouse lamp, so a power unit left broken means fewer oxygen tanks the next morning and plants without light.
 - After sol 31 comes harvest day: the players pick the lettuce, and how many of the six plants are ready depends on the nights the lamp was on.
@@ -15,6 +15,9 @@ A browser game for ages 7–12, made with Godot 4.7.2. Two levels, each built ar
 - One star for each goal met: up to 3 on a free mission's report, up to 2 on a story sol. There is no other score, and the logbook keeps the totals on the device.
 - In the free mission the crew predicts the oxygen tanks at dawn before acting, and Earth's answer arrives too late on storm sols, as it does on sol 30.
 - The logbook keeps a diary of the days the bonus sol really reached NASA: how many were calm and how many active.
+- Touch screens work: every target can be tapped (the crew walks or the rover drives there), hints switch to tapping after the first touch, and a phone held upright is asked to turn sideways.
+- Soft sound effects (footsteps, machines, the rover, the base's air system) are off until the player turns them on, on the title screen or in Settings.
+- The two NASA pictures (the Apollo 15 photo and Curiosity's storm image) are also saved inside the game. NASA's image server currently refuses downloads from web pages, so in a browser the terminal shows the saved copy, labelled "ARCHIVED · copy saved inside the game". The NASA DONKI request is made live and works in browsers.
 - English by default, with a Spanish toggle.
 - One or two players. With two, Engineering moves with W A S D and Protection with the arrow keys. With one, both key sets move the selected astronaut; Space (or a tap on an astronaut) switches. Everything also works by tapping the yellow arrows.
 - The players do each job with their hands, in a small game that shows the idea: on the Moon the oxygen reserve drops as the rover drives away and they choose which rocks to bring back; on Mars they rewire a power unit by matching plugs, or stop the storm's rays with water bags and watch "storm getting through" fall. The next sol on Mars starts from what the crew chose: whatever they did not fix is still broken, a second and smaller storm arrives, and the mini-games give no hints.

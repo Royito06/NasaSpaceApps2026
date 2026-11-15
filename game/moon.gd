@@ -25,6 +25,7 @@ const ROCK_COL := {"grey": Color(0.50, 0.50, 0.54), "dark": Color(0.27, 0.27, 0.
 
 var helper: Node3D           # the Mars scene, used only for its model loader
 var cam: Camera3D
+var tap_gain := 1.0            # wider reach for fingers on a touch screen
 var rover: Node3D
 var crew_bob: Node3D
 var dust: CPUParticles3D
@@ -577,7 +578,7 @@ func _unhandled_input(e: InputEvent) -> void:
 		if not t.on:
 			continue
 		var d: float = cam.unproject_position(t.pos - Vector3(0, 0.5, 0)).distance_to(e.position)
-		if d < t.radius * k and d < best_d:
+		if d < t.radius * k * tap_gain and d < best_d:
 			best = id
 			best_d = d
 	if best != "":

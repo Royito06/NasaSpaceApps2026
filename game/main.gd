@@ -54,6 +54,8 @@ const SPEAKER_COL := {"cmd": Color(0.45, 0.92, 0.78), "eng": Color(1.0, 0.74, 0.
 const BOX := Color(0.09, 0.08, 0.15, 0.78)   # dialogue box and notes: see-through, so the scene shows behind
 const BARS_W := 176      # width kept free in the bottom-right corner for the two bars
 const VOICE_TONE := {"cmd": [0.9, 0.95], "mc": [1.0, 1.0], "eng": [1.15, 1.0], "pro": [1.3, 1.0], "earth": [0.8, 0.9]}   # read-aloud [pitch, pace] per character
+const PHOTO_SAVED := "res://assets/nasa/as15-86-11603_small.jpg"   # the same NASA pictures, bundled: shown, and labelled, when the live download fails
+const STORM_PIC_SAVED := "res://assets/nasa/PIA26302_small.jpg"
 const STORM_PIC_URL := "https://images-assets.nasa.gov/image/PIA26302/PIA26302~small.jpg"   # Curiosity, 20 May 2024
 const MODAL_STATES := ["title", "players", "select", "m_card", "m_term", "p_term", "m_compare", "to_mars", "to_moon", "decide", "compare", "debrief", "end", "f_decide", "f_end"]
 const NOTE_STATES := ["meet", "role_eng", "role_pro", "ask_earth", "earth_q"]
@@ -91,6 +93,13 @@ var page := 0                   # which narrator line of the current scene is sh
 var players := 1
 var active := "eng"             # with one player: the astronaut the keys steer
 var voice_on := false
+var touch_mode := false         # true once the player touches the screen: hints talk about tapping, not keys
+var sound_on := false           # sound effects: off until the player turns them on (calm by default)
+var _snd := {}                  # name -> the sound
+var _amb: AudioStreamPlayer     # the place's background sound
+var _act: AudioStreamPlayer     # one looping action sound: footsteps, the rover, the reels
+var _shots: Array = []          # players for short sounds
+var _rover_last := Vector3.ZERO
 var show_src := false           # tags on every number (Measurement / Calculation / Game rule) during play
 var data_open := false
 var settings_open := false
@@ -171,6 +180,8 @@ func _ready() -> void:
 	fade.mouse_filter = IGNORE
 	layer.add_child(fade)
 	_log_load()
+	get_viewport().size_changed.connect(_render)   # a phone turned sideways gets a fresh layout
+	_audio_setup()
 	_reset_run()
 	world.set_units_online(4)
 	world.set_room_power(1.0, false)
@@ -353,6 +364,7 @@ func _process(dt: float) -> void:
 		# The reserve is what would be left after walking home from here: it drops as the rover drives away.
 		oxygen = O2_FULL - 0.7 * moon.km_from_lander()
 	_check_zones()
+	_audio_tick()
 
 # ---------------------------------------------------------------- flow
 
@@ -376,6 +388,77 @@ func _next_page() -> void:
 func _set_busy(b: bool) -> void:
 	busy = b
 	_sync_world()
+
+# ---------------------------------------------------------------- sound effects
+
+const SOUND_LOOPS := ["amb_space", "amb_base", "gears", "rover", "steps"]
+
+func _audio_setup() -> void:
+	for n in ["amb_space", "amb_base", "machine", "gears", "rover", "steps", "click", "mech", "build", "clang", "beam", "zap"]:
+		var path: String = "res://assets/sounds/" + n + ".ogg"
+		if ResourceLoader.exists(path):
+			var stream = load(path)
+			if stream is AudioStreamOggVorbis:
+				(stream as AudioStreamOggVorbis).loop = SOUND_LOOPS.has(n)
+				_snd[n] = stream
+	_amb = AudioStreamPlayer.new()
+	_amb.volume_db = -18.0
+	add_child(_amb)
+	_act = AudioStreamPlayer.new()
+	_act.volume_db = -12.0
+	add_child(_act)
+	for i in range(3):
+		var p := AudioStreamPlayer.new()
+		add_child(p)
+		_shots.append(p)
+
+## One short sound. Quiet on purpose: sounds mark what happened, they never startle.
+func _sfx(sound: String, db := -9.0) -> void:
+	if not sound_on or not _snd.has(sound):
+		return
+	var pick: AudioStreamPlayer = _shots[0]
+	for p in _shots:
+		if not (p as AudioStreamPlayer).playing:
+			pick = p
+			break
+	pick.stream = _snd[sound]
+	pick.volume_db = db
+	pick.play()
+
+## Keeps one looping sound on a player, or none.
+func _loop_sound(player: AudioStreamPlayer, sound: String) -> void:
+	var want: String = sound if (sound_on and _snd.has(sound)) else ""
+	if want == str(player.get_meta("snd", "")):
+		return
+	player.set_meta("snd", want)
+	if want == "":
+		player.stop()
+	else:
+		player.stream = _snd[want]
+		player.play()
+
+## Every frame: the place's background sound, and the looping sound of what is moving.
+func _audio_tick() -> void:
+	# Space hums between worlds, the base's air system runs on Mars, and the airless Moon is silent.
+	_loop_sound(_amb, "amb_space" if level == 0 else ("amb_base" if level == 2 else ""))
+	var act := ""
+	if level == 1:
+		var at: Vector3 = moon.rover.position
+		if state == "m_deploy" and m_dep < 1.0 and (dep_a or Input.is_physical_key_pressed(KEY_W)) and (dep_b or Input.is_physical_key_pressed(KEY_UP)):
+			act = "gears"
+		elif at.distance_to(_rover_last) > 0.0008 and (state == "m_drive" or state == "m_return" or state == "m_auto"):
+			act = "rover"
+		_rover_last = at
+	elif level == 2:
+		for r in ["eng", "pro"]:
+			if world.crew[r].walking or world.crew[r].moving:
+				act = "steps"
+	_loop_sound(_act, act)
+
+func _toggle_sound() -> void:
+	sound_on = not sound_on
+	_sfx("click")
+	_render()
 
 func _overlay() -> bool:
 	return data_open or settings_open or logbook_open
@@ -545,6 +628,7 @@ func _deploy_done() -> void:
 	m_dep = 1.0
 	dep_a = false
 	dep_b = false
+	_sfx("mech")
 	moon.set_deploy(1.0, false, false)
 	_go("m_drive")
 
@@ -570,6 +654,9 @@ func _drop(mode: String) -> void:
 	_set_busy(true)
 	moon.drop_reset()
 	await _wait(0.4)
+	if mode == "air" and sound_on and not world.reduced_motion:
+		# With air the hammer lands first and can be heard. On the Moon there is no air to carry a sound.
+		get_tree().create_timer(0.62).timeout.connect(func(): _sfx("clang", -12.0))
 	await moon.drop(mode == "air")
 	if mode == "moon" and not drop_done.moon:
 		# The hammer and the feather: a prediction that came true, or not.
@@ -686,6 +773,7 @@ func _f_do(c: String) -> void:
 		await world.walk_both("pro", "shelter", "eng", "shelter_help")
 		for step in range(3):
 			world.work("pro" if step % 2 == 0 else "eng", 0.4)
+			_sfx("build")
 			await world.reinforce_step(step)
 			await _wait(0.2)
 	elif c == "b":
@@ -695,6 +783,7 @@ func _f_do(c: String) -> void:
 		else:
 			for step in range(3):
 				world.work("eng" if step % 2 == 0 else "pro", 0.4)
+				_sfx("mech" if step == 2 else "click")
 				await world.repair_step(4 - f.offline, step)
 				await _wait(0.2)
 			f.offline -= 1
@@ -722,6 +811,8 @@ func _f_do(c: String) -> void:
 		await _wait(1.0)
 	_go("f_night")
 	world.set_mood("night")
+	if _tanks_made(100.0 - 25.0 * f.offline) > 0:
+		_sfx("machine", -13.0)
 	var used: int = TANKS_USED + (1 if c == "s" else 0)
 	tanks_view = maxi(f.tanks - used, 0)
 	world.set_tanks(tanks_view)
@@ -819,6 +910,7 @@ func _hv_tap(i: int) -> void:
 		return
 	hv.msg = ""
 	hv.picked.append(i)
+	_sfx("click")
 	world.set_harvest(_hv_states())
 	world.work("eng", 0.4)
 	if hv.picked.size() >= hv.ready:
@@ -843,6 +935,7 @@ func _moon_complete() -> void:
 ## On the Moon the answer really takes 2.6 seconds: 1.3 there and 1.3 back.
 func _m_ask() -> void:
 	_go("m_ask")
+	_sfx("zap")
 	await _wait(2.6)
 	if state == "m_ask" and page == 0:
 		_next_page()
@@ -881,6 +974,7 @@ func _m_dig(i: int) -> void:
 	_set_busy(true)
 	m_pending = -1
 	m_dug.append(i)
+	_sfx("click")
 	_tween_var("science", science + ROCK_POINTS[moon.rock_kind(i)], 0.5)
 	_tween_var("oxygen", oxygen - ROCK_WORK_H / 3.0, 0.5)
 	await moon.collect_rock(i)
@@ -1046,8 +1140,11 @@ func _sync_world() -> void:
 					active = roles[0]
 				ctl[active] = "both"
 				silent = roles
-	if start != "a" and state != "harvest":
-		marked = []   # after sol 30: no arrows, only the rings on the floor
+	if start != "a" and state != "harvest" and not touch_mode:
+		# After sol 30 the arrows go away and only the rings on the floor stay. The targets can still be tapped,
+		# so a player without a keyboard is never stuck. On a touch screen the arrows stay.
+		silent = silent + marked
+		marked = []
 	world.set_tappable(marked, silent)
 	world.set_goals(goals)
 	world.set_controls(ctl)
@@ -1116,6 +1213,19 @@ func _on_tapped(id: String) -> void:
 		"shelter", "power":
 			if state == "go_job" and id == _job_point():
 				_arrive_job()
+
+## The first touch switches the hints to tapping; a key press switches them back.
+func _input(e: InputEvent) -> void:
+	if e is InputEventScreenTouch and e.pressed and not touch_mode:
+		touch_mode = true
+		world.tap_gain = 1.5
+		moon.tap_gain = 1.5
+		_render()
+	elif e is InputEventKey and e.pressed and touch_mode:
+		touch_mode = false
+		world.tap_gain = 1.0
+		moon.tap_gain = 1.0
+		_render()
 
 func _unhandled_input(e: InputEvent) -> void:
 	if state == "title" and not _overlay():
@@ -1210,6 +1320,7 @@ func _fetch_photo() -> Dictionary:
 ## The player presses the terminal's button: the request goes out while the steps show on screen.
 func _term_run(kind: String) -> void:
 	term[kind] = {"step": 1}
+	_sfx("beam")
 	_render()
 	var t0 := Time.get_ticks_msec()
 	var now := Time.get_time_string_from_system().substr(0, 5)
@@ -1239,6 +1350,17 @@ func _term_run(kind: String) -> void:
 			result["at"] = now
 	if result.get("ok", false) and not result.get("cached", false):
 		_live[kind] = result.duplicate()
+	# The picture could not be downloaded: use the copy saved inside the game, and say so on screen.
+	if not result.has("tex"):
+		var saved: String = STORM_PIC_SAVED if kind == "mars" else PHOTO_SAVED
+		if ResourceLoader.exists(saved):
+			result["tex"] = load(saved)
+			result["pic_saved"] = true
+	if kind == "moon":
+		if not result.has("date"):
+			result["date"] = "1971-07-31"
+		if not result.has("title"):
+			result["title"] = ""
 	await _wait(max(0.0, 2.6 - (Time.get_ticks_msec() - t0) / 1000.0))   # long enough to read the steps
 	result["step"] = 2
 	if not result.has("at"):
@@ -1272,6 +1394,7 @@ func _start_b() -> void:
 func _send_message(r: String) -> void:
 	_set_busy(true)
 	await world.walk(r, "dish_pt")
+	_sfx("zap")
 	await world.send_message()
 	busy = false
 	_go("earth_q")
@@ -1284,6 +1407,7 @@ func _guess(g: String) -> void:
 
 ## Each role votes for a job. A player alone votes for both roles with one tap.
 func _vote(role: String, id: String) -> void:
+	_sfx("click")
 	votes[role] = id
 	if players == 1:
 		votes = {"eng": id, "pro": id}
@@ -1333,6 +1457,7 @@ func _wire_pick(i: int) -> void:
 	if busy or state != "do_job" or job.done.has(i):
 		return
 	job.sel = i
+	_sfx("click")
 	_render()
 
 ## Rewiring: the player picks a socket. The right one connects; a wrong one just lets go of the plug.
@@ -1346,6 +1471,7 @@ func _wire_plug(slot: int) -> void:
 	_set_busy(true)
 	job.done.append(job.sel)
 	job.sel = -1
+	_sfx("mech" if job.done.size() == job.n else "click")
 	_render()
 	var last: bool = job.done.size() == job.n
 	world.work(_job_role() if job.done.size() % 2 == 1 else _helper_role(), 0.5)
@@ -1375,6 +1501,7 @@ func _bag_tap(slot: int) -> void:
 		return
 	_set_busy(true)
 	job.bags.append(slot)
+	_sfx("build")
 	_render()
 	var blocked := _rays_blocked()
 	world.work(_job_role() if job.bags.size() % 2 == 1 else _helper_role(), 0.4)
@@ -1395,6 +1522,7 @@ func _auto_job() -> void:
 	await world.walk_both(_job_role(), _job_point(), _helper_role(), _job_point() + "_help")
 	for step in range(3):
 		world.work(_job_role() if step % 2 == 0 else _helper_role(), 0.5)
+		_sfx("build" if choice == "a" else ("mech" if step == 2 else "click"))
 		if choice == "a":
 			await world.reinforce_step(step)
 		else:
@@ -1426,6 +1554,8 @@ func _advance() -> void:
 	busy = true
 	_go("act_night")
 	world.set_mood("night")
+	if _tanks_made(_p_after(choice)) > 0:
+		_sfx("machine", -13.0)   # the oxygen machine fills its tanks
 	await _wait(0.8)
 	tanks_view = maxi(tanks - TANKS_USED, 0)   # the tanks the crew breathed today are empty
 	world.set_tanks(tanks_view)
@@ -1652,7 +1782,7 @@ func _rebuild() -> void:
 			"m_collect":
 				_r_m_collect()
 			"m_return":
-				_talk("mc", t("mc_return")).add_child(UI.label(t("m_keys_back"), 19, UI.SOFT))
+				_talk("mc", t("mc_return")).add_child(UI.label(t("m_keys_back_touch") if touch_mode else t("m_keys_back"), 19, UI.SOFT))
 			"m_auto":
 				_talk("mc", t("mc_auto"))
 			"m_result":
@@ -1722,6 +1852,18 @@ func _rebuild() -> void:
 		_r_settings()
 	if logbook_open:
 		_r_logbook()
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	if view.y > view.x * 1.05 and state != "poster" and state != "cover":
+		# A phone held upright: the game is laid out for a wide screen.
+		var cover := ColorRect.new()
+		cover.color = Color(0.04, 0.03, 0.08, 0.94)
+		cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		ui.add_child(cover)
+		var cc := CenterContainer.new()
+		cc.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		cc.mouse_filter = IGNORE
+		ui.add_child(cc)
+		cc.add_child(_centered(UI.title(t("rotate_device"), 64, UI.PAPER, int(view.x * 0.8))))
 
 func _full(node: Control) -> Control:
 	node.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -1964,7 +2106,7 @@ func _fact(text: String, kind := "", lead: Control = null, size := 24, wrap_w :=
 func _hint(v: VBoxContainer) -> void:
 	if level == 2 and (start != "a" or not runs.is_empty()):
 		return   # by now the players know how to move
-	v.add_child(UI.label(t("keys_%d" % players), 19, UI.SOFT, null, 1100))
+	v.add_child(UI.label(t("keys_touch") if touch_mode else t("keys_%d" % players), 19, UI.SOFT, null, 1100))
 
 func _next_row(v: VBoxContainer) -> void:
 	var row := UI.hbox(0)
@@ -2180,6 +2322,10 @@ func _corner_buttons() -> void:
 	m.add_child(btns)
 	var vb := UI.button(t("btn_voice_on") if voice_on else t("btn_voice_off"), _toggle_voice, "Grey", 19)
 	var lb := UI.button(t("lang_button"), _toggle_lang, "Yellow", 19)
+	var sb := UI.button(t("btn_sound_on") if sound_on else t("btn_sound_off"), _toggle_sound, "Yellow" if sound_on else "Grey", 19)
+	if not OS.get_cmdline_user_args().has("--clip"):
+		btns.add_child(sb)
+		_tip(sb, t("tip_sound"))
 	if state == "select":
 		var gb := UI.button(t("btn_logbook"), _open_logbook, "Grey", 19)
 		btns.add_child(gb)
@@ -2233,9 +2379,9 @@ func _r_players() -> void:
 			faces.add_child(one)
 			one.add_child(_portrait(r, 92))
 			if n == 2:
-				one.add_child(_pill(t("keys_wasd") if r == "eng" else t("keys_arrows"), SPEAKER_COL[r], 18))
+				one.add_child(_pill(t("keys_tap") if touch_mode else (t("keys_wasd") if r == "eng" else t("keys_arrows")), SPEAKER_COL[r], 18))
 		if n == 1:
-			pv.add_child(_pill(t("keys_solo"), UI.PAPER, 18))
+			pv.add_child(_pill(t("keys_tap") if touch_mode else t("keys_solo"), UI.PAPER, 18))
 		pv.add_child(UI.button(t("players_%d" % n), func(): _set_players(n), "Green", 34))
 	v.add_child(_centered(UI.label(t("players_touch"), 19, UI.SOFT, null, 1060)))
 
@@ -2427,7 +2573,8 @@ func _r_terminal(kind: String) -> void:
 		_term_line(v, t("term_ok_" + kind).format({"n": st.get("records", 1)}))
 		_term_line(v, t("term_live_at" if st.get("cached", false) else "term_live").format({"time": st.get("at", "")}), UI.COL_GOOD)
 	else:
-		_term_line(v, t("term_fail"), UI.COL_POWER)
+		# For the Moon, a picture that could not be downloaded is not the same as no answer at all.
+		_term_line(v, t("term_photo_blocked") if (kind == "moon" and st.get("title", "") != "") else t("term_fail"), UI.COL_POWER)
 		_term_line(v, t("term_arch"), UI.SOFT)
 	var box := UI.panel(UI.NAVY2, 16, 16)
 	v.add_child(box)
@@ -2435,7 +2582,7 @@ func _r_terminal(kind: String) -> void:
 	box.add_child(h)
 	if kind == "mars" and st.has("tex") and start == "a":
 		h.add_child(_speck_photo(st.tex))
-	if kind == "moon" and st.ok:
+	if kind == "moon" and st.has("tex"):
 		var pic := TextureRect.new()
 		pic.texture = st.tex
 		pic.custom_minimum_size = Vector2(330, 330)
@@ -2450,11 +2597,11 @@ func _r_terminal(kind: String) -> void:
 	bv.add_child(top)
 	top.add_child(UI.bold(t("rec_title"), 22, TERM_GREEN))
 	top.add_child(_pill((t("tag_session") if st.get("cached", false) else t("tag_live")) if st.ok else t("tag_arch"), UI.COL_GOOD if st.ok else UI.SOFT, 16))
-	var with_pic: bool = st.ok and (kind == "moon" or (st.has("tex") and start == "a"))
+	var with_pic: bool = st.has("tex") and (kind == "moon" or start == "a")
 	var wrap_w := (660 if kind == "moon" else 500) if with_pic else 1000
 	var text := ""
 	if kind == "moon":
-		text = t("rec_moon").format({"date": _iso_date(st.date)}) if st.ok else t("rec_moon_off")
+		text = t("rec_moon").format({"date": _iso_date(st.date)}) if st.has("tex") else t("rec_moon_off")
 	elif not st.ok:
 		text = t("sun_arch") if start == "c" else t("rec_mars_off")
 	elif st.days > 0:
@@ -2464,15 +2611,15 @@ func _r_terminal(kind: String) -> void:
 	var body := UI.label(text, 25, UI.PAPER, null, wrap_w)
 	bv.add_child(body)
 	_say(body, "cmd")
-	if kind == "moon" and st.ok:
-		bv.add_child(UI.label(t("rec_caption") + ("\n“" + st.title + "”" if st.title != "" else ""), 15, UI.SOFT, null, wrap_w))
+	if kind == "moon" and st.has("tex"):
+		bv.add_child(UI.label(t("rec_caption") + (" · " + t("pic_saved") if st.get("pic_saved", false) else "") + ("\n“" + st.title + "”" if st.title != "" else ""), 15, UI.SOFT, null, wrap_w))
 	if kind == "mars":
 		var arch := UI.hbox(10)
 		bv.add_child(arch)
 		if with_pic:
 			var marks: Array = picks.get("specks", [])
 			bv.add_child(UI.label(t("storm_pic_ok") if marks.size() >= 3 else t("storm_pic"), 21, UI.COL_GOOD if marks.size() >= 3 else UI.COL_POWER, UI.bold_font(), wrap_w))
-			bv.add_child(UI.label(t("storm_pic_credit"), 13, UI.SOFT, null, wrap_w))
+			bv.add_child(UI.label(t("storm_pic_credit") + (" · " + t("pic_saved") if st.get("pic_saved", false) else ""), 13, UI.SOFT, null, wrap_w))
 		if start == "c":
 			# The bonus sol: what the live answer means for today, by the game's rule.
 			if sun.live:
@@ -2502,7 +2649,7 @@ func _r_m_drive() -> void:
 	var v := _talk("mc", t("mc_limit") if m_limit else t("mc_drive"))
 	var row := UI.hbox(16)
 	v.add_child(row)
-	row.add_child(UI.label(t("m_keys"), 19, UI.SOFT))
+	row.add_child(UI.label(t("m_keys_touch") if touch_mode else t("m_keys"), 19, UI.SOFT))
 	row.add_child(UI.spacer())
 	var ask := UI.button(t("btn_ask_mc"), _m_ask, "Blue", 26)
 	_tip(ask, t("tip_ask"))
@@ -2530,11 +2677,11 @@ func _r_m_deploy() -> void:
 	var a_on: bool = _dep_seen[0]
 	var b_on: bool = _dep_seen[1]
 	row.add_child(UI.badge("gears.svg", SPEAKER_COL.eng, 56, Callable(), a_on))
-	row.add_child(UI.button(t("dep_a"), func(): _dep_toggle("a"), "Yellow" if a_on else "Grey", 24))
+	row.add_child(UI.button(t("dep_a_touch") if touch_mode else t("dep_a"), func(): _dep_toggle("a"), "Yellow" if a_on else "Grey", 24))
 	row.add_child(UI.spacer())
 	row.add_child(UI.badge("energy-shield.svg", SPEAKER_COL.pro, 56, Callable(), b_on))
-	row.add_child(UI.button(t("dep_b"), func(): _dep_toggle("b"), "Yellow" if b_on else "Grey", 24))
-	v.add_child(UI.label(t("dep_hint"), 18, UI.SOFT))
+	row.add_child(UI.button(t("dep_b_touch") if touch_mode else t("dep_b"), func(): _dep_toggle("b"), "Yellow" if b_on else "Grey", 24))
+	v.add_child(UI.label(t("dep_hint_touch") if touch_mode else t("dep_hint"), 18, UI.SOFT))
 
 ## The last experiment on the Moon: predict, let go, then compare with Earth's air.
 func _r_m_drop() -> void:
@@ -3748,6 +3895,86 @@ func _r_cover() -> void:
 	l2.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	fv.add_child(l2)
 
+## Development: short scripted scenes for recording video clips with Godot's movie writer.
+## Each prints the frame where the scene proper begins, so the lead-in can be cut.
+func _clip_wait(sec: float) -> void:
+	await get_tree().create_timer(sec).timeout
+
+func _clip_mark() -> void:
+	print("CLIP START frame %d" % Engine.get_process_frames())
+
+func _dev_clip(clip: String) -> void:
+	match clip:
+		"clip_title":
+			space.mode = ""
+			_go("title")
+			_clip_mark()
+		"clip_moon":
+			await _dev_demo("m_card")
+			_clip_mark()
+		"clip_mars":
+			await _dev_demo("to_mars")
+			_clip_mark()
+		"clip_storm":
+			await _dev_demo("storm_a2")
+			_clip_mark()
+		"clip_rover":
+			await _dev_demo("m_drive2")
+			_clip_mark()
+			await _clip_wait(0.7)
+			_m_arrive("far", true)
+		"clip_decide":
+			players = 2
+			await _dev_demo("role_eng")
+			_clip_mark()
+			await _clip_wait(2.8)
+			_tell("eng")
+			await _clip_wait(0.2)
+			busy = true
+			await world.walk("pro", "pro_console")
+			busy = false
+			_go("role_pro")
+			await _clip_wait(3.0)
+			_tell("pro")
+			_go("earth_q")
+			page = 1
+			_render()
+			await _clip_wait(3.2)
+			_guess("no")
+			await _clip_wait(1.8)
+			_go("decide")
+			await _clip_wait(1.4)
+			_vote("eng", "a")
+			await _clip_wait(1.0)
+			_vote("pro", "a")
+		"clip_free":
+			moon_done = true
+			seed(7)
+			_start_free()
+			_go("f_decide")
+			_clip_mark()
+			await _clip_wait(1.0)
+			_f_read("eng")
+			await _clip_wait(1.0)
+			_f_read("pro")
+			await _clip_wait(1.2)
+			_vote("eng", _f_rule())
+			await _clip_wait(1.3)
+			_f_guess(4)
+			await _clip_wait(2.0)
+			world.reduced_motion = true
+			while true:
+				f.read = {"eng": true, "pro": true}
+				await _f_do(votes.eng if f.sol == 1 else _f_rule())
+				if f.sol >= F_SOLS:
+					break
+				_f_next()
+			_f_next()
+			world.reduced_motion = false
+			_drawn = ""
+			_render()
+			print("CLIP REPORT frame %d" % Engine.get_process_frames())
+
 ## Development: the rule a child can say out loud, used to test the free mission.
 func _f_rule() -> String:
 	var can_go: bool = f.tanks - 1 + _tanks_made(100.0 - 25.0 * f.offline) - TANKS_USED >= 1
@@ -3776,6 +4003,7 @@ func _r_settings() -> void:
 	var v := _modal(980, 0.8)
 	v.add_child(UI.title(t("settings_title"), 38))
 	var rows: Array = [
+		[t("btn_sound_on") if sound_on else t("btn_sound_off"), _toggle_sound, sound_on, t("set_sound_hint")],
 		[t("btn_voice_on") if voice_on else t("btn_voice_off"), _toggle_voice, voice_on, t("set_voice_hint")],
 		[t("btn_motion_off") if world.reduced_motion else t("btn_motion_on"), _toggle_motion, world.reduced_motion, t("set_motion_hint")],
 		[t("set_sources_on") if show_src else t("set_sources_off"), _toggle_sources, show_src, t("set_sources_hint")],
@@ -3853,6 +4081,8 @@ func _dev_hooks() -> void:
 			players = 2
 		elif a == "--src":
 			show_src = true
+		elif a == "--sound":
+			sound_on = true
 	if demo == "logwrite":
 		# development: prove the logbook survives a restart (run logwrite, then logread)
 		logb = _log_blank()
@@ -3870,6 +4100,9 @@ func _dev_hooks() -> void:
 	if demo != "":
 		log_keep = false
 		logb = _log_blank()
+	if demo.begins_with("clip_"):
+		await _dev_clip(demo)
+		return
 	if demo == "keys":
 		await _dev_keys()
 	elif demo != "":

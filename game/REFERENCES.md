@@ -24,6 +24,25 @@ Icons made by Lorc and Delapouite. Available on https://game-icons.net. The icon
 - By **Lorc**: `gears`, `energy-shield`, `sun`
 - By **Delapouite**: `power-generator`, `radiations`, `habitat-dome`, `astronaut-helmet`, `sandstorm`
 
+## Sound effects (Pixabay Content License: free to use in a game, no attribution required)
+
+Source and author are as given by the downloaded file names (Pixabay user name, title, Pixabay id). Each file was cut to the part the game uses, made mono and saved as Ogg Vorbis. License summary: https://pixabay.com/service/license-summary/
+
+| File in `assets/sounds/` | Original title (Pixabay id) | Author on Pixabay | Used for |
+|---|---|---|---|
+| `amb_space.ogg` | Spaceship hum low frequency (296518) | audiopapkin | Background in space: title, mission select, rocket trips |
+| `amb_base.ogg` | Air conditioner (584740) | dragon-studio | Background in the Mars base: the air system |
+| `machine.ogg` | Futuristic factory machine ps 022 (314833) | audiopapkin | The oxygen machine filling tanks at night |
+| `gears.ogg` | Ancient mechanical gears (487670) | dragon-studio | Lowering the rover from the lander |
+| `rover.ogg` | CNC machine 02 (76600) | freesound_community | The rover driving |
+| `steps.ogg` | Robot heavy mechanical footsteps (194039) | daviddumaisaudio | The crew walking on Mars |
+| `click.ogg` | Steampunk mechanical gadget (188052) | daviddumaisaudio | A vote, a plug, a rock or a lettuce picked |
+| `mech.ogg` | Sound design elements robot mechanism 032 (500870) | audiopapkin | A power unit repaired; the rover on the ground |
+| `build.ogg` | Construction (35446) | freesound_community | A water bag or cargo put in place |
+| `clang.ogg` | Metal pipe (329305) | u_edtmwfwu7c | The hammer landing when dropped with Earth's air |
+| `beam.ogg` | Laser (381976) | u_xg7ssi08yr | The NASA terminal making its request |
+| `zap.ogg` | Sci-fi weapon laser shot 04 (316416) | daviddumaisaudio | A message leaving for Earth |
+
 ## Fonts (SIL Open Font License 1.1; license texts in `assets/fonts/`)
 
 | Font | Copyright | Source |
@@ -56,10 +75,10 @@ NASA content is generally not subject to copyright. It is credited here and in t
 | Curiosity RAD: largest radiation surge measured on the surface of Mars, 8.1 mGy, 20 May 2024 | NASA JPL, "NASA Watches Mars Light Up During Epic Solar Storm", 10 June 2024, https://www.jpl.nasa.gov/news/nasa-watches-mars-light-up-during-epic-solar-storm/ | Level 2, Mars: the size of the big storm. | value in `main.gd` |
 | Solar Energetic Particle event `2017-09-10T16:45:00-SEP-001` (GOES, near Earth) | NASA DONKI, retrieved through https://api.nasa.gov | Level 2, Mars, optional second storm. Archived, bundled. | `data/donki_sep_2017-09-10.json` |
 | Solar particle events of the last 60 days (**live request**, made when the player opens the terminal on Mars) | NASA DONKI through https://api.nasa.gov/DONKI/SEP | Shown as "live" with the time it was fetched. If NASA does not answer, the terminal says so and shows only archived data. | not stored |
-| Apollo 15 photo AS15-86-11603, "Astronaut James Irwin works at Lunar Roving Vehicle during Apollo 15 EVA", and its caption (**live request**, made when the player opens the terminal on the Moon) | NASA Image and Video Library, https://images.nasa.gov/details/as15-86-11603 . NASA photo (JSC), taken by astronaut David R. Scott. | Level 1, the Moon: the mission file. Downloaded at run time, not bundled. | not stored |
+| Apollo 15 photo AS15-86-11603, "Astronaut James Irwin works at Lunar Roving Vehicle during Apollo 15 EVA", and its caption (**live request**, made when the player opens the terminal on the Moon) | NASA Image and Video Library, https://images.nasa.gov/details/as15-86-11603 . NASA photo (JSC), taken by astronaut David R. Scott. | Level 1, the Moon: the mission file. Downloaded at run time, not bundled. | `assets/nasa/as15-86-11603_small.jpg`: the same picture, saved in the game and shown with the label "copy saved inside the game" when NASA's image server does not let the web page download it |
 | Apollo 15 (1971) rover distances and speed, walking speed, moonwalk durations | NASA, Apollo 15 Mission Report (NTRS 19720021182), https://ntrs.nasa.gov/api/citations/19720021182/downloads/19720021182.pdf | Level 1, the Moon: the 5 km walk-back line, driving and walking times. | values in `main.gd`, listed on the in-game "NASA data used" screen |
 | The walk-back rule (astronaut Jim Irwin), the 7-hour backpack (CapCom Joe Allen), the Genesis Rock (sample 15415) | Apollo Lunar Surface Journal, https://apollojournals.org/alsj/a15/a15.spur.html and https://apollojournals.org/alsj/a15/a15.clsout2.html | Level 1, the Moon: the decision and its story card. | same |
-| Curiosity image PIA26302, "Curiosity Sees Streaks and Specks During 2024 Solar Storm" (**live request**, made when the player opens the terminal on Mars) | NASA/JPL-Caltech, NASA Image and Video Library, https://images.nasa.gov/details/PIA26302 | Level 2, Mars: the players tap the marks the storm's particles left in the camera image. Downloaded at run time, not bundled. | not stored |
+| Curiosity image PIA26302, "Curiosity Sees Streaks and Specks During 2024 Solar Storm" (**live request**, made when the player opens the terminal on Mars) | NASA/JPL-Caltech, NASA Image and Video Library, https://images.nasa.gov/details/PIA26302 | Level 2, Mars: the players tap the marks the storm's particles left in the camera image. Downloaded at run time, not bundled. | `assets/nasa/PIA26302_small.jpg`: the same picture, saved in the game and shown with the label "copy saved inside the game" when NASA's image server does not let the web page download it |
 | How the Apollo 15 rover was lowered from the lander (one astronaut released it from the ladder, the other pulled it out with reels and tapes) | NASA NSSDCA, "The Apollo Lunar Roving Vehicle", https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html | Level 1, the Moon: the two-player opening. | text in `strings.gd` |
 | The hammer and feather drop (1.32 kg hammer, 0.03 kg falcon feather) | NASA Science, "The Apollo 15 Hammer-Feather Drop", https://science.nasa.gov/resource/the-apollo-15-hammer-feather-drop/ | Level 1, the Moon: the last experiment. | text in `strings.gd` |
 | Oxygen a crew member uses in a day (0.895 kg), the reference crew of 4, and days from planting to harvest for lettuce (28, measured in growth chambers on Earth) | NASA, Life Support Baseline Values and Assumptions Document (BVAD), NASA/TP-2015-218570 Rev 2, Tables 3-1, 3-31 and 4-89, https://ntrs.nasa.gov/api/citations/20210024855/downloads/BVAD_2.15.22-final.pdf | Level 2, Mars: the size of one oxygen tank (a calculation) and harvest day. How power changes oxygen production and the harvest is a game rule, and the game says so. | not stored |
