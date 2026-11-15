@@ -82,9 +82,37 @@ A natural bridge from part 1 into part 2 is the dummy in Artemis I's commander's
   - NASA mission page: https://www.nasa.gov/mission/artemis-ii/
   - NASA, "Rigorous Analysis Confirms NASA's Artemis II Heat Shield Performance" (15 Oct 2026), for the splashdown date: https://www.nasa.gov/missions/artemis/artemis-2/rigorous-analysis-confirms-nasas-artemis-ii-heat-shield-performance/
   - NASA, "CHAPEA Mission 2 Crew Reflects After 378 Days on Simulated Mars" (Nov 2026), for the distance record: https://www.nasa.gov/centers-and-facilities/johnson/chapea-mission-2-crew-reflects-after-378-days-on-simulated-mars/
+- **Wording.** Artemis II has already flown (April 2026). Never describe it as upcoming or "getting ready" ("se alista"); use the past tense. Only Artemis III and later are "NASA plans…".
 - **Careful.** We did not open a page giving the record distance in miles. Say "farthest humans have ever traveled", without a number.
 
 ---
+
+### More Moon background: surface operations (not in main video)
+
+Suggested by a teammate and verified on 14 Nov 2026. Both are tagged for a next version of the game, not the minimal demo.
+
+#### 3a. Apollo 12: pinpoint landing (landing-site choice, next version)
+
+- **Dates.** November 1969. NASA's photo captions date Conrad and Bean's first moonwalk to 19 November 1969.
+- **What happened.** Pete Conrad and Alan Bean landed in the Ocean of Storms while Richard Gordon stayed in lunar orbit. The Apollo Lunar Surface Journal explains that NASA had to prove crews could make "pinpoint landings" before sending them to rugged, interesting sites. Apollo 12 was aimed close enough to the robotic Surveyor III lander, which had landed in April 1967, that the crew "would be able to walk over to the Surveyor III spacecraft and even bring pieces of it back to Earth."
+- **Game mechanic.** Next version: **landing-site choice**. A rugged, interesting site gives more science but riskier landing spots; a flat site is safe but dull. That is the same kind of trade-off the challenge asks for, applied to choosing the outpost site.
+- **Why it matters for kids' skills.** Planning a route before you go, and accepting that the most interesting place is often the hardest to reach.
+- **Sources.**
+  - NASA mission page (crew, photo captions): https://www.nasa.gov/mission/apollo-12/
+  - Apollo Lunar Surface Journal, Apollo 12 summary: https://apollojournals.org/alsj/a12/a12.summary.html (NASA's history office links the journals from https://www.nasa.gov/history/alsj-and-afj/; they are edited by volunteers, with commentary from the astronauts).
+- **Careful.** We did not open a source giving the exact distance from the landing site to Surveyor III. Don't quote a number.
+
+#### 3b. Apollo 15: first lunar rover and the "walkback" limit (rover/EVA range, next version)
+
+- **Dates.** 26 July – 7 August 1971 (Scott and Irwin on the surface; Worden in lunar orbit).
+- **What happened.** NASA calls Apollo 15 "the first to use a lunar rover". The rover let the crew go farther, but how far was limited by how far they could **walk back** to the lunar module on their suits' oxygen and cooling water if it broke down. In the Apollo Lunar Surface Journal, Jim Irwin recalls (1989): "walkback constraints defined our maximum distance from the Lunar Module. And also defined the speed at which we traveled, because we had to get to that furtherest point as quickly as possible so we'd have the maximum amount of oxygen and water to get back to the LM if the car did fail." Dave Scott describes Mission Control balancing geology time against "the guys on the Rover walkback/driveback … screaming because we're using consumables."
+- **Game mechanic.** Next version: **rover/EVA range**. Every extra kilometer of exploration spends oxygen you might need to walk home. It fits `CHALLENGE.md` directly: the challenge asks players to "trade oxygen reserves for an extra research opportunity", and the walkback rule is that trade, made by real crews.
+- **Why it matters for kids' skills.** Always keep enough to get home safely: budgeting and planning for a backup.
+- **Sources.**
+  - NASA mission page: https://www.nasa.gov/mission/apollo-15/
+  - Apollo Lunar Surface Journal, Apollo 15 "Spur Crater" page (Irwin and Scott comments): https://apollojournals.org/alsj/a15/a15.spur.html
+  - Apollo Lunar Surface Journal, Apollo 15 summary: https://apollojournals.org/alsj/a15/a15.summary.html
+- **How solid this is.** The walkback limit comes from **crew recollections and editor commentary** in the Journal. At the specific moment on the Spur page, the editor writes it "may be a walk-back constraint". We searched the text of the *Apollo 15 Mission Report* (NASA, 1972; https://ntrs.nasa.gov/api/citations/19720021182/downloads/19720021182.pdf) for "walkback" and found nothing. The scanned text may have missed it, but don't attribute the rule to the Mission Report. Attribute it to "astronaut Jim Irwin".
 
 ## Part 2. Learning to live in space
 
@@ -212,6 +240,7 @@ A natural bridge from part 1 into part 2 is the dummy in Artemis I's commander's
 | Candidate | Status |
 |---|---|
 | Katya Echazarreta (Blue Origin NS-21, 2022) | **Not verified.** Blue Origin's site returned "429 Too Many Requests" twice, and NASA's site search found nothing. Our dataset ends in 2019, so it does not include her. Verify on blueorigin.com before using; if confirmed, she fits next to Neri Vela and Hernández. |
+| Hubble and James Webb space telescopes | **Not used: telescopes, no outpost/crew trade-off.** Listed so the team sees they were considered. |
 | HI-SEAS (Hawaiʻi Mars simulations) | **Not checked.** CHAPEA covers the same story with a NASA source and more recent dates, so we left HI-SEAS out. |
 | First crew-eaten Veggie lettuce (Aug 2015) | Kept the Veggie entry; the "first meal" date is ⚠ UNVERIFIED (see #8). |
 | Twins Study exact dates; Mars-500 exact dates | Kept the entries; the exact dates are ⚠ UNVERIFIED (see #7 and #11). |
