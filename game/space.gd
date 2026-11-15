@@ -18,6 +18,10 @@ var worlds := {}             # id -> {node: Node3D, mats: Array of [material, ba
 var mode := ""
 var open_ids: Array = []     # the worlds that can be tapped
 var reduced_motion := false
+var rocket: Node3D
+var flame: MeshInstance3D
+var travel := 0.0            # the trip from the Moon to Mars: 0 at the Moon, 1 at Mars
+const TRAVEL_SECS := 11.0
 var _t := 0.0
 var _fly: Tween
 
@@ -41,6 +45,7 @@ func _ready() -> void:
 	_build_stars()
 	_build_earth()
 	_build_worlds()
+	_build_rocket()
 
 func _mat(col: Color, unshaded := false) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
@@ -157,18 +162,72 @@ func _build_worlds() -> void:
 	more.add_child(ring)
 	_add_world("more", more, [m_tan, m_ring])
 
+## A small rocket made of simple shapes, nose up. It carries the story from the Moon to Mars.
+func _build_rocket() -> void:
+	rocket = Node3D.new()
+	rocket.visible = false
+	add_child(rocket)
+	var white := _mat(Color(0.95, 0.95, 0.98))
+	var red := _mat(Color(0.92, 0.30, 0.22))
+	var body := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = 0.17
+	cyl.bottom_radius = 0.17
+	cyl.height = 0.72
+	cyl.radial_segments = 16
+	body.mesh = cyl
+	body.material_override = white
+	rocket.add_child(body)
+	var nose := MeshInstance3D.new()
+	var cone := CylinderMesh.new()
+	cone.top_radius = 0.0
+	cone.bottom_radius = 0.17
+	cone.height = 0.34
+	cone.radial_segments = 16
+	nose.mesh = cone
+	nose.material_override = red
+	nose.position.y = 0.53
+	rocket.add_child(nose)
+	for i in range(3):
+		var fin := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = Vector3(0.05, 0.3, 0.26)
+		fin.mesh = bm
+		fin.material_override = red
+		var a := TAU * float(i) / 3.0
+		fin.position = Vector3(sin(a) * 0.2, -0.3, cos(a) * 0.2)
+		fin.rotation.y = a
+		rocket.add_child(fin)
+	var win := _ball(0.075, _mat(Color(0.35, 0.75, 1.0)), rocket)
+	win.position = Vector3(0, 0.14, 0.15)
+	flame = MeshInstance3D.new()
+	var fc := CylinderMesh.new()
+	fc.top_radius = 0.12
+	fc.bottom_radius = 0.0
+	fc.height = 0.42
+	fc.radial_segments = 12
+	flame.mesh = fc
+	flame.material_override = _mat(Color(1.0, 0.72, 0.25), true)
+	flame.position.y = -0.57
+	rocket.add_child(flame)
+
 # ---------------------------------------------------------------- state the game can set
 
 ## "title": Earth drifts into view. "select": the worlds line up. Anything else hides them.
 func set_mode(new_mode: String, open: Array, locked: Array) -> void:
 	open_ids = open
 	for id in worlds:
-		worlds[id].node.visible = new_mode == "select"
+		worlds[id].node.visible = new_mode == "select" or (new_mode == "travel" and (id == "moon" or id == "mars"))
 		for pair in worlds[id].mats:
 			(pair[0] as StandardMaterial3D).albedo_color = (pair[1] as Color) * (0.3 if locked.has(id) else 1.0)
 	if new_mode == mode:
 		return
 	mode = new_mode
+	rocket.visible = mode == "travel"
+	if mode == "travel":
+		travel = 0.0
+		for id in ["moon", "mars"]:
+			worlds[id].node.rotation = Vector3.ZERO
 	if _fly != null and _fly.is_valid():
 		_fly.kill()
 	if mode == "title":
@@ -194,6 +253,9 @@ func _process(dt: float) -> void:
 		return
 	if not reduced_motion:
 		earth.get_node("Spin").rotation.y += dt * 0.12
+	if mode == "travel":
+		_travel_step(dt)
+		return
 	if mode != "select":
 		return
 	# The worlds sit above the four columns of the menu, whatever the window's shape.
@@ -206,6 +268,34 @@ func _process(dt: float) -> void:
 			n.rotation.y += dt * (0.5 if SLOTS[i] == "asteroid" else 0.2)
 			if SLOTS[i] == "asteroid":
 				n.rotation.x += dt * 0.3
+
+## The trip: the rocket leaves the Moon, Earth and the Moon shrink behind it, and Mars grows ahead.
+## Sizes and distances are not to scale. It is slow and smooth, and with less motion it shows the arrival only.
+func _travel_step(dt: float) -> void:
+	travel = 1.0 if reduced_motion else minf(travel + dt / TRAVEL_SECS, 1.0)
+	var k: float = travel * travel * (3.0 - 2.0 * travel)   # ease in and out
+	var w: float = _half_width()
+	earth.scale = Vector3.ONE * lerpf(0.5, 0.09, k)
+	earth.position = Vector3(lerpf(-0.70, -0.86, k) * w, lerpf(0.5, 1.5, k), 0.0)
+	var moon_n: Node3D = worlds.moon.node
+	moon_n.scale = Vector3.ONE * lerpf(0.42, 0.055, k)
+	moon_n.position = earth.position + Vector3(lerpf(2.3, 0.42, k), lerpf(1.0, 0.2, k), 0.0)
+	var mars_n: Node3D = worlds.mars.node
+	mars_n.scale = Vector3.ONE * lerpf(0.16, 1.45, k)
+	mars_n.position = Vector3(lerpf(0.86, 0.66, k) * w, lerpf(1.3, 0.9, k), 0.0)
+	if not reduced_motion:
+		mars_n.rotation.y += dt * 0.15
+	# The rocket flies a gentle arc from the Moon to just short of Mars, nose first.
+	var from := Vector3(-0.70 * w + 2.3 + 0.55, 1.6, 0.4)
+	var to := Vector3(0.66 * w - 2.85, 1.1, 0.4)
+	var at: Vector3 = from.lerp(to, k) + Vector3(0, sin(PI * k) * 0.55, 0)
+	var ahead: Vector3 = from.lerp(to, minf(k + 0.02, 1.0)) + Vector3(0, sin(PI * minf(k + 0.02, 1.0)) * 0.55, 0)
+	rocket.position = at
+	var dir: Vector3 = ahead - at
+	rocket.rotation = Vector3(0, 0, (atan2(dir.y, dir.x) if dir.length() > 0.0001 else 0.0) - PI * 0.5)
+	rocket.scale = Vector3.ONE * 1.25
+	flame.visible = travel < 1.0
+	flame.scale = Vector3(1.0, 1.0 + (0.0 if reduced_motion else sin(_t * 7.0) * 0.14), 1.0)   # a slow flicker, about once a second
 
 func _unhandled_input(e: InputEvent) -> void:
 	if not visible or mode != "select" or not (e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT):

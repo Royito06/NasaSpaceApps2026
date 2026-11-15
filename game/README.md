@@ -9,6 +9,9 @@ A browser game for ages 7–12, made with Godot 4.7.2. Two levels, each built ar
 - After sol 31 comes harvest day: the players pick the lettuce, and how many of the six plants are ready depends on the nights the lamp was on.
 - A bonus sol replays the sol 30 morning with today's real Sun: the terminal asks NASA DONKI again, and an event in the last 7 days means a storm today. With a calm Sun the better job is a different one.
 - A free mission (three sols) is different every time: each sol a power unit may fail and a storm card is drawn from real events in NASA DONKI's records. There is a third job, going out for a rock sample, which uses an extra oxygen tank. A mission report at the end checks three goals (sample, radiation, oxygen) and says what decided it. The rules are the team's own, tested on 20,000 simulated missions; `-- --demo=f_sim` plays 300 missions with a simple rule and prints how many met the goals.
+- In the free mission the two role reports are closed until someone taps them: reading both before choosing is the crew's job, and the mission report says so when a sol was decided without them.
+- A crew logbook, on the mission select, shows what the crew has done so far: missions played, free missions with goals met, predictions that came true, and how often both reports were read first. It is saved only on the device (`user://logbook.json`, the browser's own storage on the web); the game sends it nowhere, and it can be cleared or copied as text.
+- After two free missions in a row that end "Mission strained", the Commander offers a hint, once. The hint never changes the odds.
 - English by default, with a Spanish toggle.
 - One or two players. With two, Engineering moves with W A S D and Protection with the arrow keys. With one, both key sets move the selected astronaut; Space (or a tap on an astronaut) switches. Everything also works by tapping the yellow arrows.
 - The players do each job with their hands, in a small game that shows the idea: on the Moon the oxygen reserve drops as the rover drives away and they choose which rocks to bring back; on Mars they rewire a power unit by matching plugs, or stop the storm's rays with water bags and watch "storm getting through" fall. The next sol on Mars starts from what the crew chose: whatever they did not fix is still broken, a second and smaller storm arrives, and the mini-games give no hints.
@@ -33,6 +36,10 @@ A browser game for ages 7–12, made with Godot 4.7.2. Two levels, each built ar
 | `data/` | Archived NASA data bundled with the game |
 | `assets/` | Third-party models, icons, fonts and NASA images (see `REFERENCES.md`) |
 | `tools/` | Development helpers, not part of the game |
+
+## Play it
+
+In a browser, with nothing to install and no account: https://royito06.github.io/NasaSpaceApps2026/play/
 
 ## Run it
 

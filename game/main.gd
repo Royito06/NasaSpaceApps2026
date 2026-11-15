@@ -105,6 +105,11 @@ var picks := {}                 # answers: prediction, picked plan, debrief
 var tanks := TANKS_FULL          # Mars: full oxygen tanks this morning
 var tanks_view := TANKS_FULL     # Mars: full oxygen tanks shown right now
 var sun := {"size": "small", "live": false, "date": "", "at": ""}   # bonus sol: what today's real Sun means for the base
+const LOG_FILE := "user://logbook.json"   # the crew logbook: on the device only, never sent anywhere
+var logb := {}                  # the crew logbook
+var log_keep := true            # false in development runs, so tests never write the player's logbook
+var logbook_open := false
+var log_note := ""
 var f := {}                     # free mission: {sol, offline, tanks, science, expo, low, storm, card, fault, log}
 var hv := {}                    # harvest day: {ready, dark, picked, msg}
 var m_briefed := false          # Moon: Mission Control has named the two things to watch
@@ -165,6 +170,7 @@ func _ready() -> void:
 	fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	fade.mouse_filter = IGNORE
 	layer.add_child(fade)
+	_log_load()
 	_reset_run()
 	world.set_units_online(4)
 	world.set_room_power(1.0, false)
@@ -361,7 +367,84 @@ func _set_busy(b: bool) -> void:
 	_sync_world()
 
 func _overlay() -> bool:
-	return data_open or settings_open
+	return data_open or settings_open or logbook_open
+
+# ---------------------------------------------------------------- the crew logbook (this device only)
+
+func _log_blank() -> Dictionary:
+	return {"missions": 0, "free": 0, "free_met": 0, "pred": 0, "pred_right": 0, "sols": 0, "both": 0, "last": [], "streak": 0, "hinted": false}
+
+## Reads the logbook saved on this device. Anything missing or odd in the file is ignored.
+func _log_load() -> void:
+	logb = _log_blank()
+	if not FileAccess.file_exists(LOG_FILE):
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(LOG_FILE))
+	if not (d is Dictionary):
+		return
+	for k in ["missions", "free", "free_met", "pred", "pred_right", "sols", "both", "streak"]:
+		if d.has(k) and (d[k] is float or d[k] is int):
+			logb[k] = maxi(int(d[k]), 0)
+	logb.hinted = bool(d.get("hinted", false))
+	if d.get("last") is Array:
+		for e in d["last"]:
+			if e is Dictionary and e.get("sols") is Array:
+				var sols: Array = []
+				for pair in e["sols"]:
+					if pair is Array and pair.size() == 2 and ["none", "small", "big"].has(pair[0]) and ["a", "b", "s"].has(pair[1]):
+						sols.append([pair[0], pair[1]])
+				logb.last.append({"met": bool(e.get("met", false)), "sols": sols})
+		logb.last = logb.last.slice(-5)
+
+func _log_save() -> void:
+	if not log_keep:
+		return
+	var fa := FileAccess.open(LOG_FILE, FileAccess.WRITE)
+	if fa != null:
+		fa.store_string(JSON.stringify(logb))
+		fa.close()
+
+func _log_add(key: String, n := 1) -> void:
+	logb[key] += n
+	_log_save()
+
+func _log_clear() -> void:
+	logb = _log_blank()
+	log_note = ""
+	_log_save()
+	_render()
+
+func _open_logbook() -> void:
+	logbook_open = true
+	log_note = ""
+	_render()
+
+func _close_logbook() -> void:
+	logbook_open = false
+	_render()
+
+## The logbook as plain text, for a parent or a teacher. It goes to the clipboard, nowhere else.
+func _log_text() -> String:
+	var lines: Array = [t("lb_title")]
+	lines.append("%s: %d" % [t("lb_missions"), logb.missions])
+	lines.append("%s: %s" % [t("lb_free"), t("lb_of").format({"n": logb.free_met, "m": logb.free})])
+	lines.append("%s: %s" % [t("lb_pred"), t("lb_of").format({"n": logb.pred_right, "m": logb.pred})])
+	lines.append("%s: %s" % [t("lb_read"), t("lb_of").format({"n": logb.both, "m": logb.sols})])
+	for e in logb.last:
+		lines.append(_log_line(e))
+	lines.append(t("lb_private"))
+	return "\n".join(lines)
+
+func _log_copy() -> void:
+	DisplayServer.clipboard_set(_log_text())
+	log_note = t("lb_copied")
+	_render()
+
+func _log_line(e: Dictionary) -> String:
+	var parts: Array = []
+	for pair in e.sols:
+		parts.append(t("f_st_" + pair[0]) + " · " + t("f_job_" + pair[1]))
+	return "  |  ".join(parts) + "  →  " + t("lb_met" if e.met else "lb_not")
 
 ## Shows one level's scene and hides the other.
 func _set_level(n: int) -> void:
@@ -434,6 +517,12 @@ func _drop(mode: String) -> void:
 	moon.drop_reset()
 	await _wait(0.4)
 	await moon.drop(mode == "air")
+	if mode == "moon" and not drop_done.moon:
+		# The hammer and the feather: a prediction that came true, or not.
+		logb.pred += 1
+		if drop_guess == "same":
+			logb.pred_right += 1
+		_log_save()
 	drop_done[mode] = true
 	busy = false
 	_render()
@@ -479,9 +568,26 @@ func _start_free() -> void:
 	carried = ""
 	runs = []
 	data_open = false
-	f = {"sol": 1, "offline": 0, "tanks": TANKS_FULL, "science": false, "expo": 0.0, "low": false, "storm": "none", "card": [], "fault": false, "log": []}
+	f = {"sol": 1, "offline": 0, "tanks": TANKS_FULL, "science": false, "expo": 0.0, "low": false, "storm": "none", "card": [], "fault": false, "log": [], "read": {"eng": false, "pro": false}, "blind": 0, "hint": false}
 	_f_new_sol()
-	_go("f_intro")
+	if logb.streak >= 2 and not logb.hinted:
+		# Two hard missions in a row: the Commander offers a hint, once. The odds never change.
+		logb.hinted = true
+		_log_save()
+		_go("f_hint")
+	else:
+		_go("f_intro")
+
+func _f_read(role: String) -> void:
+	f.read[role] = true
+	_render()
+
+func _f_hint_pick(yes: bool) -> void:
+	f.hint = yes
+	if yes:
+		_next_page()
+	else:
+		_go("f_intro")
 
 ## A new morning: one more unit may have failed overnight, and a storm card is drawn.
 func _f_new_sol() -> void:
@@ -493,6 +599,7 @@ func _f_new_sol() -> void:
 	f.storm = "big" if r < F_BIG else ("small" if r < F_BIG + F_SMALL else "none")
 	f.card = F_CARDS[randi() % F_CARDS.size()] if f.storm == "small" else []
 	votes = {"eng": "", "pro": ""}
+	f.read = {"eng": false, "pro": false}
 	choice = ""
 	job = {}
 	tanks = f.tanks
@@ -504,13 +611,22 @@ func _f_new_sol() -> void:
 	world.set_room_power(power / 100.0, false)
 	world.set_tanks(f.tanks)
 
+## A job is greyed out only when the crew can already know it is pointless.
 func _f_pick_ok(id: String) -> bool:
-	return not ((id == "b" and f.offline == 0) or (id == "s" and f.science))
+	return not ((id == "b" and f.offline == 0 and f.read.eng) or (id == "s" and f.science))
 
 ## The job plays as a short film, then the storm and the night. The sol's numbers follow the team's rules.
 func _f_do(c: String) -> void:
 	choice = c
 	busy = true
+	var both_read: bool = f.read.eng and f.read.pro
+	logb.sols += 1
+	if both_read:
+		logb.both += 1
+	else:
+		f.blind += 1
+	_log_save()
+	var idle: bool = c == "b" and f.offline == 0   # chosen without reading Engineering's report: nothing was broken
 	_go("f_act")
 	if c == "a":
 		await world.walk_both("pro", "shelter", "eng", "shelter_help")
@@ -520,13 +636,16 @@ func _f_do(c: String) -> void:
 			await _wait(0.2)
 	elif c == "b":
 		await world.walk_both("eng", "power", "pro", "power_help")
-		for step in range(3):
-			world.work("eng" if step % 2 == 0 else "pro", 0.4)
-			await world.repair_step(4 - f.offline, step)
-			await _wait(0.2)
-		f.offline -= 1
-		_tween_var("power", 100.0 - 25.0 * f.offline, 0.7)
-		world.set_room_power((100.0 - 25.0 * f.offline) / 100.0)
+		if idle:
+			await _wait(0.8)
+		else:
+			for step in range(3):
+				world.work("eng" if step % 2 == 0 else "pro", 0.4)
+				await world.repair_step(4 - f.offline, step)
+				await _wait(0.2)
+			f.offline -= 1
+			_tween_var("power", 100.0 - 25.0 * f.offline, 0.7)
+			world.set_room_power((100.0 - 25.0 * f.offline) / 100.0)
 	else:
 		await world.walk_both("eng", "power", "pro", "power_help")
 		if not world.reduced_motion:
@@ -564,7 +683,7 @@ func _f_do(c: String) -> void:
 		f.low = true
 	f.tanks = maxi(after, 0)
 	f.expo += add
-	f.log.append({"sol": f.sol, "storm": f.storm, "job": c, "add": add, "made": made, "used": used, "tanks": f.tanks, "low": low})
+	f.log.append({"sol": f.sol, "storm": f.storm, "job": c, "add": add, "made": made, "used": used, "tanks": f.tanks, "low": low, "idle": idle})
 	exposure = f.expo
 	tanks = f.tanks
 	tanks_view = f.tanks
@@ -575,6 +694,18 @@ func _f_do(c: String) -> void:
 
 func _f_next() -> void:
 	if f.sol >= F_SOLS:
+		# The mission goes into the crew logbook.
+		var sols: Array = []
+		for e in f.log:
+			sols.append([e.storm, e.job])
+		var met := _f_met()
+		logb.missions += 1
+		logb.free += 1
+		logb.free_met += 1 if met else 0
+		logb.streak = 0 if met else logb.streak + 1
+		logb.last.append({"met": met, "sols": sols})
+		logb.last = logb.last.slice(-5)
+		_log_save()
 		_go("f_end")
 		return
 	f.sol += 1
@@ -593,6 +724,7 @@ func _start_harvest() -> void:
 	if _p_after(p31) < 99.0:
 		dark += 1   # sol 31
 	hv = {"ready": 6 - 2 * dark, "dark": dark, "picked": [], "msg": ""}
+	_log_add("missions")
 	world.reset_scene()
 	for run in runs:
 		if run.choice == p31:
@@ -639,6 +771,7 @@ func _m_brief_next() -> void:
 func _moon_complete() -> void:
 	moon.set_drop(false)
 	moon_done = true
+	_log_add("missions")
 	_go("select")
 
 ## On the Moon the answer really takes 2.6 seconds: 1.3 there and 1.3 back.
@@ -781,7 +914,10 @@ func _sync_world() -> void:
 		if not moon_done:
 			locked.append("mars")
 		space.reduced_motion = world.reduced_motion
-		space.set_mode(state if (state == "title" or state == "select") else "", open, locked)
+		if state == "to_mars":
+			space.set_mode("travel", [], [])   # the trip from the Moon to Mars plays behind the brief
+		else:
+			space.set_mode(state if (state == "title" or state == "select") else "", open, locked)
 	if level == 1:
 		var drive := false
 		if not busy and not _overlay():
@@ -1238,6 +1374,14 @@ func _advance() -> void:
 	runs.append({"choice": choice, "power": _p_after(choice), "exposure": _x_after(choice), "shot": shot, "tanks": _tanks_after(choice), "made": _tanks_made(_p_after(choice))})
 	power = runs[-1].power
 	exposure = runs[-1].exposure
+	if runs.size() == 2 and picks.get("predict", "") != "":
+		# The replay's prediction: more or less radiation than the first job?
+		logb.pred += 1
+		if picks["predict"] == ("more" if runs[1].exposure > runs[0].exposure else "less"):
+			logb.pred_right += 1
+		_log_save()
+	if start == "c":
+		_log_add("missions")
 	busy = false
 	_go("result")
 
@@ -1474,6 +1618,8 @@ func _rebuild() -> void:
 				_r_harvest()
 			"f_intro":
 				_r_f_intro()
+			"f_hint":
+				_r_f_hint()
 			"f_decide":
 				_r_f_decide()
 			"f_act":
@@ -1498,6 +1644,8 @@ func _rebuild() -> void:
 		_r_data()
 	if settings_open:
 		_r_settings()
+	if logbook_open:
+		_r_logbook()
 
 func _full(node: Control) -> Control:
 	node.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -1956,6 +2104,10 @@ func _corner_buttons() -> void:
 	m.add_child(btns)
 	var vb := UI.button(t("btn_voice_on") if voice_on else t("btn_voice_off"), _toggle_voice, "Grey", 19)
 	var lb := UI.button(t("lang_button"), _toggle_lang, "Yellow", 19)
+	if state == "select":
+		var gb := UI.button(t("btn_logbook"), _open_logbook, "Grey", 19)
+		btns.add_child(gb)
+		_tip(gb, t("tip_logbook"))
 	btns.add_child(vb)
 	btns.add_child(lb)
 	_tip(vb, t("tip_voice"))
@@ -2448,18 +2600,15 @@ func _r_m_compare() -> void:
 
 ## Between the levels: the same question, with Earth too far away to answer in time.
 func _r_to_mars() -> void:
-	var v := _modal(1060, 0.9)
-	var tag := _pill(t("level_2"), UI.COL_POWER, 22)
-	tag.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	v.add_child(tag)
-	v.add_child(UI.title(t("to_mars_title"), 42, UI.PAPER, 1000))
-	var body := UI.label(t("to_mars_body"), 27, UI.PAPER, null, 1000)
-	v.add_child(body)
-	_say(body, "cmd")
-	var row := UI.hbox(0)
+	# No card over the scene: the rocket leaves the Moon for Mars while the Commander gives the brief.
+	var v := _talk("cmd", t("to_mars_title") + ". " + t("to_mars_body"))
+	var row := UI.hbox(16)
 	v.add_child(row)
+	var tag := _pill(t("level_2"), UI.COL_POWER, 20)
+	row.add_child(tag)
+	row.add_child(UI.label(t("to_mars_scale"), 16, UI.SOFT, null, 620))
 	row.add_child(UI.spacer())
-	row.add_child(UI.button(t("btn_land_mars"), _start_mars, "Green", 32))
+	row.add_child(UI.button(t("btn_land_mars"), _start_mars, "Green", 30))
 
 ## The commander welcomes the crew and sends each role to its console.
 func _r_meet() -> void:
@@ -2835,7 +2984,7 @@ func _r_compare() -> void:
 	foot.add_child(UI.bold(note, 22, note_col, 1000))
 	foot.add_child(UI.spacer())
 	if start == "a":
-		foot.add_child(UI.button(t("btn_debrief"), func(): _go("debrief"), "Green", 28))
+		foot.add_child(UI.button(t("btn_debrief"), func(): _log_add("missions"); _go("debrief"), "Green", 28))
 	else:
 		foot.add_child(UI.button(t("btn_harvest"), _start_harvest, "Green", 28))
 
@@ -3080,18 +3229,51 @@ func _r_harvest() -> void:
 		foot.add_child(UI.button(t("btn_finish"), _finish, "Green", 28))
 
 ## The free mission opens with its three goals, one line each.
+func _r_f_hint() -> void:
+	var v := _talk("cmd", t("f_hint_offer") if page == 0 else t("f_hint"))
+	var row := UI.hbox(14)
+	v.add_child(row)
+	row.add_child(UI.spacer())
+	if page == 0:
+		row.add_child(UI.button(t("btn_hint_no"), func(): _f_hint_pick(false), "Grey", 24))
+		row.add_child(UI.button(t("btn_hint_yes"), func(): _f_hint_pick(true), "Green", 28))
+	else:
+		row.add_child(UI.button(t("btn_ok"), func(): _go("f_intro"), "Green", 28))
+
 func _r_f_intro() -> void:
-	var v := _talk("cmd", t("f_intro%d" % (page + 1)))
+	var again: bool = logb.free > 0   # the crew has heard the long version before
+	var v := _talk("cmd", t("f_again") if again else t("f_intro%d" % (page + 1)))
 	var row := UI.hbox(0)
 	v.add_child(row)
 	row.add_child(UI.spacer())
-	if page < 2:
+	if page < 2 and not again:
 		row.add_child(_next_cue())
 		row.add_child(UI.button(t("btn_next"), _next_page, "Blue", 26))
 	else:
 		row.add_child(UI.button(t("btn_start_mission"), func(): _go("f_decide"), "Green", 30))
 
 func _f_note(role: String, text: String, small := "") -> PanelContainer:
+	if not f.read[role]:
+		# The report is closed until someone taps it: reading both before choosing is the crew's job.
+		var c := PanelContainer.new()
+		var cs := UI.panel_box(UI.NAVY2, 14, 10)
+		cs.set_border_width_all(3)
+		cs.border_color = SPEAKER_COL[role]
+		c.add_theme_stylebox_override("panel", cs)
+		c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		c.mouse_filter = Control.MOUSE_FILTER_STOP
+		c.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		c.gui_input.connect(func(e: InputEvent): if e is InputEventMouseButton and e.pressed: _f_read(role))
+		var ch := UI.hbox(10)
+		ch.mouse_filter = IGNORE
+		c.add_child(ch)
+		var cb := UI.badge(_role_icon(role), SPEAKER_COL[role], 40)
+		cb.mouse_filter = IGNORE
+		ch.add_child(cb)
+		var cl := UI.bold(t("f_read_" + role), 21, SPEAKER_COL[role])
+		cl.mouse_filter = IGNORE
+		ch.add_child(cl)
+		return c
 	var p := UI.panel(UI.NAVY2, 14, 10)
 	p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	p.mouse_filter = IGNORE
@@ -3174,7 +3356,11 @@ func _r_f_decide() -> void:
 		msg = t("vote_ok")
 	elif split:
 		msg = t("vote_split")
-	foot.add_child(UI.bold(msg, 22, UI.COL_POWER if split else UI.PAPER, 900))
+	var fv := UI.vbox(2)
+	foot.add_child(fv)
+	fv.add_child(UI.bold(msg, 22, UI.COL_POWER if split else UI.PAPER, 900))
+	if f.hint:
+		fv.add_child(UI.label(t("f_hint_line"), 18, UI.COL_GOOD, null, 900))
 	foot.add_child(UI.spacer())
 	var go := UI.button(t("btn_go"), func(): _f_do(votes.eng), "Green", 32)
 	go.disabled = not agree
@@ -3188,6 +3374,8 @@ func _r_f_result() -> void:
 	v.add_child(_fact(t("f_r_o2_low" if last.low else "f_r_o2").format({"u": last.used, "m": last.made, "n": last.tanks}), "r", _tick(not last.low, 29), 23, 900))
 	var lead: Control = _tick(true, 29) if f.science else (_tick(false, 29) if f.sol >= F_SOLS else null)
 	v.add_child(_fact(t("f_r_sample_yes" if f.science else "f_r_sample_no"), "r", lead, 23, 900))
+	if last.idle:
+		v.add_child(UI.label(t("f_r_idle"), 21, UI.COL_POWER, null, 900))
 	var row := UI.hbox(0)
 	v.add_child(row)
 	row.add_child(UI.spacer())
@@ -3208,7 +3396,9 @@ func _r_f_end() -> void:
 	v.add_child(_fact(t("f_g_rad").format({"t": _n1(f.expo)}), "c", _tick(rad_ok, 30), 24, 1000))
 	v.add_child(_fact(t("f_g_o2_no" if f.low else "f_g_o2_yes"), "r", _tick(not f.low, 30), 24, 1000))
 	var tip := t("f_tip_ok")
-	if not rad_ok:
+	if not met and f.blind > 0:
+		tip = t("f_tip_read").format({"n": f.blind})
+	elif not rad_ok:
 		tip = t("f_tip_rad")
 	elif f.low:
 		tip = t("f_tip_o2")
@@ -3222,9 +3412,59 @@ func _r_f_end() -> void:
 	var foot := UI.hbox(14)
 	v.add_child(foot)
 	foot.add_child(UI.button(t("btn_data"), _open_data, "Grey", 22))
+	foot.add_child(UI.button(t("btn_logbook"), _open_logbook, "Grey", 22))
 	foot.add_child(UI.spacer())
 	foot.add_child(UI.button(t("btn_again"), _play_again, "Blue", 24))
 	foot.add_child(UI.button(t("btn_new_mission"), _start_free, "Green", 30))
+
+func _lb_tile(value: String, label: String) -> PanelContainer:
+	var p := UI.panel(UI.NAVY2, 16, 14)
+	p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	p.mouse_filter = IGNORE
+	var v := UI.vbox(2)
+	p.add_child(v)
+	v.add_child(_centered(UI.title(value, 40, UI.COL_POWER)))
+	v.add_child(_centered(UI.label(label, 17, UI.PAPER, null, 230)))
+	return p
+
+## The crew logbook: what this crew has done so far. It lives on the device and nowhere else.
+func _r_logbook() -> void:
+	var v := _modal(1180, 0.88)
+	v.add_child(UI.title(t("lb_title"), 38))
+	var tiles := UI.hbox(12)
+	v.add_child(tiles)
+	tiles.add_child(_lb_tile(str(logb.missions), t("lb_missions")))
+	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.free_met, "m": logb.free}), t("lb_free")))
+	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.pred_right, "m": logb.pred}), t("lb_pred")))
+	tiles.add_child(_lb_tile(t("lb_of").format({"n": logb.both, "m": logb.sols}), t("lb_read")))
+	if logb.missions == 0 and logb.pred == 0:
+		v.add_child(UI.label(t("lb_empty"), 24, UI.PAPER, null, 1100))
+	var recent: Array = logb.last
+	if recent.size() >= 2:
+		var a := 0
+		for e in recent:
+			a += 1 if e.met else 0
+		var line := t("lb_recent").format({"a": a, "b": recent.size()})
+		if logb.free > recent.size():
+			line += " " + t("lb_before").format({"c": logb.free_met - a, "d": logb.free - recent.size()})
+		v.add_child(UI.bold(line, 24, UI.COL_GOOD, 1100))
+	if not recent.is_empty():
+		v.add_child(UI.bold(t("lb_last"), 20, UI.SOFT))
+		for i in range(recent.size() - 1, -1, -1):
+			var e: Dictionary = recent[i]
+			var row := UI.hbox(10)
+			v.add_child(row)
+			row.add_child(_tick(true, 24) if e.met else UI.label("•", 22, UI.COL_POWER))
+			row.add_child(UI.label(_log_line(e), 18, UI.PAPER, null, 1080))
+	v.add_child(UI.label(t("lb_private"), 18, UI.SOFT, UI.bold_font(), 1100))
+	var foot := UI.hbox(14)
+	v.add_child(foot)
+	foot.add_child(UI.button(t("btn_clear"), _log_clear, "Grey", 20))
+	foot.add_child(UI.button(t("btn_copy"), _log_copy, "Grey", 20))
+	if log_note != "":
+		foot.add_child(UI.bold(log_note, 20, UI.COL_GOOD))
+	foot.add_child(UI.spacer())
+	foot.add_child(UI.button(t("btn_close"), _close_logbook, "Blue", 26))
 
 ## Development: the rule a child can say out loud, used to test the free mission.
 func _f_rule() -> String:
@@ -3331,6 +3571,23 @@ func _dev_hooks() -> void:
 			players = 2
 		elif a == "--src":
 			show_src = true
+	if demo == "logwrite":
+		# development: prove the logbook survives a restart (run logwrite, then logread)
+		logb = _log_blank()
+		logb.missions = 3
+		logb.last = [{"met": true, "sols": [["none", "b"], ["small", "s"], ["big", "a"]]}]
+		_log_save()
+		print("LOG written")
+		get_tree().quit()
+		return
+	if demo == "logread":
+		print("LOG read: missions=%d last=%s" % [logb.missions, str(logb.last)])
+		_log_clear()
+		get_tree().quit()
+		return
+	if demo != "":
+		log_keep = false
+		logb = _log_blank()
 	if demo == "keys":
 		await _dev_keys()
 	elif demo != "":
@@ -3425,6 +3682,7 @@ func _dev_demo(demo: String) -> void:
 			seed(1000 + n)
 			_start_free()
 			while true:
+				f.read = {"eng": true, "pro": true}
 				await _f_do(_f_rule())
 				if f.sol >= F_SOLS:
 					break
@@ -3436,6 +3694,28 @@ func _dev_demo(demo: String) -> void:
 		print("FSIM met=%d of 300, first failing seed=%d" % [met, fail_seed])
 		get_tree().quit()
 		return
+	elif demo == "hint" or demo == "hint2" or demo == "logbook":
+		# development: free missions played badly (always the shelter, reports unread) or well (the child's rule)
+		moon_done = true
+		for n in range(2 if demo != "logbook" else 4):
+			seed(40 + n)
+			_start_free()
+			while true:
+				if demo == "logbook" and n != 1:
+					f.read = {"eng": true, "pro": true}
+				await _f_do(_f_rule() if (demo == "logbook" and n != 1) else "a")
+				if f.sol >= F_SOLS:
+					break
+				_f_next()
+			_f_next()
+		if demo == "logbook":
+			_go("select")
+			_open_logbook()
+		else:
+			seed(42)
+			_start_free()
+			if demo == "hint2":
+				_f_hint_pick(true)
 	elif demo == "players":
 		_go("players")
 	elif demo == "select":
@@ -3621,6 +3901,8 @@ func _dev_demo(demo: String) -> void:
 			"f_decide":
 				_go("f_decide")
 			"f_result":
+				_f_read("eng")
+				_f_read("pro")
 				_vote("eng", _f_rule())
 				await _dev_step()
 				await _f_do(votes.eng)
@@ -3628,6 +3910,7 @@ func _dev_demo(demo: String) -> void:
 				while f.sol < F_SOLS:
 					_f_next()
 					await _dev_step()
+					f.read = {"eng": true, "pro": true}
 					await _f_do(_f_rule())
 				_f_next()
 			"data":
@@ -3638,6 +3921,9 @@ func _dev_demo(demo: String) -> void:
 		await _dev_step()
 		await _m_take_photo()
 	world.reduced_motion = false
+	space.reduced_motion = false
+	if state == "to_mars":
+		space.travel = 0.0   # the demo ran without motion: start the trip again so it can be seen
 	live_off = false
 	_spoken = ""
 	_drawn = ""
